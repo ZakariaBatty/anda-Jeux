@@ -7,17 +7,16 @@ import { ChevronLeft, HomeIcon } from "lucide-react"
 import type { UserInfo } from "@/types/quiz"
 
 interface RegistrationFormProps {
-  onSubmit: (data: UserInfo) => void
+  onSubmit: (data: Omit<UserInfo, "level">) => void
   onBack: () => void
 }
 
 export function RegistrationForm({ onSubmit, onBack }: RegistrationFormProps) {
-  const [formData, setFormData] = useState<UserInfo>({
+  const [formData, setFormData] = useState<Omit<UserInfo, "level">>({
     fullName: "",
     email: "",
     phone: "",
     profession: "",
-    level: "DÉBUTANT",
   })
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -84,17 +83,6 @@ export function RegistrationForm({ onSubmit, onBack }: RegistrationFormProps) {
           value={formData.profession}
           onChange={(e) => setFormData((prev) => ({ ...prev, profession: e.target.value }))}
         />
-        <select
-          required
-          className="w-full h-14 bg-[#001f2a]/80 border-2 border-dashed border-white/30 
-            text-white text-lg rounded-md"
-          value={formData.level}
-          onChange={(e) => setFormData((prev) => ({ ...prev, level: e.target.value as UserInfo["level"] }))}
-        >
-          <option value="DÉBUTANT">DÉBUTANT</option>
-          <option value="AVANCÉ">AVANCÉ</option>
-          <option value="EXCELLENT">EXCELLENT</option>
-        </select>
 
         <div className="pt-6">
           <Button

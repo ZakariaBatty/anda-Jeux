@@ -10,9 +10,10 @@ import { QuizResults as QuizResultsComponent } from "./quiz-results"
 interface QuizProps {
   onBack: () => void
   onHome: () => void
+  onRestart: () => void
 }
 
-export function Quiz({ onBack, onHome }: QuizProps) {
+export function Quiz({ onBack, onHome, onRestart }: QuizProps) {
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null)
   const [quizState, setQuizState] = useState<QuizState>(() => {
     const storedUserInfo = localStorage.getItem("quizUserInfo")
@@ -112,14 +113,14 @@ export function Quiz({ onBack, onHome }: QuizProps) {
       totalQuestions: quizState.selectedQuestions.length,
       level: userInfo?.level || "DÉBUTANT",
     }
-    return <QuizResultsComponent results={results} onRestart={onBack} onHome={onHome} />
+    return <QuizResultsComponent results={results} onRestart={onRestart} onHome={onHome} />
   }
 
   if (!currentQuestion || quizState.selectedQuestions.length === 0) {
     return (
       <div className="w-full max-w-4xl mx-auto px-4 text-center">
         <p className="text-white text-xl">Une erreur s&apos;est produite. Veuillez réessayer.</p>
-        <Button onClick={onBack} className="mt-4 bg-white/20 text-white hover:bg-white/30">
+        <Button onClick={onRestart} className="mt-4 bg-white/20 text-white hover:bg-white/30">
           Retour
         </Button>
       </div>
@@ -129,11 +130,11 @@ export function Quiz({ onBack, onHome }: QuizProps) {
   return (
     <div className="w-full max-w-4xl mx-auto px-4">
       <div className="w-full flex justify-between mb-8">
-        <Button variant="ghost" className="text-white hover:bg-white/10 gap-2" onClick={onBack}>
+        <Button variant="ghost" className="text-white hover:bg-white/10 gap-2" onClick={onBack} disabled>
           <ChevronLeft className="w-5 h-5" />
           Précédent
         </Button>
-        <Button variant="ghost" className="text-white hover:bg-white/10 gap-2" onClick={onHome}>
+        <Button variant="ghost" className="text-white hover:bg-white/10 gap-2" onClick={onRestart}>
           <HomeIcon className="w-5 h-5" />
           Accueil
         </Button>

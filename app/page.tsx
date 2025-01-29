@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-// import { ChevronLeft, HomeIcon } from "lucide-react"
 import { RegistrationForm } from "@/components/registration-form"
 import { Quiz } from "@/components/quiz"
 import type { UserInfo } from "@/types/quiz"
@@ -12,7 +11,7 @@ type Step = "landing" | "categories" | "registration" | "quiz"
 
 export default function HomePage() {
   const [step, setStep] = useState<Step>("landing")
-  const [selectedLevel, setSelectedLevel] = useState<"DÉBUTANT" | "AVANCÉ" | "EXCELLENT" | null>(null)
+  const [selectedLevel, setSelectedLevel] = useState<string | null>(null)
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null)
 
   useEffect(() => {
@@ -47,11 +46,18 @@ export default function HomePage() {
   const handleRegistrationSubmit = (formData: Omit<UserInfo, "level">) => {
     const userInfo: UserInfo = {
       ...formData,
-      level: selectedLevel!,
+      level: selectedLevel as "DÉBUTANT" | "AVANCÉ" | "EXCELLENT",
     }
     localStorage.setItem("quizUserInfo", JSON.stringify(userInfo))
     setUserInfo(userInfo)
     setStep("quiz")
+  }
+
+  const handleRestart = () => {
+    localStorage.removeItem("quizUserInfo")
+    setUserInfo(null)
+    setSelectedLevel(null)
+    setStep("landing")
   }
 
   return (
@@ -59,7 +65,7 @@ export default function HomePage() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1-v1HFPXA2r7Fb6CbL1gqEVFlyyAtLGu.png"
+          src="/aquaculture-bg.jpg"
           alt="Aquaculture background"
           fill
           className="object-cover"
@@ -72,25 +78,36 @@ export default function HomePage() {
       <div className="relative z-10 w-full max-w-6xl flex flex-col items-center gap-8">
         {/* Logo */}
         <div className="w-64 h-24 relative">
-          <Image src="/anda-logo-white.png" alt="ANDA Logo" fill className="object-contain" />
+          <Image src="/Logo.svg" alt="ANDA Logo" fill className="object-contain" />
         </div>
 
         {step === "landing" && (
           <>
             {/* Quiz Title */}
             <div className="text-center mt-20">
-              <h1
-                className="text-6xl md:text-8xl font-bold text-white 
-                tracking-wider
-                [text-shadow:3px_3px_0_#000,
-                -1px_-1px_0_#000,
-                1px_-1px_0_#000,
-                -1px_1px_0_#000,
-                1px_1px_0_#000]"
-              >
-                Aquaculture Quiz
+              <h1 className="text-6xl md:text-8xl font-black text-white text-center
+                     tracking-[0.15em] leading-tight
+                     [transform:perspective(1000px)_rotateX(10deg)]
+                     [text-shadow:
+                       /* Thick outline */
+                       -4px -4px 0 #000,
+                       4px -4px 0 #000,
+                       -4px 4px 0 #000,
+                       4px 4px 0 #000,
+                       -6px -6px 0 #000,
+                       6px -6px 0 #000,
+                       -6px 6px 0 #000,
+                       6px 6px 0 #000,
+                       /* 3D depth layers */
+                       8px 8px 0 rgba(0,0,0,0.9),
+                       10px 10px 0 rgba(0,0,0,0.7),
+                       12px 12px 0 rgba(0,0,0,0.5),
+                       14px 14px 20px rgba(0,0,0,0.8)]
+                     ">
+                <span className="inline-block transform hover:scale-105 transition-transform">
+                  Aquaculture Quiz
+                </span>
               </h1>
-              <p className="text-white text-xl md:text-2xl mt-4 tracking-wide">Testez vos connaissances !</p>
             </div>
 
             {/* Start Button */}
@@ -130,7 +147,7 @@ export default function HomePage() {
                   className={`relative group cursor-pointer
                     ${selectedLevel === category.title ? "bg-[#001f2a]/80" : ""}
                     rounded-2xl transition-colors`}
-                  onClick={() => setSelectedLevel(category.title as "DÉBUTANT" | "AVANCÉ" | "EXCELLENT")}
+                  onClick={() => setSelectedLevel(category.title)}
                 >
                   <div className="absolute inset-0 border-2 border-dashed border-white/30 rounded-2xl" />
                   <div
@@ -188,7 +205,9 @@ export default function HomePage() {
           <RegistrationForm onSubmit={handleRegistrationSubmit} onBack={() => setStep("categories")} />
         )}
 
-        {step === "quiz" && userInfo && <Quiz onBack={() => setStep("registration")} onHome={() => setStep("landing")} />}
+        {step === "quiz" && userInfo && (
+          <Quiz onBack={() => setStep("registration")} onHome={handleRestart} onRestart={handleRestart} />
+        )}
       </div>
     </main>
   )
