@@ -1,7 +1,7 @@
-"use client"
+// "use client"
 
 import { Button } from "@/components/ui/button"
-import { ChevronLeft, HomeIcon, Star } from "lucide-react"
+import { ChevronLeft, HomeIcon } from "lucide-react"
 import type { QuizResults } from "@/types/quiz"
 
 interface QuizResultsProps {
@@ -11,8 +11,8 @@ interface QuizResultsProps {
 }
 
 export function QuizResults({ results, onRestart, onHome }: QuizResultsProps) {
-  const totalStars = 5
-  const earnedStars = Math.round((results.score / results.totalQuestions) * totalStars)
+  // const totalStars = 5
+  // const earnedStars = Math.round((results.score / results.totalQuestions) * totalStars)
 
   return (
     <div className="w-full max-w-4xl mx-auto px-4 text-center">
@@ -32,17 +32,17 @@ export function QuizResults({ results, onRestart, onHome }: QuizResultsProps) {
           {results.score}/{results.totalQuestions}
         </div>
 
-        <div className="flex justify-center gap-2">
-          {Array.from({ length: totalStars }).map((_, i) => (
-            <Star
-              key={i}
-              className={`w-16 h-16 ${i < earnedStars ? "fill-yellow-400 text-yellow-400" : "fill-gray-600 text-gray-600"
-                }`}
-            />
-          ))}
-        </div>
-
         <div className="text-white text-xl">Niveau: {results.level}</div>
+
+        {results.isWinner ? (
+          <div className="text-green-400 text-2xl font-bold">
+            ✅ Félicitations ! Vous avez gagné. Allez chercher votre cadeau à l&apos;accueil du stand.
+          </div>
+        ) : (
+          <div className="text-yellow-400 text-2xl font-bold">
+            ❌ Désolé, vous n&apos;avez pas gagné cette fois-ci. Continuez à apprendre et réessayez !
+          </div>
+        )}
 
         <Button
           onClick={onHome}

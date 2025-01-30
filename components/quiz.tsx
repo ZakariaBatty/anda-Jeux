@@ -1,11 +1,12 @@
-"use client"
+// "use client"
 
 import { useState, useEffect, useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, HomeIcon, Timer, CheckCircle2, XCircle } from "lucide-react"
 import type { QuizState, QuizResults, UserInfo } from "@/types/quiz"
-import { getRandomQuestions } from "@/data/questions"
+import { getRandomQuestions, themes } from "@/data/questions"
 import { QuizResults as QuizResultsComponent } from "./quiz-results"
+import Image from "next/image"
 
 interface QuizProps {
   onBack: () => void
@@ -15,28 +16,16 @@ interface QuizProps {
 
 export function Quiz({ onBack, onHome, onRestart }: QuizProps) {
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null)
-  const [quizState, setQuizState] = useState<QuizState>(() => {
-    const storedUserInfo = localStorage.getItem("quizUserInfo")
-    if (storedUserInfo) {
-      const userInfo: UserInfo = JSON.parse(storedUserInfo)
-      setUserInfo(userInfo)
-      const selectedQuestions = getRandomQuestions(userInfo.level, 8)
-      return {
-        currentQuestionIndex: 0,
-        selectedQuestions,
-        score: 0,
-        answers: {},
-      }
-    }
-    return {
-      currentQuestionIndex: 0,
-      selectedQuestions: [],
-      score: 0,
-      answers: {},
-    }
-  })
+  const [quizState, setQuizState] = useState<QuizState>(() => ({
+    currentLevel: "Easy",
+    currentQuestionIndex: 0,
+    selectedQuestions: [],
+    score: 0,
+    answers: {},
+    totalScore: 0,
+  }))
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null)
-  const [timeLeft, setTimeLeft] = useState(30)
+  const [timeLeft, setTimeLeft] = useState(15)
   const [showFeedback, setShowFeedback] = useState(false)
   const [isAnswerCorrect, setIsAnswerCorrect] = useState(false)
   const [showResults, setShowResults] = useState(false)
@@ -44,36 +33,35 @@ export function Quiz({ onBack, onHome, onRestart }: QuizProps) {
   const currentQuestion = quizState.selectedQuestions[quizState.currentQuestionIndex]
 
   useEffect(() => {
-    if (!currentQuestion || showResults) return
+    const storedUserInfo = localStorage.getItem("quizUserInfo")
+    if (storedUserInfo) {
+      const userInfo: UserInfo = JSON.parse(storedUserInfo)
+      setUserInfo(userInfo)
+      const selectedQuestions = themes
+        .flatMap((theme) => getRandomQuestions(userInfo.level, theme, "Easy", 1))
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 5)
 
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev <= 1) {
-          clearInterval(timer)
-          handleTimeUp()
-          return 0
-        }
-        return prev - 1
+      if (selectedQuestions.length === 0) {
+        console.error("No questions available")
+        onRestart()
+        return
+      }
+
+      setQuizState({
+        currentLevel: "Easy",
+        currentQuestionIndex: 0,
+        selectedQuestions,
+        score: 0,
+        answers: {},
+        totalScore: 0,
       })
-    }, 1000)
-
-    return () => clearInterval(timer)
-  }, [showResults, currentQuestion]) // Removed unnecessary dependency: quizState.currentQuestionIndex
-
-  const handleTimeUp = useCallback(() => {
-    if (!showFeedback) {
-      setShowFeedback(true)
-      setIsAnswerCorrect(false)
     }
-  }, [showFeedback])
+  }, [onRestart])
 
-  const handleAnswerSelect = (answerId: string) => {
-    if (showFeedback) return
-    setSelectedAnswer(answerId)
-  }
 
-  const handleAnswerSubmit = () => {
-    if (!selectedAnswer || !currentQuestion) return
+  const handleAnswerSubmit = useCallback(() => {
+    if (!currentQuestion) return
 
     const isCorrect = selectedAnswer === currentQuestion.correctAnswer
     setIsAnswerCorrect(isCorrect)
@@ -84,34 +72,146 @@ export function Quiz({ onBack, onHome, onRestart }: QuizProps) {
       score: isCorrect ? prev.score + 1 : prev.score,
       answers: {
         ...prev.answers,
-        [currentQuestion.id]: selectedAnswer,
+        [currentQuestion.id]: selectedAnswer || "",
       },
     }))
+  }, [currentQuestion, selectedAnswer])
+
+  const handleTimeUp = useCallback(() => {
+    if (!showFeedback) {
+      setShowFeedback(true)
+      setIsAnswerCorrect(false)
+      handleAnswerSubmit()
+    }
+  }, [showFeedback, handleAnswerSubmit])
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft((prevTime) => {
+        if (prevTime <= 1) {
+          clearInterval(timer)
+          handleTimeUp()
+          return 0
+        }
+        return prevTime - 1
+      })
+    }, 1000)
+
+    return () => clearInterval(timer)
+  }, [handleTimeUp])
+
+
+
+  const handleAnswerSelect = (answerId: string) => {
+    if (showFeedback) return
+    setSelectedAnswer(answerId)
   }
+
 
   const handleNextQuestion = () => {
     const isLastQuestion = quizState.currentQuestionIndex === quizState.selectedQuestions.length - 1
 
     if (isLastQuestion) {
-      setShowResults(true)
-      return
+      const currentScore = quizState.score
+      const totalScore = quizState.totalScore + currentScore
+
+      if (quizState.currentLevel === "Easy" && currentScore >= 3) {
+        // Move to Medium level
+        const nextQuestions = themes
+          .flatMap((theme) => getRandomQuestions(userInfo!.level, theme, "Medium", 1))
+          .sort(() => Math.random() - 0.5)
+          .slice(0, 5)
+
+        if (nextQuestions.length > 0) {
+          setQuizState({
+            currentLevel: "Medium",
+            currentQuestionIndex: 0,
+            selectedQuestions: nextQuestions,
+            score: 0,
+            answers: {},
+            totalScore,
+          })
+        } else {
+          setShowResults(true)
+        }
+      } else if (quizState.currentLevel === "Medium" && currentScore >= 3) {
+        // Move to Difficult level
+        const nextQuestions = themes
+          .flatMap((theme) => getRandomQuestions(userInfo!.level, theme, "Difficult", 1))
+          .sort(() => Math.random() - 0.5)
+          .slice(0, 5)
+
+        if (nextQuestions.length > 0) {
+          setQuizState({
+            currentLevel: "Difficult",
+            currentQuestionIndex: 0,
+            selectedQuestions: nextQuestions,
+            score: 0,
+            answers: {},
+            totalScore,
+          })
+        } else {
+          setShowResults(true)
+        }
+      } else {
+        setShowResults(true)
+      }
+    } else {
+      setQuizState((prev) => ({
+        ...prev,
+        currentQuestionIndex: prev.currentQuestionIndex + 1,
+      }))
     }
 
     setSelectedAnswer(null)
     setShowFeedback(false)
-    setTimeLeft(30)
-
-    setQuizState((prev) => ({
-      ...prev,
-      currentQuestionIndex: prev.currentQuestionIndex + 1,
-    }))
+    setTimeLeft(15) // Update timer to 15 seconds
   }
 
+  // const handleNextTheme = () => {
+  //   const completedThemes = [...quizState.completedThemes, quizState.currentTheme]
+  //   const nextThemeIndex = themes.findIndex((theme) => !completedThemes.includes(theme))
+
+  //   if (nextThemeIndex !== -1) {
+  //     const nextTheme = themes[nextThemeIndex]
+  //     let nextQuestions = getRandomQuestions(userInfo!.level, nextTheme, "Easy", 5)
+
+  //     // If no questions are available for the next theme, try the remaining themes
+  //     let currentThemeIndex = nextThemeIndex
+  //     while (nextQuestions.length === 0 && currentThemeIndex < themes.length) {
+  //       currentThemeIndex++
+  //       if (currentThemeIndex < themes.length) {
+  //         nextQuestions = getRandomQuestions(userInfo!.level, themes[currentThemeIndex], "Easy", 5)
+  //       }
+  //     }
+
+  //     if (nextQuestions.length > 0) {
+  //       setQuizState((prev) => ({
+  //         ...prev,
+  //         currentTheme: themes[currentThemeIndex],
+  //         currentLevel: "Easy",
+  //         currentQuestionIndex: 0,
+  //         selectedQuestions: nextQuestions,
+  //         score: 0,
+  //         completedThemes,
+  //       }))
+  //     } else {
+  //       setShowResults(true)
+  //     }
+  //   } else {
+  //     setShowResults(true)
+  //   }
+  // }
+
   if (showResults) {
+    const totalQuestions = Object.keys(quizState.answers).length
+    const isWinner = quizState.totalScore / totalQuestions >= 0.6 // 60% correct to win
+
     const results: QuizResults = {
-      score: quizState.score,
-      totalQuestions: quizState.selectedQuestions.length,
+      score: quizState.totalScore,
+      totalQuestions,
       level: userInfo?.level || "DÉBUTANT",
+      isWinner,
     }
     return <QuizResultsComponent results={results} onRestart={onRestart} onHome={onHome} />
   }
@@ -147,6 +247,11 @@ export function Quiz({ onBack, onHome, onRestart }: QuizProps) {
             {quizState.currentQuestionIndex + 1}/{quizState.selectedQuestions.length}
           </span>
         </div>
+        <div className="bg-[#001f2a]/80 px-4 py-2 rounded-lg border border-white/30">
+          <span className="text-white font-bold">
+            {quizState.currentLevel === "Easy" ? "FACILE" : quizState.currentLevel === "Medium" ? "MOYEN" : "EXCELLENT"}
+          </span>
+        </div>
         <div className="flex gap-4">
           <div className="bg-white/90 w-12 h-12 rounded-lg flex items-center justify-center">
             <Timer className="w-6 h-6 text-teal-900" />
@@ -159,6 +264,18 @@ export function Quiz({ onBack, onHome, onRestart }: QuizProps) {
 
       <div className="bg-[#001f2a]/80 p-6 rounded-lg border-2 border-dashed border-white/30 mb-8">
         <h2 className="text-2xl text-white font-bold mb-8">{currentQuestion.question}</h2>
+
+        {currentQuestion.image && (
+          <div className="mb-6">
+            <Image
+              src={currentQuestion.image || "/placeholder.svg"}
+              alt="Question Image"
+              width={300}
+              height={200}
+              className="rounded-lg"
+            />
+          </div>
+        )}
 
         <div className="space-y-4">
           {currentQuestion.options.map((option) => (
@@ -187,6 +304,15 @@ export function Quiz({ onBack, onHome, onRestart }: QuizProps) {
                 {option.id}
               </div>
               <span className="text-white text-lg">{option.text}</span>
+              {option.image && (
+                <Image
+                  src={option.image || "/placeholder.svg"}
+                  alt={option.text}
+                  width={50}
+                  height={50}
+                  className="rounded-lg"
+                />
+              )}
             </button>
           ))}
         </div>

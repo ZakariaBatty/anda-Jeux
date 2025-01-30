@@ -6,12 +6,13 @@ import { Button } from "@/components/ui/button"
 import { RegistrationForm } from "@/components/registration-form"
 import { Quiz } from "@/components/quiz"
 import type { UserInfo } from "@/types/quiz"
+// import { ChevronLeft, HomeIcon } from "lucide-react"
 
 type Step = "landing" | "categories" | "registration" | "quiz"
 
 export default function HomePage() {
   const [step, setStep] = useState<Step>("landing")
-  const [selectedLevel, setSelectedLevel] = useState<string | null>(null)
+  const [selectedLevel, setSelectedLevel] = useState<"DÉBUTANT" | "AVANCÉ" | "EXCELLENT" | null>(null)
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null)
 
   useEffect(() => {
@@ -27,26 +28,26 @@ export default function HomePage() {
       title: "DÉBUTANT",
       icon: "👤",
       description:
-        "Lorem ipsum odor amet, consectetuer adipiscing elit. Ahabitant ut. Pharetra cras lobortis torquent. Nibh consectetur dolor enim.",
+        "Pour ceux qui découvrent l'aquaculture. Questions simples sur les animaux aquatiques et les bases de l'aquaculture.",
     },
     {
       title: "AVANCÉ",
       icon: "👥",
       description:
-        "Lorem ipsum odor amet, consectetuer adipiscing elit. Ahabitant ut. Pharetra cras lobortis torquent. Nibh consectetur dolor enim.",
+        "Pour ceux qui ont des connaissances en aquaculture. Questions plus détaillées sur les techniques et les espèces.",
     },
     {
       title: "EXCELLENT",
       icon: "👔",
       description:
-        "Lorem ipsum odor amet, consectetuer adipiscing elit. Ahabitant ut. Pharetra cras lobortis torquent. Nibh consectetur dolor enim.",
+        "Pour les experts en aquaculture. Questions approfondies sur la gestion, l'environnement et l'économie de l'aquaculture.",
     },
   ]
 
   const handleRegistrationSubmit = (formData: Omit<UserInfo, "level">) => {
-    const userInfo: UserInfo = {
+    const userInfo = {
       ...formData,
-      level: selectedLevel as "DÉBUTANT" | "AVANCÉ" | "EXCELLENT",
+      level: selectedLevel!,
     }
     localStorage.setItem("quizUserInfo", JSON.stringify(userInfo))
     setUserInfo(userInfo)
@@ -85,29 +86,20 @@ export default function HomePage() {
           <>
             {/* Quiz Title */}
             <div className="text-center mt-20">
-              <h1 className="text-6xl md:text-8xl font-black text-white text-center
-                     tracking-[0.15em] leading-tight
-                     [transform:perspective(1000px)_rotateX(10deg)]
-                     [text-shadow:
-                       /* Thick outline */
-                       -4px -4px 0 #000,
-                       4px -4px 0 #000,
-                       -4px 4px 0 #000,
-                       4px 4px 0 #000,
-                       -6px -6px 0 #000,
-                       6px -6px 0 #000,
-                       -6px 6px 0 #000,
-                       6px 6px 0 #000,
-                       /* 3D depth layers */
-                       8px 8px 0 rgba(0,0,0,0.9),
-                       10px 10px 0 rgba(0,0,0,0.7),
-                       12px 12px 0 rgba(0,0,0,0.5),
-                       14px 14px 20px rgba(0,0,0,0.8)]
-                     ">
-                <span className="inline-block transform hover:scale-105 transition-transform">
-                  Aquaculture Quiz
-                </span>
+              <h1
+                className="text-6xl md:text-8xl font-bold text-white 
+                tracking-wider
+                [text-shadow:3px_3px_0_#000,
+                -1px_-1px_0_#000,
+                1px_-1px_0_#000,
+                -1px_1px_0_#000,
+                1px_1px_0_#000]"
+              >
+
               </h1>
+              <Image src="/svg/04.svg" alt="Aquaculture-Quiz" fill className="object-contain w-5 h-5" />
+
+              <p className="text-white text-xl md:text-2xl mt-4 tracking-wide">Testez vos connaissances !</p>
             </div>
 
             {/* Start Button */}
@@ -131,6 +123,14 @@ export default function HomePage() {
 
         {step === "categories" && (
           <>
+            <div className="w-full flex justify-between mb-8">
+              <Button variant="ghost" className="text-white hover:bg-white/10 gap-2" onClick={() => setStep("landing")}>
+                <Image src="/svg/03.svg" alt="Précédent" fill className="object-contain w-5 h-5" />
+              </Button>
+              <Button variant="ghost" className="text-white hover:bg-white/10 gap-2" onClick={() => setStep("landing")}>
+                <Image src="/svg/02.svg" alt="Précédent" fill className="object-contain" />
+              </Button>
+            </div>
             {/* Category Selection */}
             <h2
               className="text-4xl md:text-5xl font-bold text-white mt-8 mb-12
@@ -147,7 +147,7 @@ export default function HomePage() {
                   className={`relative group cursor-pointer
                     ${selectedLevel === category.title ? "bg-[#001f2a]/80" : ""}
                     rounded-2xl transition-colors`}
-                  onClick={() => setSelectedLevel(category.title)}
+                  onClick={() => setSelectedLevel(category.title as "DÉBUTANT" | "AVANCÉ" | "EXCELLENT")}
                 >
                   <div className="absolute inset-0 border-2 border-dashed border-white/30 rounded-2xl" />
                   <div
