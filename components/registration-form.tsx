@@ -1,23 +1,21 @@
-"use client"
+// "use client"
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { ChevronLeft, HomeIcon } from "lucide-react"
 import type { UserInfo } from "@/types/quiz"
 
 interface RegistrationFormProps {
-  onSubmit: (data: UserInfo) => void
+  onSubmit: (data: Omit<UserInfo, "level">) => void
   onBack: () => void
 }
 
-export function RegistrationForm({ onSubmit, onBack }: RegistrationFormProps) {
-  const [formData, setFormData] = useState<UserInfo>({
+export function RegistrationForm({ onSubmit }: RegistrationFormProps) {
+  const [formData, setFormData] = useState<Omit<UserInfo, "level">>({
     fullName: "",
     email: "",
     phone: "",
     profession: "",
-    level: "DÉBUTANT",
   })
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -29,16 +27,7 @@ export function RegistrationForm({ onSubmit, onBack }: RegistrationFormProps) {
   return (
     <div className="w-full max-w-2xl mx-auto px-4">
       <div className="w-full flex justify-between mb-8">
-        <Button variant="ghost" className="text-white hover:bg-white/10 gap-2" onClick={onBack}>
-          <ChevronLeft className="w-5 h-5" />
-          Précédent
-        </Button>
-        <Button variant="ghost" className="text-white hover:bg-white/10 gap-2">
-          <HomeIcon className="w-5 h-5" />
-          Accueil
-        </Button>
       </div>
-
       <h2
         className="text-4xl md:text-5xl font-bold text-white mb-12
         tracking-wider text-center
@@ -84,17 +73,6 @@ export function RegistrationForm({ onSubmit, onBack }: RegistrationFormProps) {
           value={formData.profession}
           onChange={(e) => setFormData((prev) => ({ ...prev, profession: e.target.value }))}
         />
-        <select
-          required
-          className="w-full h-14 bg-[#001f2a]/80 border-2 border-dashed border-white/30 
-            text-white text-lg rounded-md"
-          value={formData.level}
-          onChange={(e) => setFormData((prev) => ({ ...prev, level: e.target.value as UserInfo["level"] }))}
-        >
-          <option value="DÉBUTANT">DÉBUTANT</option>
-          <option value="AVANCÉ">AVANCÉ</option>
-          <option value="EXCELLENT">EXCELLENT</option>
-        </select>
 
         <div className="pt-6">
           <Button
