@@ -228,7 +228,9 @@ export function Quiz({ onHome, onRestart }: QuizProps) {
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto px-4 ">
+    <div className="w-full max-w-4xl mx-auto px-4">
+      <div className="w-full flex justify-between mb-8">
+      </div>
 
       <div className="flex justify-between items-center mb-4">
         <div className="bg-[#001f2a]/80 px-4 py-2 rounded-lg border border-white/30">

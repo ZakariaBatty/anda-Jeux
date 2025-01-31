@@ -141,14 +141,6 @@ export default function HomePage() {
 
           {step === "categories" && (
             <>
-              {/* <div className="w-full flex justify-between mb-8">
-              <Button variant="ghost" className="text-white hover:bg-white/10 gap-2" onClick={() => setStep("landing")}>
-                <Image src="/svg/03.svg" alt="Précédent" fill className="object-contain w-5 h-5" />
-              </Button>
-              <Button variant="ghost" className="text-white hover:bg-white/10 gap-2" onClick={() => setStep("landing")}>
-                <Image src="/svg/02.svg" alt="Précédent" fill className="object-contain" />
-              </Button>
-            </div> */}
               {/* Category Selection */}
               <h2
                 className="text-4xl md:text-5xl font-bold text-white mt-8 mb-12
