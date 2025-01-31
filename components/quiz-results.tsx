@@ -1,7 +1,6 @@
 // "use client"
 
 import { Button } from "@/components/ui/button"
-import { ChevronLeft, HomeIcon } from "lucide-react"
 import type { QuizResults } from "@/types/quiz"
 
 interface QuizResultsProps {
@@ -10,23 +9,12 @@ interface QuizResultsProps {
   onHome: () => void
 }
 
-export function QuizResults({ results, onRestart, onHome }: QuizResultsProps) {
+export function QuizResults({ results, onHome }: QuizResultsProps) {
   // const totalStars = 5
   // const earnedStars = Math.round((results.score / results.totalQuestions) * totalStars)
 
   return (
     <div className="w-full max-w-4xl mx-auto px-4 text-center">
-      <div className="w-full flex justify-between mb-8">
-        <Button variant="ghost" className="text-white hover:bg-white/10 gap-2" onClick={onRestart}>
-          <ChevronLeft className="w-5 h-5" />
-          Recommencer
-        </Button>
-        <Button variant="ghost" className="text-white hover:bg-white/10 gap-2" onClick={onHome}>
-          <HomeIcon className="w-5 h-5" />
-          Accueil
-        </Button>
-      </div>
-
       <div className="space-y-12">
         <div className="text-8xl font-bold text-white">
           {results.score}/{results.totalQuestions}

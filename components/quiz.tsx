@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react"
 import { Button } from "@/components/ui/button"
-import { ChevronLeft, HomeIcon, Timer, CheckCircle2, XCircle } from "lucide-react"
+import { Timer, CheckCircle2, XCircle } from "lucide-react"
 import type { QuizState, QuizResults, UserInfo } from "@/types/quiz"
 import { getRandomQuestions, themes } from "@/data/questions"
 import { QuizResults as QuizResultsComponent } from "./quiz-results"
@@ -14,7 +14,7 @@ interface QuizProps {
   onRestart: () => void
 }
 
-export function Quiz({ onBack, onHome, onRestart }: QuizProps) {
+export function Quiz({ onHome, onRestart }: QuizProps) {
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null)
   const [quizState, setQuizState] = useState<QuizState>(() => ({
     currentLevel: "Easy",
@@ -228,17 +228,7 @@ export function Quiz({ onBack, onHome, onRestart }: QuizProps) {
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto px-4">
-      <div className="w-full flex justify-between mb-8">
-        <Button variant="ghost" className="text-white hover:bg-white/10 gap-2" onClick={onBack} disabled>
-          <ChevronLeft className="w-5 h-5" />
-          Précédent
-        </Button>
-        <Button variant="ghost" className="text-white hover:bg-white/10 gap-2" onClick={onRestart}>
-          <HomeIcon className="w-5 h-5" />
-          Accueil
-        </Button>
-      </div>
+    <div className="w-full max-w-4xl mx-auto px-4 ">
 
       <div className="flex justify-between items-center mb-4">
         <div className="bg-[#001f2a]/80 px-4 py-2 rounded-lg border border-white/30">
