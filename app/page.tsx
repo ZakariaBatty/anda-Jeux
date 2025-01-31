@@ -159,7 +159,7 @@ export default function HomePage() {
                     rounded-2xl transition-colors`}
                     onClick={() => setSelectedLevel(category.title as "DÉBUTANT" | "AVANCÉ" | "EXCELLENT")}
                   >
-                    <div className="absolute inset-0 border-2 border-dashed border-white/30 rounded-2xl" />
+                    <div className="absolute inset-0 border-4 border-dashed border-white/30 rounded-3xl" />
                     <div
                       className="relative p-6 flex flex-col items-center text-center gap-4
                     transition-transform group-hover:transform group-hover:scale-105"
