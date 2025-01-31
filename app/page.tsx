@@ -68,42 +68,42 @@ export default function HomePage() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/aquaculture-bg.jpg"
+          src="/bg-fish.avif"
           alt="Aquaculture background"
           fill
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-teal-900/60" />
+        <div className="absolute inset-0 bg-[#124751e1]" />
       </div>
 
       {/* Content */}
       <div className="relative w-full z-10 ">
-        {step !== "landing" && (
-          <Header
-            onBack={() => {
-              switch (step) {
-                case "categories":
-                  setStep("landing")
-                  break
-                case "registration":
-                  setStep("categories")
-                  break
-                case "quiz":
-                  setStep("registration")
-                  break
-              }
-            }}
-            onHome={handleRestart}
-            showBack={true}
-          />
-        )}
+        {/* {step !== "landing" && ( */}
+        <Header
+          onBack={() => {
+            switch (step) {
+              case "categories":
+                setStep("landing")
+                break
+              case "registration":
+                setStep("categories")
+                break
+              case "quiz":
+                setStep("registration")
+                break
+            }
+          }}
+          onHome={handleRestart}
+          showBack={step}
+        />
+        {/* )} */}
         <div className="max-w-6xl mx-auto flex flex-col justify-center items-center gap-8">
 
           {step === "landing" && (
             <>
               {/* Quiz Title */}
-              <div className="text-center mt-20">
+              <div className="text-center  mt-20">
                 <h1
                   className="text-6xl md:text-8xl font-bold text-white 
                 tracking-wider

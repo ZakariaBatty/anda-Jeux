@@ -26,6 +26,8 @@ export function RegistrationForm({ onSubmit }: RegistrationFormProps) {
 
   return (
     <div className="w-full max-w-2xl mx-auto px-4">
+      <div className="w-full flex justify-between mb-8">
+      </div>
       <h2
         className="text-4xl md:text-5xl font-bold text-white mb-12
         tracking-wider text-center
