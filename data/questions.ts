@@ -2,1525 +2,272 @@ import type { QuizQuestion } from '@/types/quiz';
 
 export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
    DÉBUTANT: {
-      'Aquatic Animals': [
+      'Les animaux aquatiques': [
          // Easy Level
          {
             id: 1,
-            theme: 'Aquatic Animals',
+            theme: 'Les animaux aquatiques',
             level: 'Easy',
             type: 'multiple-choice',
-            question: 'Which of these is a fish?',
+            question: "Lequel de ces animaux vit dans l'eau ?",
             options: [
                {
                   id: 'A',
-                  text: 'Dolphin',
-                  image: '/placeholder.svg?text=dolphin',
+                  text: 'Poisson',
+                  image: '/placeholder.svg?text=Poisson',
                },
                {
                   id: 'B',
-                  text: 'Salmon',
-                  image: '/placeholder.svg?text=salmon',
+                  text: 'Chat',
+                  image: '/placeholder.svg?text=Chat',
                },
-               { id: 'C', text: 'Whale', image: '/placeholder.svg?text=whale' },
+               {
+                  id: 'C',
+                  text: 'Oiseau',
+                  image: '/placeholder.svg?text=Oiseau',
+               },
             ],
-            correctAnswer: 'B',
-            explanation:
-               'Salmon is a fish. Dolphins and whales are marine mammals, not fish.',
+            correctAnswer: 'A',
+            explanation: '',
          },
          {
             id: 2,
-            theme: 'Aquatic Animals',
+            theme: 'Les animaux aquatiques',
             level: 'Easy',
             type: 'true-false',
-            question: 'All fish lay eggs.',
+            question: "Les poissons respirent sous l'eau.",
             options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
             ],
-            correctAnswer: 'B',
-            explanation:
-               'While most fish lay eggs, some species give birth to live young. These are called livebearers.',
+            correctAnswer: 'A',
+            explanation: '',
          },
          {
             id: 3,
-            theme: 'Aquatic Animals',
+            theme: 'Les animaux aquatiques',
             level: 'Easy',
             type: 'image-association',
-            question: 'Match the aquatic animal to its habitat.',
+            question: 'Relie le poisson à sa maison',
             options: [
                {
                   id: 'A',
-                  text: 'Clownfish',
-                  image: '/placeholder.svg?text=clownfish',
+                  text: 'Image désert',
+                  image: '/placeholder.svg?text=désert',
                },
-               { id: 'B', text: 'Frog', image: '/placeholder.svg?text=frog' },
                {
-                  id: 'C',
-                  text: 'Coral reef',
-                  image: '/placeholder.svg?text=coral_reef',
+                  id: 'B',
+                  text: 'Image mer',
+                  image: '/placeholder.svg?text=mer',
                },
-               { id: 'D', text: 'Pond', image: '/placeholder.svg?text=pond' },
             ],
-            correctAnswer: 'A',
-            explanation:
-               'Clownfish live in coral reefs, while frogs typically live in or near ponds and other freshwater habitats.',
+            correctAnswer: 'B',
+            explanation: '',
          },
          {
             id: 4,
-            theme: 'Aquatic Animals',
+            theme: 'Les animaux aquatiques',
             level: 'Easy',
             type: 'multiple-choice',
-            question: 'What do fish use to breathe underwater?',
+            question: 'Quel animal marin a des tentacules ?',
             options: [
-               { id: 'A', text: 'Lungs', image: '/placeholder.svg?text=lungs' },
-               { id: 'B', text: 'Gills', image: '/placeholder.svg?text=gills' },
-               { id: 'C', text: 'Skin', image: '/placeholder.svg?text=skin' },
+               {
+                  id: 'A',
+                  text: 'Pieuvre',
+                  image: '/placeholder.svg?text=Pieuvre',
+               },
+               {
+                  id: 'B',
+                  text: 'Requin',
+                  image: '/placeholder.svg?text=Requin',
+               },
+               {
+                  id: 'C',
+                  text: 'Dauphin',
+                  image: '/placeholder.svg?text=Dauphin',
+               },
             ],
-            correctAnswer: 'B',
-            explanation:
-               'Fish use gills to extract oxygen from water, allowing them to breathe underwater.',
+            correctAnswer: 'A',
+            explanation: '',
          },
          {
             id: 5,
-            theme: 'Aquatic Animals',
+            theme: 'Les animaux aquatiques',
             level: 'Easy',
             type: 'true-false',
-            question: 'All aquatic animals live in saltwater.',
+            question: "Les daurades peuvent vivre hors de l'eau.",
             options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
             ],
             correctAnswer: 'B',
-            explanation:
-               'Aquatic animals live in both saltwater and freshwater habitats. Many species are adapted to specific water conditions.',
+            explanation: '',
          },
          // Medium Level
          {
             id: 6,
-            theme: 'Aquatic Animals',
+            theme: 'Les animaux aquatiques',
             level: 'Medium',
             type: 'multiple-choice',
             question:
-               'Which of these fish is known for its ability to produce electricity?',
+               'Quel animal peut-on élever dans une ferme aquacole au Maroc ?',
             options: [
                {
                   id: 'A',
-                  text: 'Clownfish',
-                  image: '/placeholder.svg?text=clownfish',
+                  text: 'Crevette',
+                  image: '/placeholder.svg?text=Crevette',
                },
                {
                   id: 'B',
-                  text: 'Electric eel',
-                  image: '/placeholder.svg?text=electric_eel',
+                  text: 'Chameau',
+                  image: '/placeholder.svg?text=Chameau',
                },
                {
                   id: 'C',
-                  text: 'Goldfish',
-                  image: '/placeholder.svg?text=goldfish',
+                  text: 'Poulet',
+                  image: '/placeholder.svg?text=Poulet',
                },
             ],
-            correctAnswer: 'B',
-            explanation:
-               'Electric eels are known for their ability to generate powerful electric shocks for hunting and self-defense.',
+            correctAnswer: 'A',
+            explanation: '',
          },
          {
             id: 7,
-            theme: 'Aquatic Animals',
+            theme: 'Les animaux aquatiques',
             level: 'Medium',
             type: 'true-false',
-            question: 'Seahorses are a type of fish.',
+            question: 'Les huîtres fabriquent des perles',
             options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
             ],
             correctAnswer: 'A',
-            explanation:
-               'Despite their unique appearance, seahorses are indeed a type of fish belonging to the genus Hippocampus.',
+            explanation: '',
          },
          {
             id: 8,
-            theme: 'Aquatic Animals',
+            theme: 'Les animaux aquatiques',
             level: 'Medium',
             type: 'image-association',
-            question: 'Match these aquatic animals to their primary diet.',
+            question: 'Relie ces animaux à leur groupe',
             options: [
                {
                   id: 'A',
-                  text: 'Great white shark',
-                  image: '/placeholder.svg?text=shark',
+                  text: 'Crevette (image)',
+                  image: '/placeholder.svg?text=crevette',
                },
                {
                   id: 'B',
-                  text: 'Manatee',
-                  image: '/placeholder.svg?text=manatee',
+                  text: 'Coquillages (image)',
+                  image: '/placeholder.svg?text=coquillages',
                },
                {
                   id: 'C',
-                  text: 'Carnivore',
-                  image: '/placeholder.svg?text=meat',
+                  text: 'Moule (image)',
+                  image: '/placeholder.svg?text=moule',
                },
                {
                   id: 'D',
-                  text: 'Herbivore',
-                  image: '/placeholder.svg?text=plants',
+                  text: 'Crustacés (image)',
+                  image: '/placeholder.svg?text=Crustaces',
                },
             ],
-            correctAnswer: 'A',
-            explanation:
-               'Great white sharks are carnivores, primarily eating fish and marine mammals. Manatees are herbivores, feeding on aquatic plants.',
+            correctAnswer: 'A-D,B-C',
+            explanation: '',
          },
          {
             id: 9,
-            theme: 'Aquatic Animals',
+            theme: 'Les animaux aquatiques',
             level: 'Medium',
             type: 'multiple-choice',
-            question: 'Which of these is not a type of whale?',
+            question:
+               'Quelle espèce de coquillage est élevée dans la région de Dakhla-Oued Eddahab',
             options: [
                {
                   id: 'A',
-                  text: 'Beluga',
-                  image: '/placeholder.svg?text=beluga',
+                  text: 'Ormeau',
+                  image: '/placeholder.svg?text=ormeau',
                },
-               { id: 'B', text: 'Orca', image: '/placeholder.svg?text=orca' },
+               {
+                  id: 'B',
+                  text: 'Pétoncle',
+                  image: '/placeholder.svg?text=pétoncle',
+               },
                {
                   id: 'C',
-                  text: 'Narwhal',
-                  image: '/placeholder.svg?text=narwhal',
+                  text: 'Huitres',
+                  image: '/placeholder.svg?text=huitres',
                },
             ],
             correctAnswer: 'C',
-            explanation:
-               "While often called the 'unicorn of the sea', narwhals are actually a species of porpoise, not a whale.",
+            explanation: '',
          },
          {
             id: 10,
-            theme: 'Aquatic Animals',
+            theme: 'Les animaux aquatiques',
             level: 'Medium',
             type: 'true-false',
-            question: 'All sharks must constantly swim to breathe.',
+            question:
+               "Les huitres peuvent filtrer jusqu'à 200 litres d'eau par jour",
             options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
             ],
-            correctAnswer: 'B',
-            explanation:
-               'While many shark species need to swim constantly to breathe, some species can pump water over their gills while stationary.',
+            correctAnswer: 'A',
+            explanation: '',
          },
          // Difficult Level
          {
             id: 11,
-            theme: 'Aquatic Animals',
+            theme: 'Les animaux aquatiques',
             level: 'Difficult',
             type: 'multiple-choice',
-            question:
-               'Which of these aquatic animals is known for its advanced problem-solving abilities?',
+            question: 'Lequel de ces poissons est souvent élevé au Maroc ?',
             options: [
                {
                   id: 'A',
-                  text: 'Octopus',
-                  image: '/placeholder.svg?text=octopus',
+                  text: 'Poisson-Clown',
+                  image: '/placeholder.svg?text=poisson-clown',
                },
                {
                   id: 'B',
-                  text: 'Jellyfish',
-                  image: '/placeholder.svg?text=jellyfish',
+                  text: 'Daurade',
+                  image: '/placeholder.svg?text=daurade',
                },
                {
                   id: 'C',
-                  text: 'Starfish',
-                  image: '/placeholder.svg?text=starfish',
+                  text: 'Piranha',
+                  image: '/placeholder.svg?text=piranha',
                },
             ],
-            correctAnswer: 'A',
-            explanation:
-               'Octopuses are known for their high intelligence and problem-solving abilities, often demonstrating complex behaviors in captivity and in the wild.',
+            correctAnswer: 'B',
+            explanation: '',
          },
          {
             id: 12,
-            theme: 'Aquatic Animals',
+            theme: 'Les animaux aquatiques',
             level: 'Difficult',
             type: 'true-false',
             question:
-               'The blue whale is the largest animal to have ever existed on Earth.',
+               'Les algues sont aussi cultivées en aquaculture au Maroc.',
             options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
             ],
             correctAnswer: 'A',
-            explanation:
-               'The blue whale is indeed the largest animal known to have ever existed, even larger than the largest known dinosaurs.',
+            explanation: '',
          },
          {
             id: 13,
-            theme: 'Aquatic Animals',
+            theme: 'Les animaux aquatiques',
             level: 'Difficult',
             type: 'image-association',
-            question:
-               'Match these aquatic animals to their unique adaptations.',
+            question: "Relie ces espèces à leur habitat d'élevage au Maroc.",
             options: [
                {
                   id: 'A',
-                  text: 'Anglerfish',
-                  image: '/placeholder.svg?text=anglerfish',
-               },
-               {
-                  id: 'B',
-                  text: 'Axolotl',
-                  image: '/placeholder.svg?text=axolotl',
-               },
-               {
-                  id: 'C',
-                  text: 'Bioluminescent lure',
-                  image: '/placeholder.svg?text=lure',
-               },
-               {
-                  id: 'D',
-                  text: 'Regeneration',
-                  image: '/placeholder.svg?text=regeneration',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'Anglerfish use a bioluminescent lure to attract prey in the deep sea. Axolotls are known for their remarkable ability to regenerate lost body parts.',
-         },
-         {
-            id: 14,
-            theme: 'Aquatic Animals',
-            level: 'Difficult',
-            type: 'multiple-choice',
-            question:
-               'Which of these fish species is capable of changing its sex?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Clownfish',
-                  image: '/placeholder.svg?text=clownfish',
-               },
-               {
-                  id: 'B',
-                  text: 'Salmon',
-                  image: '/placeholder.svg?text=salmon',
-               },
-               { id: 'C', text: 'Tuna', image: '/placeholder.svg?text=tuna' },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'Clownfish can change their sex, typically from male to female. This usually happens when the dominant female of a group leaves or dies.',
-         },
-         {
-            id: 15,
-            theme: 'Aquatic Animals',
-            level: 'Difficult',
-            type: 'true-false',
-            question:
-               'Some species of fish can breathe air and survive on land for short periods.',
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'Some fish species, like mudskippers and lungfish, have adaptations that allow them to breathe air and survive on land for short periods.',
-         },
-      ],
-      'Feed for Farmed Fish': [
-         // Easy Level
-         {
-            id: 1,
-            theme: 'Feed for Farmed Fish',
-            level: 'Easy',
-            type: 'multiple-choice',
-            question: 'What do farmed fish typically eat?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Pellets',
-                  image: '/placeholder.svg?text=pellets',
-               },
-               { id: 'B', text: 'Pizza', image: '/placeholder.svg?text=pizza' },
-               {
-                  id: 'C',
-                  text: 'Seaweed',
-                  image: '/placeholder.svg?text=seaweed',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'Farmed fish are typically fed specially formulated pellets that contain all the necessary nutrients for their growth and health.',
-         },
-         {
-            id: 2,
-            theme: 'Feed for Farmed Fish',
-            level: 'Easy',
-            type: 'true-false',
-            question: 'Farmed fish feed themselves in aquaculture ponds.',
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'B',
-            explanation:
-               "In aquaculture, fish are fed by farmers according to specific feeding schedules and nutritional requirements. They don't feed themselves as they would in the wild.",
-         },
-         {
-            id: 3,
-            theme: 'Feed for Farmed Fish',
-            level: 'Easy',
-            type: 'image-association',
-            question: 'Match the food to the correct animal.',
-            options: [
-               { id: 'A', text: 'Fish', image: '/placeholder.svg?text=fish' },
-               { id: 'B', text: 'Sheep', image: '/placeholder.svg?text=sheep' },
-               {
-                  id: 'C',
-                  text: 'Pellets',
-                  image: '/placeholder.svg?text=pellets',
-               },
-               { id: 'D', text: 'Grass', image: '/placeholder.svg?text=grass' },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'In aquaculture, fish are fed pellets, while sheep, being herbivores, eat grass. Each animal has its specific diet suited to its nutritional needs.',
-         },
-         {
-            id: 4,
-            theme: 'Feed for Farmed Fish',
-            level: 'Easy',
-            type: 'multiple-choice',
-            question:
-               'What is the most common form of fish feed in aquaculture?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Pellets',
-                  image: '/placeholder.svg?text=pellets',
-               },
-               {
-                  id: 'B',
-                  text: 'Flakes',
-                  image: '/placeholder.svg?text=flakes',
-               },
-               {
-                  id: 'C',
-                  text: 'Live insects',
-                  image: '/placeholder.svg?text=insects',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'Pellets are the most common form of fish feed in aquaculture. They are easy to store, distribute, and can be formulated to meet specific nutritional needs of different fish species.',
-         },
-         {
-            id: 5,
-            theme: 'Feed for Farmed Fish',
-            level: 'Easy',
-            type: 'true-false',
-            question: 'Fish in aquaculture farms only eat at night.',
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'B',
-            explanation:
-               "Farmed fish don't only eat at night. Feeding schedules in aquaculture are based on the specific needs of the fish species and can occur at various times throughout the day.",
-         },
-         // Medium Level
-         {
-            id: 6,
-            theme: 'Feed for Farmed Fish',
-            level: 'Medium',
-            type: 'multiple-choice',
-            question: 'Which of these is a common ingredient in fish feed?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Fishmeal',
-                  image: '/placeholder.svg?text=fishmeal',
-               },
-               {
-                  id: 'B',
-                  text: 'Chocolate',
-                  image: '/placeholder.svg?text=chocolate',
-               },
-               {
-                  id: 'C',
-                  text: 'Cheese',
-                  image: '/placeholder.svg?text=cheese',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               "Fishmeal is a common ingredient in fish feed. It's rich in protein and essential nutrients that support fish growth and health.",
-         },
-         {
-            id: 7,
-            theme: 'Feed for Farmed Fish',
-            level: 'Medium',
-            type: 'true-false',
-            question:
-               'All fish species in aquaculture farms receive the same type of feed.',
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'B',
-            explanation:
-               'Different fish species have different nutritional requirements. In aquaculture, feed is often formulated specifically for each species to optimize growth and health.',
-         },
-         {
-            id: 8,
-            theme: 'Feed for Farmed Fish',
-            level: 'Medium',
-            type: 'image-association',
-            question:
-               'Match these feed ingredients to their primary nutrient contribution.',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Fishmeal',
-                  image: '/placeholder.svg?text=fishmeal',
-               },
-               {
-                  id: 'B',
-                  text: 'Fish oil',
-                  image: '/placeholder.svg?text=fish_oil',
-               },
-               {
-                  id: 'C',
-                  text: 'Protein',
-                  image: '/placeholder.svg?text=protein',
-               },
-               {
-                  id: 'D',
-                  text: 'Omega-3 fatty acids',
-                  image: '/placeholder.svg?text=omega3',
-               },
-            ],
-            correctAnswer: 'D',
-            explanation:
-               'In fish feed, fishmeal is primarily a source of protein, while fish oil is rich in omega-3 fatty acids. Both are crucial for fish growth and health in aquaculture.',
-         },
-         {
-            id: 9,
-            theme: 'Feed for Farmed Fish',
-            level: 'Medium',
-            type: 'multiple-choice',
-            question:
-               'What equipment is commonly used to distribute feed in large-scale fish farms?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Automatic feeders',
-                  image: '/placeholder.svg?text=automatic_feeder',
-               },
-               {
-                  id: 'B',
-                  text: 'Spoons',
-                  image: '/placeholder.svg?text=spoon',
-               },
-               {
-                  id: 'C',
-                  text: 'Buckets',
-                  image: '/placeholder.svg?text=bucket',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'Automatic feeders are commonly used in large-scale fish farms. They ensure precise and timely distribution of feed, improving efficiency and reducing labor costs.',
-         },
-         {
-            id: 10,
-            theme: 'Feed for Farmed Fish',
-            level: 'Medium',
-            type: 'true-false',
-            question:
-               'The cost of feed represents a minor portion of operational costs in aquaculture.',
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'B',
-            explanation:
-               'This is false. Feed costs often represent 50-70% of operational costs in aquaculture. Efficient feed management is crucial for the economic viability of fish farms.',
-         },
-         // Difficult Level
-         {
-            id: 11,
-            theme: 'Feed for Farmed Fish',
-            level: 'Difficult',
-            type: 'multiple-choice',
-            question:
-               'Which alternative protein source is being explored for sustainable aquaculture feed?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Insect meal',
-                  image: '/placeholder.svg?text=insect_meal',
-               },
-               {
-                  id: 'B',
-                  text: 'Beef protein',
-                  image: '/placeholder.svg?text=beef_protein',
-               },
-               {
-                  id: 'C',
-                  text: 'Synthetic amino acids',
-                  image: '/placeholder.svg?text=synthetic_amino_acids',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'Insect meal, particularly from black soldier fly larvae, is being explored as a sustainable alternative protein source for aquaculture feed globally.',
-         },
-         {
-            id: 12,
-            theme: 'Feed for Farmed Fish',
-            level: 'Difficult',
-            type: 'true-false',
-            question:
-               'Precision feeding in aquaculture can help reduce environmental impact.',
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'True. Precision feeding technologies help reduce feed waste and environmental impact by ensuring fish receive the right amount of feed at the right time.',
-         },
-         {
-            id: 13,
-            theme: 'Feed for Farmed Fish',
-            level: 'Difficult',
-            type: 'image-association',
-            question:
-               'Match these feed management strategies to their primary benefits in aquaculture.',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Precision feeding',
-                  image: '/placeholder.svg?text=precision_feeding',
-               },
-               {
-                  id: 'B',
-                  text: 'Use of probiotics',
-                  image: '/placeholder.svg?text=probiotics',
-               },
-               {
-                  id: 'C',
-                  text: 'Reduced feed waste',
-                  image: '/placeholder.svg?text=reduced_waste',
-               },
-               {
-                  id: 'D',
-                  text: 'Improved fish health',
-                  image: '/placeholder.svg?text=fish_health',
-               },
-            ],
-            correctAnswer: 'D',
-            explanation:
-               'Precision feeding technologies help reduce feed waste and environmental impact, while the use of probiotics in feed can improve fish health and disease resistance.',
-         },
-         {
-            id: 14,
-            theme: 'Feed for Farmed Fish',
-            level: 'Difficult',
-            type: 'multiple-choice',
-            question:
-               'What advanced technology is being adopted in modern aquaculture for feed management?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'AI-powered feeding systems',
-                  image: '/placeholder.svg?text=ai_feeding',
-               },
-               {
-                  id: 'B',
-                  text: 'Manual feeding',
-                  image: '/placeholder.svg?text=manual_feeding',
-               },
-               {
-                  id: 'C',
-                  text: 'Seasonal feeding',
-                  image: '/placeholder.svg?text=seasonal_feeding',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'AI-powered feeding systems are being adopted in modern aquaculture. These systems can optimize feed distribution based on factors like fish behavior, water conditions, and growth rates.',
-         },
-         {
-            id: 15,
-            theme: 'Feed for Farmed Fish',
-            level: 'Difficult',
-            type: 'true-false',
-            question:
-               'The Fish-In Fish-Out (FIFO) ratio is a measure of aquaculture sustainability.',
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'True. The FIFO ratio measures the amount of wild fish used in feed to produce farmed fish. A lower ratio indicates more sustainable aquaculture practices.',
-         },
-      ],
-      'Aquaculture Professions': [
-         // Easy Level
-         {
-            id: 1,
-            theme: 'Feed for Farmed Fish',
-            level: 'Easy',
-            type: 'multiple-choice',
-            question: 'What do farmed fish typically eat?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Pellets',
-                  image: '/placeholder.svg?text=pellets',
-               },
-               { id: 'B', text: 'Pizza', image: '/placeholder.svg?text=pizza' },
-               {
-                  id: 'C',
-                  text: 'Seaweed',
-                  image: '/placeholder.svg?text=seaweed',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'Farmed fish are typically fed specially formulated pellets that contain all the necessary nutrients for their growth and health.',
-         },
-         {
-            id: 2,
-            theme: 'Feed for Farmed Fish',
-            level: 'Easy',
-            type: 'true-false',
-            question: 'Farmed fish feed themselves in aquaculture ponds.',
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'B',
-            explanation:
-               "In aquaculture, fish are fed by farmers according to specific feeding schedules and nutritional requirements. They don't feed themselves as they would in the wild.",
-         },
-         {
-            id: 3,
-            theme: 'Feed for Farmed Fish',
-            level: 'Easy',
-            type: 'image-association',
-            question: 'Match the food to the correct animal.',
-            options: [
-               { id: 'A', text: 'Fish', image: '/placeholder.svg?text=fish' },
-               { id: 'B', text: 'Sheep', image: '/placeholder.svg?text=sheep' },
-               {
-                  id: 'C',
-                  text: 'Pellets',
-                  image: '/placeholder.svg?text=pellets',
-               },
-               { id: 'D', text: 'Grass', image: '/placeholder.svg?text=grass' },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'In aquaculture, fish are fed pellets, while sheep, being herbivores, eat grass. Each animal has its specific diet suited to its nutritional needs.',
-         },
-         {
-            id: 4,
-            theme: 'Feed for Farmed Fish',
-            level: 'Easy',
-            type: 'multiple-choice',
-            question:
-               'What is the most common form of fish feed in aquaculture?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Pellets',
-                  image: '/placeholder.svg?text=pellets',
-               },
-               {
-                  id: 'B',
-                  text: 'Flakes',
-                  image: '/placeholder.svg?text=flakes',
-               },
-               {
-                  id: 'C',
-                  text: 'Live insects',
-                  image: '/placeholder.svg?text=insects',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'Pellets are the most common form of fish feed in aquaculture. They are easy to store, distribute, and can be formulated to meet specific nutritional needs of different fish species.',
-         },
-         {
-            id: 5,
-            theme: 'Feed for Farmed Fish',
-            level: 'Easy',
-            type: 'true-false',
-            question: 'Fish in aquaculture farms only eat at night.',
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'B',
-            explanation:
-               "Farmed fish don't only eat at night. Feeding schedules in aquaculture are based on the specific needs of the fish species and can occur at various times throughout the day.",
-         },
-         // Medium Level
-         {
-            id: 6,
-            theme: 'Feed for Farmed Fish',
-            level: 'Medium',
-            type: 'multiple-choice',
-            question: 'Which of these is a common ingredient in fish feed?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Fishmeal',
-                  image: '/placeholder.svg?text=fishmeal',
-               },
-               {
-                  id: 'B',
-                  text: 'Chocolate',
-                  image: '/placeholder.svg?text=chocolate',
-               },
-               {
-                  id: 'C',
-                  text: 'Cheese',
-                  image: '/placeholder.svg?text=cheese',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               "Fishmeal is a common ingredient in fish feed. It's rich in protein and essential nutrients that support fish growth and health.",
-         },
-         {
-            id: 7,
-            theme: 'Feed for Farmed Fish',
-            level: 'Medium',
-            type: 'true-false',
-            question:
-               'All fish species in aquaculture farms receive the same type of feed.',
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'B',
-            explanation:
-               'Different fish species have different nutritional requirements. In aquaculture, feed is often formulated specifically for each species to optimize growth and health.',
-         },
-         {
-            id: 8,
-            theme: 'Feed for Farmed Fish',
-            level: 'Medium',
-            type: 'image-association',
-            question:
-               'Match these feed ingredients to their primary nutrient contribution.',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Fishmeal',
-                  image: '/placeholder.svg?text=fishmeal',
-               },
-               {
-                  id: 'B',
-                  text: 'Fish oil',
-                  image: '/placeholder.svg?text=fish_oil',
-               },
-               {
-                  id: 'C',
-                  text: 'Protein',
-                  image: '/placeholder.svg?text=protein',
-               },
-               {
-                  id: 'D',
-                  text: 'Omega-3 fatty acids',
-                  image: '/placeholder.svg?text=omega3',
-               },
-            ],
-            correctAnswer: 'D',
-            explanation:
-               'In fish feed, fishmeal is primarily a source of protein, while fish oil is rich in omega-3 fatty acids. Both are crucial for fish growth and health in aquaculture.',
-         },
-         {
-            id: 9,
-            theme: 'Feed for Farmed Fish',
-            level: 'Medium',
-            type: 'multiple-choice',
-            question:
-               'What equipment is commonly used to distribute feed in large-scale fish farms?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Automatic feeders',
-                  image: '/placeholder.svg?text=automatic_feeder',
-               },
-               {
-                  id: 'B',
-                  text: 'Spoons',
-                  image: '/placeholder.svg?text=spoon',
-               },
-               {
-                  id: 'C',
-                  text: 'Buckets',
-                  image: '/placeholder.svg?text=bucket',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'Automatic feeders are commonly used in large-scale fish farms. They ensure precise and timely distribution of feed, improving efficiency and reducing labor costs.',
-         },
-         {
-            id: 10,
-            theme: 'Feed for Farmed Fish',
-            level: 'Medium',
-            type: 'true-false',
-            question:
-               'The cost of feed represents a minor portion of operational costs in aquaculture.',
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'B',
-            explanation:
-               'This is false. Feed costs often represent 50-70% of operational costs in aquaculture. Efficient feed management is crucial for the economic viability of fish farms.',
-         },
-         // Difficult Level
-         {
-            id: 11,
-            theme: 'Feed for Farmed Fish',
-            level: 'Difficult',
-            type: 'multiple-choice',
-            question:
-               'Which alternative protein source is being explored for sustainable aquaculture feed?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Insect meal',
-                  image: '/placeholder.svg?text=insect_meal',
-               },
-               {
-                  id: 'B',
-                  text: 'Beef protein',
-                  image: '/placeholder.svg?text=beef_protein',
-               },
-               {
-                  id: 'C',
-                  text: 'Synthetic amino acids',
-                  image: '/placeholder.svg?text=synthetic_amino_acids',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'Insect meal, particularly from black soldier fly larvae, is being explored as a sustainable alternative protein source for aquaculture feed globally.',
-         },
-         {
-            id: 12,
-            theme: 'Feed for Farmed Fish',
-            level: 'Difficult',
-            type: 'true-false',
-            question:
-               'Precision feeding in aquaculture can help reduce environmental impact.',
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'True. Precision feeding technologies help reduce feed waste and environmental impact by ensuring fish receive the right amount of feed at the right time.',
-         },
-         {
-            id: 13,
-            theme: 'Feed for Farmed Fish',
-            level: 'Difficult',
-            type: 'image-association',
-            question:
-               'Match these feed management strategies to their primary benefits in aquaculture.',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Precision feeding',
-                  image: '/placeholder.svg?text=precision_feeding',
-               },
-               {
-                  id: 'B',
-                  text: 'Use of probiotics',
-                  image: '/placeholder.svg?text=probiotics',
-               },
-               {
-                  id: 'C',
-                  text: 'Reduced feed waste',
-                  image: '/placeholder.svg?text=reduced_waste',
-               },
-               {
-                  id: 'D',
-                  text: 'Improved fish health',
-                  image: '/placeholder.svg?text=fish_health',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'Precision feeding technologies help reduce feed waste and environmental impact, while the use of probiotics in feed can improve fish health and disease resistance.',
-         },
-         {
-            id: 14,
-            theme: 'Feed for Farmed Fish',
-            level: 'Difficult',
-            type: 'multiple-choice',
-            question:
-               'What advanced technology is being adopted in modern aquaculture for feed management?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'AI-powered feeding systems',
-                  image: '/placeholder.svg?text=ai_feeding',
-               },
-               {
-                  id: 'B',
-                  text: 'Manual feeding',
-                  image: '/placeholder.svg?text=manual_feeding',
-               },
-               {
-                  id: 'C',
-                  text: 'Seasonal feeding',
-                  image: '/placeholder.svg?text=seasonal_feeding',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'AI-powered feeding systems are being adopted in modern aquaculture. These systems can optimize feed distribution based on factors like fish behavior, water conditions, and growth rates.',
-         },
-         {
-            id: 15,
-            theme: 'Feed for Farmed Fish',
-            level: 'Difficult',
-            type: 'true-false',
-            question:
-               'The Fish-In Fish-Out (FIFO) ratio is a measure of aquaculture sustainability.',
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'True. The FIFO ratio measures the amount of wild fish used in feed to produce farmed fish. A lower ratio indicates more sustainable aquaculture practices.',
-         },
-      ],
-      'Aquaculture and Environment': [
-         // Easy Level
-         {
-            id: 1,
-            theme: 'Feed for Farmed Fish',
-            level: 'Easy',
-            type: 'multiple-choice',
-            question: 'What do farmed fish typically eat?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Pellets',
-                  image: '/placeholder.svg?text=pellets',
-               },
-               { id: 'B', text: 'Pizza', image: '/placeholder.svg?text=pizza' },
-               {
-                  id: 'C',
-                  text: 'Seaweed',
-                  image: '/placeholder.svg?text=seaweed',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'Farmed fish are typically fed specially formulated pellets that contain all the necessary nutrients for their growth and health.',
-         },
-         {
-            id: 2,
-            theme: 'Feed for Farmed Fish',
-            level: 'Easy',
-            type: 'true-false',
-            question: 'Farmed fish feed themselves in aquaculture ponds.',
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'B',
-            explanation:
-               "In aquaculture, fish are fed by farmers according to specific feeding schedules and nutritional requirements. They don't feed themselves as they would in the wild.",
-         },
-         {
-            id: 3,
-            theme: 'Feed for Farmed Fish',
-            level: 'Easy',
-            type: 'image-association',
-            question: 'Match the food to the correct animal.',
-            options: [
-               { id: 'A', text: 'Fish', image: '/placeholder.svg?text=fish' },
-               { id: 'B', text: 'Sheep', image: '/placeholder.svg?text=sheep' },
-               {
-                  id: 'C',
-                  text: 'Pellets',
-                  image: '/placeholder.svg?text=pellets',
-               },
-               { id: 'D', text: 'Grass', image: '/placeholder.svg?text=grass' },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'In aquaculture, fish are fed pellets, while sheep, being herbivores, eat grass. Each animal has its specific diet suited to its nutritional needs.',
-         },
-         {
-            id: 4,
-            theme: 'Feed for Farmed Fish',
-            level: 'Easy',
-            type: 'multiple-choice',
-            question:
-               'What is the most common form of fish feed in aquaculture?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Pellets',
-                  image: '/placeholder.svg?text=pellets',
-               },
-               {
-                  id: 'B',
-                  text: 'Flakes',
-                  image: '/placeholder.svg?text=flakes',
-               },
-               {
-                  id: 'C',
-                  text: 'Live insects',
-                  image: '/placeholder.svg?text=insects',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'Pellets are the most common form of fish feed in aquaculture. They are easy to store, distribute, and can be formulated to meet specific nutritional needs of different fish species.',
-         },
-         {
-            id: 5,
-            theme: 'Feed for Farmed Fish',
-            level: 'Easy',
-            type: 'true-false',
-            question: 'Fish in aquaculture farms only eat at night.',
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'B',
-            explanation:
-               "Farmed fish don't only eat at night. Feeding schedules in aquaculture are based on the specific needs of the fish species and can occur at various times throughout the day.",
-         },
-         // Medium Level
-         {
-            id: 6,
-            theme: 'Feed for Farmed Fish',
-            level: 'Medium',
-            type: 'multiple-choice',
-            question: 'Which of these is a common ingredient in fish feed?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Fishmeal',
-                  image: '/placeholder.svg?text=fishmeal',
-               },
-               {
-                  id: 'B',
-                  text: 'Chocolate',
-                  image: '/placeholder.svg?text=chocolate',
-               },
-               {
-                  id: 'C',
-                  text: 'Cheese',
-                  image: '/placeholder.svg?text=cheese',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               "Fishmeal is a common ingredient in fish feed. It's rich in protein and essential nutrients that support fish growth and health.",
-         },
-         {
-            id: 7,
-            theme: 'Feed for Farmed Fish',
-            level: 'Medium',
-            type: 'true-false',
-            question:
-               'All fish species in aquaculture farms receive the same type of feed.',
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'B',
-            explanation:
-               'Different fish species have different nutritional requirements. In aquaculture, feed is often formulated specifically for each species to optimize growth and health.',
-         },
-         {
-            id: 8,
-            theme: 'Feed for Farmed Fish',
-            level: 'Medium',
-            type: 'image-association',
-            question:
-               'Match these feed ingredients to their primary nutrient contribution.',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Fishmeal',
-                  image: '/placeholder.svg?text=fishmeal',
-               },
-               {
-                  id: 'B',
-                  text: 'Fish oil',
-                  image: '/placeholder.svg?text=fish_oil',
-               },
-               {
-                  id: 'C',
-                  text: 'Protein',
-                  image: '/placeholder.svg?text=protein',
-               },
-               {
-                  id: 'D',
-                  text: 'Omega-3 fatty acids',
-                  image: '/placeholder.svg?text=omega3',
-               },
-            ],
-            correctAnswer: 'B',
-            explanation:
-               'In fish feed, fishmeal is primarily a source of protein, while fish oil is rich in omega-3 fatty acids. Both are crucial for fish growth and health in aquaculture.',
-         },
-         {
-            id: 9,
-            theme: 'Feed for Farmed Fish',
-            level: 'Medium',
-            type: 'multiple-choice',
-            question:
-               'What equipment is commonly used to distribute feed in large-scale fish farms?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Automatic feeders',
-                  image: '/placeholder.svg?text=automatic_feeder',
-               },
-               {
-                  id: 'B',
-                  text: 'Spoons',
-                  image: '/placeholder.svg?text=spoon',
-               },
-               {
-                  id: 'C',
-                  text: 'Buckets',
-                  image: '/placeholder.svg?text=bucket',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'Automatic feeders are commonly used in large-scale fish farms. They ensure precise and timely distribution of feed, improving efficiency and reducing labor costs.',
-         },
-         {
-            id: 10,
-            theme: 'Feed for Farmed Fish',
-            level: 'Medium',
-            type: 'true-false',
-            question:
-               'The cost of feed represents a minor portion of operational costs in aquaculture.',
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'B',
-            explanation:
-               'This is false. Feed costs often represent 50-70% of operational costs in aquaculture. Efficient feed management is crucial for the economic viability of fish farms.',
-         },
-         // Difficult Level
-         {
-            id: 11,
-            theme: 'Feed for Farmed Fish',
-            level: 'Difficult',
-            type: 'multiple-choice',
-            question:
-               'Which alternative protein source is being explored for sustainable aquaculture feed?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Insect meal',
-                  image: '/placeholder.svg?text=insect_meal',
-               },
-               {
-                  id: 'B',
-                  text: 'Beef protein',
-                  image: '/placeholder.svg?text=beef_protein',
-               },
-               {
-                  id: 'C',
-                  text: 'Synthetic amino acids',
-                  image: '/placeholder.svg?text=synthetic_amino_acids',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'Insect meal, particularly from black soldier fly larvae, is being explored as a sustainable alternative protein source for aquaculture feed globally.',
-         },
-         {
-            id: 12,
-            theme: 'Feed for Farmed Fish',
-            level: 'Difficult',
-            type: 'true-false',
-            question:
-               'Precision feeding in aquaculture can help reduce environmental impact.',
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'True. Precision feeding technologies help reduce feed waste and environmental impact by ensuring fish receive the right amount of feed at the right time.',
-         },
-         {
-            id: 13,
-            theme: 'Feed for Farmed Fish',
-            level: 'Difficult',
-            type: 'image-association',
-            question:
-               'Match these feed management strategies to their primary benefits in aquaculture.',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Precision feeding',
-                  image: '/placeholder.svg?text=precision_feeding',
-               },
-               {
-                  id: 'B',
-                  text: 'Use of probiotics',
-                  image: '/placeholder.svg?text=probiotics',
-               },
-               {
-                  id: 'C',
-                  text: 'Reduced feed waste',
-                  image: '/placeholder.svg?text=reduced_waste',
-               },
-               {
-                  id: 'D',
-                  text: 'Improved fish health',
-                  image: '/placeholder.svg?text=fish_health',
-               },
-            ],
-            correctAnswer: 'D',
-            explanation:
-               'Precision feeding technologies help reduce feed waste and environmental impact, while the use of probiotics in feed can improve fish health and disease resistance.',
-         },
-         {
-            id: 14,
-            theme: 'Feed for Farmed Fish',
-            level: 'Difficult',
-            type: 'multiple-choice',
-            question:
-               'What advanced technology is being adopted in modern aquaculture for feed management?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'AI-powered feeding systems',
-                  image: '/placeholder.svg?text=ai_feeding',
-               },
-               {
-                  id: 'B',
-                  text: 'Manual feeding',
-                  image: '/placeholder.svg?text=manual_feeding',
-               },
-               {
-                  id: 'C',
-                  text: 'Seasonal feeding',
-                  image: '/placeholder.svg?text=seasonal_feeding',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'AI-powered feeding systems are being adopted in modern aquaculture. These systems can optimize feed distribution based on factors like fish behavior, water conditions, and growth rates.',
-         },
-         {
-            id: 15,
-            theme: 'Feed for Farmed Fish',
-            level: 'Difficult',
-            type: 'true-false',
-            question:
-               'The Fish-In Fish-Out (FIFO) ratio is a measure of aquaculture sustainability.',
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'True. The FIFO ratio measures the amount of wild fish used in feed to produce farmed fish. A lower ratio indicates more sustainable aquaculture practices.',
-         },
-      ],
-   },
-   AVANCÉ: {
-      'Aquatic Animals': [],
-      'Feed for Farmed Fish': [
-         // Easy Level
-         {
-            id: 1,
-            theme: 'Feed for Farmed Fish',
-            level: 'Easy',
-            type: 'multiple-choice',
-            question:
-               'Which of these is a common ingredient in fish feed used in Moroccan aquaculture?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Fishmeal',
-                  image: '/placeholder.svg?text=fishmeal',
-               },
-               {
-                  id: 'B',
-                  text: 'Chocolate',
-                  image: '/placeholder.svg?text=chocolate',
-               },
-               { id: 'C', text: 'Rice', image: '/placeholder.svg?text=rice' },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               "Fishmeal is a common ingredient in fish feed used in Moroccan aquaculture. It's rich in protein and essential nutrients that support fish growth and health.",
-         },
-         {
-            id: 2,
-            theme: 'Feed for Farmed Fish',
-            level: 'Easy',
-            type: 'true-false',
-            question:
-               'In Moroccan aquaculture, all fish species receive the same type of feed.',
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'B',
-            explanation:
-               'Different fish species have different nutritional requirements. In Moroccan aquaculture, feed is formulated specifically for each species to optimize growth and health.',
-         },
-         {
-            id: 3,
-            theme: 'Feed for Farmed Fish',
-            level: 'Easy',
-            type: 'image-association',
-            question:
-               'Match these feed ingredients to their primary nutrient contribution in Moroccan aquaculture.',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Fishmeal',
-                  image: '/placeholder.svg?text=fishmeal',
-               },
-               {
-                  id: 'B',
-                  text: 'Fish oil',
-                  image: '/placeholder.svg?text=fish_oil',
-               },
-               {
-                  id: 'C',
-                  text: 'Protein',
-                  image: '/placeholder.svg?text=protein',
-               },
-               {
-                  id: 'D',
-                  text: 'Omega-3 fatty acids',
-                  image: '/placeholder.svg?text=omega3',
-               },
-            ],
-            correctAnswer: 'A-C,B-D',
-            explanation:
-               'In fish feed used in Morocco, fishmeal is primarily a source of protein, while fish oil is rich in omega-3 fatty acids. Both are crucial for fish growth and health in aquaculture.',
-         },
-         {
-            id: 4,
-            theme: 'Feed for Farmed Fish',
-            level: 'Easy',
-            type: 'multiple-choice',
-            question:
-               'What equipment is commonly used to distribute feed in large-scale Moroccan fish farms?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Automatic feeders',
-                  image: '/placeholder.svg?text=automatic_feeder',
-               },
-               {
-                  id: 'B',
-                  text: 'Spoons',
-                  image: '/placeholder.svg?text=spoon',
-               },
-               {
-                  id: 'C',
-                  text: 'Drones',
-                  image: '/placeholder.svg?text=drone',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'Automatic feeders are commonly used in large-scale Moroccan fish farms. They ensure precise and timely distribution of feed, improving efficiency and reducing labor costs.',
-         },
-         {
-            id: 5,
-            theme: 'Feed for Farmed Fish',
-            level: 'Easy',
-            type: 'true-false',
-            question:
-               'The cost of feed represents a significant portion of operational costs in Moroccan aquaculture.',
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'This is true. Feed costs often represent 50-70% of operational costs in aquaculture, including in Morocco. Efficient feed management is crucial for the economic viability of fish farms.',
-         },
-         // Medium Level
-         {
-            id: 6,
-            theme: 'Feed for Farmed Fish',
-            level: 'Medium',
-            type: 'multiple-choice',
-            question:
-               'Which local ingredient is being explored as a sustainable protein source for fish feed in Morocco?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Argan meal',
-                  image: '/placeholder.svg?text=argan_meal',
-               },
-               {
-                  id: 'B',
-                  text: 'Olive pomace',
-                  image: '/placeholder.svg?text=olive_pomace',
-               },
-               {
-                  id: 'C',
-                  text: 'Date palm waste',
-                  image: '/placeholder.svg?text=date_palm_waste',
-               },
-            ],
-            correctAnswer: 'B',
-            explanation:
-               "Olive pomace, a by-product of olive oil production, is being explored as a sustainable local ingredient for fish feed in Morocco. It's rich in nutrients and helps reduce waste from the olive industry.",
-         },
-         {
-            id: 7,
-            theme: 'Feed for Farmed Fish',
-            level: 'Medium',
-            type: 'true-false',
-            question: 'Morocco imports all of its fish feed for aquaculture.',
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'B',
-            explanation:
-               'While Morocco does import some fish feed, efforts are being made to increase local production. Some feed is produced domestically to reduce dependency on imports and support the local economy.',
-         },
-         {
-            id: 8,
-            theme: 'Feed for Farmed Fish',
-            level: 'Medium',
-            type: 'image-association',
-            question:
-               'Match these Moroccan aquaculture species to their preferred feed type.',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Sea bass',
-                  image: '/placeholder.svg?text=sea_bass',
+                  text: 'Bar',
+                  image: '/placeholder.svg?text=bar',
                },
                {
                   id: 'B',
@@ -1529,546 +276,2668 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
                },
                {
                   id: 'C',
-                  text: 'High protein feed',
-                  image: '/placeholder.svg?text=high_protein',
+                  text: 'Bassin à Terre',
+                  image: '/placeholder.svg?text=bassin',
                },
                {
                   id: 'D',
-                  text: 'Plant-based feed',
-                  image: '/placeholder.svg?text=plant_based',
+                  text: 'Cage en mer',
+                  image: '/placeholder.svg?text=cage',
                },
             ],
-            correctAnswer: 'A-C,B-D',
-            explanation:
-               'In Moroccan aquaculture, sea bass typically requires high protein feed, while tilapia can thrive on more plant-based diets. This reflects the different nutritional needs of these species.',
-         },
-         {
-            id: 9,
-            theme: 'Feed for Farmed Fish',
-            level: 'Medium',
-            type: 'multiple-choice',
-            question:
-               'What challenge does Morocco face in developing its aquaculture feed industry?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Lack of water resources',
-                  image: '/placeholder.svg?text=water_scarcity',
-               },
-               {
-                  id: 'B',
-                  text: 'Limited research facilities',
-                  image: '/placeholder.svg?text=research_lab',
-               },
-               {
-                  id: 'C',
-                  text: 'Oversupply of raw materials',
-                  image: '/placeholder.svg?text=raw_materials',
-               },
-            ],
-            correctAnswer: 'B',
-            explanation:
-               'Limited research facilities pose a challenge for Morocco in developing its aquaculture feed industry. More research is needed to optimize feed formulations for local species and conditions.',
-         },
-         {
-            id: 10,
-            theme: 'Feed for Farmed Fish',
-            level: 'Medium',
-            type: 'true-false',
-            question:
-               'Moroccan aquaculture farms are required to keep detailed records of their feed usage.',
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'True. Moroccan aquaculture farms are required to maintain detailed records of their feed usage. This helps in monitoring feed efficiency, environmental impact, and compliance with regulations.',
-         },
-         // Difficult Level
-         {
-            id: 11,
-            theme: 'Feed for Farmed Fish',
-            level: 'Difficult',
-            type: 'multiple-choice',
-            question:
-               'Which advanced feed management strategy is being implemented in some Moroccan aquaculture farms?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Biofloc technology',
-                  image: '/placeholder.svg?text=biofloc',
-               },
-               {
-                  id: 'B',
-                  text: 'Genetic feed optimization',
-                  image: '/placeholder.svg?text=genetic_optimization',
-               },
-               {
-                  id: 'C',
-                  text: 'Nanotechnology in feed',
-                  image: '/placeholder.svg?text=nanotechnology',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'Biofloc technology is being implemented in some Moroccan aquaculture farms. This system promotes the growth of microorganisms that can be consumed by fish, reducing the need for external feed and improving water quality.',
-         },
-         {
-            id: 12,
-            theme: 'Feed for Farmed Fish',
-            level: 'Difficult',
-            type: 'true-false',
-            question:
-               'Morocco has established a national feed standard for aquaculture.',
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'True. Morocco has established national feed standards for aquaculture to ensure quality, safety, and sustainability in the industry. These standards align with international best practices.',
-         },
-         {
-            id: 13,
-            theme: 'Feed for Farmed Fish',
-            level: 'Difficult',
-            type: 'image-association',
-            question:
-               'Match these feed additives to their functions in Moroccan aquaculture.',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Probiotics',
-                  image: '/placeholder.svg?text=probiotics',
-               },
-               {
-                  id: 'B',
-                  text: 'Antioxidants',
-                  image: '/placeholder.svg?text=antioxidants',
-               },
-               {
-                  id: 'C',
-                  text: 'Improve gut health',
-                  image: '/placeholder.svg?text=gut_health',
-               },
-               {
-                  id: 'D',
-                  text: 'Extend feed shelf life',
-                  image: '/placeholder.svg?text=shelf_life',
-               },
-            ],
-            correctAnswer: 'A-C,B-D',
-            explanation:
-               'In Moroccan aquaculture, probiotics are used to improve fish gut health and overall immunity, while antioxidants are added to feeds to extend their shelf life and preserve nutritional quality.',
+            correctAnswer: 'A-D,B-C',
+            explanation: '',
          },
          {
             id: 14,
-            theme: 'Feed for Farmed Fish',
+            theme: 'Les animaux aquatiques',
             level: 'Difficult',
             type: 'multiple-choice',
             question:
-               'What innovative approach is Morocco exploring to reduce the environmental impact of fish feed?',
+               'Quelle espèce de crevette est élevée dans des fermes aquacoles terrestres au Maroc ?',
             options: [
                {
                   id: 'A',
-                  text: 'Circular economy model',
-                  image: '/placeholder.svg?text=circular_economy',
+                  text: "Crevette géante d'eau douce",
+                  image: '/placeholder.svg?text=crevette-géante',
                },
                {
                   id: 'B',
-                  text: 'Deep-sea farming',
-                  image: '/placeholder.svg?text=deep_sea_farming',
+                  text: 'Crevette royale',
+                  image: '/placeholder.svg?text=crevette-royale',
                },
                {
                   id: 'C',
-                  text: 'Genetic modification of fish',
-                  image: '/placeholder.svg?text=genetic_modification',
+                  text: 'Crevette à pattes blanches',
+                  image: '/placeholder.svg?text=Crevette-blanche',
                },
             ],
-            correctAnswer: 'A',
-            explanation:
-               'Morocco is exploring a circular economy model in aquaculture. This approach aims to minimize waste and maximize resource efficiency by using by-products from other industries as feed ingredients and recycling aquaculture waste.',
+            correctAnswer: 'C',
+            explanation: '',
          },
          {
             id: 15,
-            theme: 'Feed for Farmed Fish',
+            theme: 'Les animaux aquatiques',
             level: 'Difficult',
             type: 'true-false',
             question:
-               'The use of growth hormones in aquaculture feed is permitted in Morocco.',
+               'La région de Dakhla-Oued Eddahab produit plus de 70% des huîtres marocaines.',
             options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+      ],
+      "L'alimentation des poissons d'élevage": [
+         // Easy Level
+         {
+            id: 16,
+            theme: "L'alimentation des poissons d'élevage",
+            level: 'Easy',
+            type: 'multiple-choice',
+            question: "Que mangent les poissons d'élevage ?",
+            options: [
+               {
+                  id: 'A',
+                  text: 'Granulés',
+                  image: '/placeholder.svg?text=granulés',
+               },
+               {
+                  id: 'B',
+                  text: 'Pizza',
+                  image: '/placeholder.svg?text=pizza',
+               },
+               {
+                  id: 'C',
+                  text: 'Banane',
+                  image: '/placeholder.svg?text=banane',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 17,
+            theme: "L'alimentation des poissons d'élevage",
+            level: 'Easy',
+            type: 'true-false',
+            question: "Les poissons d'élevage se nourrissent tout seuls.",
+            options: [
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
+            ],
+            correctAnswer: 'B',
+            explanation: '',
+         },
+         {
+            id: 18,
+            theme: "L'alimentation des poissons d'élevage",
+            level: 'Easy',
+            type: 'image-association',
+            question: "Relie l'aliment au bon animal",
+            options: [
+               {
+                  id: 'A',
+                  text: 'Image granulés',
+                  image: '/placeholder.svg?text=granulés',
+               },
+               {
+                  id: 'B',
+                  text: 'Image herbe',
+                  image: '/placeholder.svg?text=herbe',
+               },
+               {
+                  id: 'C',
+                  text: 'Image mouton',
+                  image: '/placeholder.svg?text=mouton',
+               },
+               {
+                  id: 'D',
+                  text: 'Image poisson',
+                  image: '/placeholder.svg?text=poisson',
+               },
+            ],
+            correctAnswer: 'A-D,B-C',
+            explanation: '',
+         },
+         {
+            id: 19,
+            theme: "L'alimentation des poissons d'élevage",
+            level: 'Easy',
+            type: 'multiple-choice',
+            question:
+               "Quelle est la forme la plus courante de l'aliment pour poissons ?",
+            options: [
+               {
+                  id: 'A',
+                  text: 'granulés',
+                  image: '/placeholder.svg?text=granulés',
+               },
+               {
+                  id: 'B',
+                  text: 'feuilles',
+                  image: '/placeholder.svg?text=feuilles',
+               },
+               {
+                  id: 'C',
+                  text: 'cubes',
+                  image: '/placeholder.svg?text=cubes',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 20,
+            theme: "L'alimentation des poissons d'élevage",
+            level: 'Easy',
+            type: 'true-false',
+            question: "Les poissons d'élevage mangent uniquement la nuit.",
+            options: [
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
+            ],
+            correctAnswer: 'B',
+            explanation: '',
+         },
+         // Medium Level
+         {
+            id: 21,
+            theme: "L'alimentation des poissons d'élevage",
+            level: 'Medium',
+            type: 'multiple-choice',
+            question:
+               'Lequel de ces ingrédients peut-on trouver dans la nourriture pour poissons ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'chocolat',
+                  image: '/placeholder.svg?text=chocolat',
+               },
+               {
+                  id: 'B',
+                  text: 'Farine de poisson',
+                  image: '/placeholder.svg?text=farine-de-poisson',
+               },
+               {
+                  id: 'C',
+                  text: 'fromage',
+                  image: '/placeholder.svg?text=fromage',
+               },
+            ],
+            correctAnswer: 'B',
+            explanation: '',
+         },
+         {
+            id: 22,
+            theme: "L'alimentation des poissons d'élevage",
+            level: 'Medium',
+            type: 'true-false',
+            question: "Certains poissons d'élevage mangent des algues.",
+            options: [
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 23,
+            theme: "L'alimentation des poissons d'élevage",
+            level: 'Medium',
+            type: 'image-association',
+            question: 'Relie ces aliments à leur origine',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Granulés (image)',
+                  image: '/placeholder.svg?text=Granulés',
+               },
+               {
+                  id: 'B',
+                  text: 'Plancton (image)',
+                  image: '/placeholder.svg?text=Plancton',
+               },
+               {
+                  id: 'C',
+                  text: 'Usine (image)',
+                  image: '/placeholder.svg?text=Usine',
+               },
+               {
+                  id: 'D',
+                  text: 'Mer (image)',
+                  image: '/placeholder.svg?text=Mer',
+               },
+            ],
+            correctAnswer: 'A-C,B-D',
+            explanation: '',
+         },
+         {
+            id: 24,
+            theme: "L'alimentation des poissons d'élevage",
+            level: 'Medium',
+            type: 'true-false',
+            question:
+               "Les huîtres d'élevage au Maroc sont nourries avec des algues cultivées spécialement.",
+            options: [
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
             ],
             correctAnswer: 'B',
             explanation:
-               'False. The use of growth hormones in aquaculture feed is not permitted in Morocco. This aligns with international standards and ensures the safety and quality of aquaculture products.',
+               "Les huîtres se nourrissent naturellement en filtrant l'eau de mer",
+         },
+         // Difficult Level
+         {
+            id: 25,
+            theme: "L'alimentation des poissons d'élevage",
+            level: 'Difficult',
+            type: 'multiple-choice',
+            question:
+               'Quel équipement utilise-t-on pour nourrir les poissons dans de grandes cages en mer ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'distributeur automatique',
+                  image: '/placeholder.svg?text=distributeur-automatique',
+               },
+               {
+                  id: 'B',
+                  text: 'cuillère',
+                  image: '/placeholder.svg?text=cuillère',
+               },
+               {
+                  id: 'C',
+                  text: 'filet',
+                  image: '/placeholder.svg?text=filet',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 26,
+            theme: "L'alimentation des poissons d'élevage",
+            level: 'Difficult',
+            type: 'true-false',
+            question:
+               'Les poissons carnivores et herbivores reçoivent la même nourriture en aquaculture.',
+            options: [
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
+            ],
+            correctAnswer: 'B',
+            explanation: '',
+         },
+         {
+            id: 27,
+            theme: "L'alimentation des poissons d'élevage",
+            level: 'Difficult',
+            type: 'image-association',
+            question: 'Relie ces nutriments à leur rôle pour les poissons.',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Protéines (image)',
+                  image: '/placeholder.svg?text=protéines',
+               },
+               {
+                  id: 'B',
+                  text: 'Lipides (image)',
+                  image: '/placeholder.svg?text=lipides',
+               },
+               {
+                  id: 'C',
+                  text: 'Muscles (image)',
+                  image: '/placeholder.svg?text=muscles',
+               },
+               {
+                  id: 'D',
+                  text: 'Energie (image)',
+                  image: '/placeholder.svg?text=énergie',
+               },
+            ],
+            correctAnswer: 'A-C,B-D',
+            explanation: '',
+         },
+         {
+            id: 28,
+            theme: "L'alimentation des poissons d'élevage",
+            level: 'Difficult',
+            type: 'multiple-choice',
+            question:
+               "Quel ingrédient est de plus en plus utilisé pour remplacer la farine de poisson dans l'alimentation aquacole ?",
+            options: [
+               {
+                  id: 'A',
+                  text: "Farine d'insectes",
+                  image: '/placeholder.svg?text=farine-insectes',
+               },
+               {
+                  id: 'B',
+                  text: 'Farine de blé',
+                  image: '/placeholder.svg?text=Farine-blé',
+               },
+               {
+                  id: 'C',
+                  text: "Farine d'algues",
+                  image: '/placeholder.svg?text=Farine-algues',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 29,
+            theme: "L'alimentation des poissons d'élevage",
+            level: 'Difficult',
+            type: 'true-false',
+            question:
+               "Au Maroc, l'alimentation représente plus de 50% des coûts de production en pisciculture marine",
+            options: [
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+      ],
+      "Les métiers de l'aquaculture": [
+         // Easy Level
+         {
+            id: 30,
+            theme: "Les métiers de l'aquaculture",
+            level: 'Easy',
+            type: 'multiple-choice',
+            question: "Qui s'occupe des poissons dans une ferme aquacole ?",
+            options: [
+               {
+                  id: 'A',
+                  text: 'Policier',
+                  image: '/placeholder.svg?text=policier',
+               },
+               {
+                  id: 'B',
+                  text: 'Boulanger',
+                  image: '/placeholder.svg?text=boulanger',
+               },
+               {
+                  id: 'C',
+                  text: 'Aquaculteur',
+                  image: '/placeholder.svg?text=aquaculteur',
+               },
+            ],
+            correctAnswer: 'C',
+            explanation: '',
+         },
+         {
+            id: 31,
+            theme: "Les métiers de l'aquaculture",
+            level: 'Easy',
+            type: 'true-false',
+            question:
+               'Les plongeurs travaillent parfois dans les fermes aquacoles.',
+            options: [
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 32,
+            theme: "Les métiers de l'aquaculture",
+            level: 'Easy',
+            type: 'image-association',
+            question: 'Relie le travailleur à son outil.',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Aquaculteur',
+                  image: '/placeholder.svg?text=aquaculteur',
+               },
+               {
+                  id: 'B',
+                  text: 'Pêcheur',
+                  image: '/placeholder.svg?text=pêcheur',
+               },
+               {
+                  id: 'C',
+                  text: 'Epuisette',
+                  image: '/placeholder.svg?text=épuisette',
+               },
+               {
+                  id: 'D',
+                  text: 'Canne à pêche',
+                  image: '/placeholder.svg?text=canne à pêche',
+               },
+            ],
+            correctAnswer: 'A-C,B-D',
+            explanation: '',
+         },
+         {
+            id: 33,
+            theme: "Les métiers de l'aquaculture",
+            level: 'Easy',
+            type: 'multiple-choice',
+            question: "Qui surveille la santé des poissons d'élevage ?",
+            options: [
+               {
+                  id: 'A',
+                  text: 'vétérinaire',
+                  image: '/placeholder.svg?text=vétérinaire',
+               },
+               {
+                  id: 'B',
+                  text: 'cuisinier',
+                  image: '/placeholder.svg?text=cuisinier',
+               },
+               {
+                  id: 'C',
+                  text: 'jardinier',
+                  image: '/placeholder.svg?text=jardinier',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+
+         // Medium Level
+         {
+            id: 34,
+            theme: "Les métiers de l'aquaculture",
+            level: 'Medium',
+            type: 'multiple-choice',
+            question:
+               "Quel professionnel vérifie la qualité de l'eau dans les fermes aquacoles ?",
+            options: [
+               {
+                  id: 'A',
+                  text: 'Biologiste marin',
+                  image: '/placeholder.svg?text=Biologiste marin',
+               },
+               {
+                  id: 'B',
+                  text: 'Mécanicien',
+                  image: '/placeholder.svg?text=mécanicien',
+               },
+               {
+                  id: 'C',
+                  text: 'Cuisinier',
+                  image: '/placeholder.svg?text=cuisinier',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 35,
+            theme: "Les métiers de l'aquaculture",
+            level: 'Medium',
+            type: 'true-false',
+            question:
+               'Les ingénieurs participent à la conception des fermes aquacoles',
+            options: [
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 36,
+            theme: "Les métiers de l'aquaculture",
+            level: 'Medium',
+            type: 'image-association',
+            question: 'Relie ces métiers à leur lieu de travail.',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Biologiste (image)',
+                  image: '/placeholder.svg?text=biologiste',
+               },
+               {
+                  id: 'B',
+                  text: 'Technicien (image)',
+                  image: '/placeholder.svg?text=technicien',
+               },
+               {
+                  id: 'C',
+                  text: 'Laboratoire (image)',
+                  image: '/placeholder.svg?text=laboratoire',
+               },
+               {
+                  id: 'D',
+                  text: 'Ferme aquacole',
+                  image: '/placeholder.svg?text=Ferme aquacole',
+               },
+            ],
+            correctAnswer: 'A-C,B-D',
+            explanation: '',
+         },
+         {
+            id: 37,
+            theme: "Les métiers de l'aquaculture",
+            level: 'Medium',
+            type: 'multiple-choice',
+            question:
+               "Quel métier s'occupe de la commercialisation des produits aquacoles au Maroc ?",
+            options: [
+               {
+                  id: 'A',
+                  text: 'Commercial',
+                  image: '/placeholder.svg?text=commercial',
+               },
+               {
+                  id: 'B',
+                  text: 'Plongeur',
+                  image: '/placeholder.svg?text=plongeur',
+               },
+               {
+                  id: 'C',
+                  text: 'Vétérinaire',
+                  image: '/placeholder.svg?text=vétérinaire',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 38,
+            theme: "Les métiers de l'aquaculture",
+            level: 'Medium',
+            type: 'true-false',
+            question:
+               "Au Maroc, les jeunes entrepreneurs sont encouragés à investir dans l'aquaculture.",
+            options: [
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         // Difficult Level
+         {
+            id: 39,
+            theme: "Les métiers de l'aquaculture",
+            level: 'Difficult',
+            type: 'multiple-choice',
+            question:
+               "Quel métier s'occupe de la qualité de l'eau dans les bassins ?",
+            options: [
+               {
+                  id: 'A',
+                  text: 'hydrobiologiste',
+                  image: '/placeholder.svg?text=hydrobiologiste',
+               },
+               {
+                  id: 'B',
+                  text: 'pilote',
+                  image: '/placeholder.svg?text=pilote',
+               },
+               {
+                  id: 'C',
+                  text: 'facteur',
+                  image: '/placeholder.svg?text=facteur',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 40,
+            theme: "Les métiers de l'aquaculture",
+            level: 'Difficult',
+            type: 'true-false',
+            question:
+               "Les économistes jouent un rôle dans le développement de l'aquaculture au Maroc.",
+            options: [
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
+            ],
+            correctAnswer: 'B',
+            explanation: '',
+         },
+         {
+            id: 41,
+            theme: "Les métiers de l'aquaculture",
+            level: 'Difficult',
+            type: 'image-association',
+            question: 'Relie ces tâches aux métiers correspondants.',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Alimentation des poissons',
+                  image: '/placeholder.svg?text=alimentation des poissons',
+               },
+               {
+                  id: 'B',
+                  text: 'Etude de marché',
+                  image: '/placeholder.svg?text=étude de marché',
+               },
+               {
+                  id: 'C',
+                  text: 'Technicien aquacole',
+                  image: '/placeholder.svg?text=technicien aquacole',
+               },
+               {
+                  id: 'D',
+                  text: 'Commercial',
+                  image: '/placeholder.svg?text=énergie',
+               },
+            ],
+            correctAnswer: 'A-C,B-D',
+            explanation: '',
+         },
+         {
+            id: 42,
+            theme: "Les métiers de l'aquaculture",
+            level: 'Difficult',
+            type: 'multiple-choice',
+            question:
+               'Quel professionnel est chargé de la gestion durable des fermes aquacoles au Maroc ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Ecologue',
+                  image: '/placeholder.svg?text=Ecologue',
+               },
+               {
+                  id: 'B',
+                  text: 'Comptable',
+                  image: '/placeholder.svg?text=Comptable',
+               },
+               {
+                  id: 'C',
+                  text: 'Cuisinier',
+                  image: '/placeholder.svg?text=Cuisinier',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 43,
+            theme: "Les métiers de l'aquaculture",
+            level: 'Difficult',
+            type: 'true-false',
+            question:
+               "L'ANDA (Agence Nationale pour le Développement de l'Aquaculture) forme des experts en aquaculture au Maroc.",
+            options: [
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+      ],
+      "L'aquaculture et l'environnement": [
+         // Easy Level
+         {
+            id: 44,
+            theme: "L'aquaculture et l'environnement",
+            level: 'Easy',
+            type: 'multiple-choice',
+            question: 'Où élève-t-on les poissons en aquaculture au Maroc ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Mer',
+                  image: '/placeholder.svg?text=mer',
+               },
+               {
+                  id: 'B',
+                  text: 'Désert',
+                  image: '/placeholder.svg?text=désert',
+               },
+               {
+                  id: 'C',
+                  text: 'Forêt',
+                  image: '/placeholder.svg?text=forêt',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 45,
+            theme: "L'aquaculture et l'environnement",
+            level: 'Easy',
+            type: 'true-false',
+            question: "L'aquaculture aide à protéger les poissons sauvages.",
+            options: [
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 46,
+            theme: "L'aquaculture et l'environnement",
+            level: 'Easy',
+            type: 'multiple-choice',
+            question:
+               "Quelle source d'énergie est utilisée dans certaines fermes aquacoles au Maroc ?",
+            options: [
+               {
+                  id: 'A',
+                  text: 'Soleil',
+                  image: '/placeholder.svg?text=soleil',
+               },
+               {
+                  id: 'B',
+                  text: 'Feu',
+                  image: '/placeholder.svg?text=feu',
+               },
+               {
+                  id: 'C',
+                  text: 'Vent',
+                  image: '/placeholder.svg?text=vent',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 47,
+            theme: "L'aquaculture et l'environnement",
+            level: 'Easy',
+            type: 'true-false',
+            question:
+               'Les fermes aquacoles au Maroc peuvent être installées sur terre.',
+            options: [
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         // Medium Level
+         {
+            id: 48,
+            theme: "L'aquaculture et l'environnement",
+            level: 'Medium',
+            type: 'multiple-choice',
+            question:
+               "Quel équipement utilise-t-on pour nettoyer l'eau des bassins ?",
+            options: [
+               {
+                  id: 'A',
+                  text: 'Filtre',
+                  image: '/placeholder.svg?text=filtre',
+               },
+               {
+                  id: 'B',
+                  text: 'Arrosoir',
+                  image: '/placeholder.svg?text=arrosoir',
+               },
+               {
+                  id: 'C',
+                  text: 'Aspirateur',
+                  image: '/placeholder.svg?text=aspirateur',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 49,
+            theme: "L'aquaculture et l'environnement",
+            level: 'Medium',
+            type: 'true-false',
+            question:
+               "Les fermes aquacoles au Maroc peuvent utiliser l'énergie solaire.",
+            options: [
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 50,
+            theme: "L'aquaculture et l'environnement",
+            level: 'Medium',
+            type: 'multiple-choice',
+            question:
+               "Quelle espèce d'algue est cultivée au Maroc pour son rôle environnemental ?",
+            options: [
+               {
+                  id: 'A',
+                  text: 'Algue verte',
+                  image: '/placeholder.svg?text=algue verte',
+               },
+               {
+                  id: 'B',
+                  text: 'Algue rouge',
+                  image: '/placeholder.svg?text=algue rouge',
+               },
+               {
+                  id: 'C',
+                  text: 'Algue brune',
+                  image: '/placeholder.svg?text=algue brune',
+               },
+            ],
+            correctAnswer: 'B',
+            explanation: '',
+         },
+         {
+            id: 51,
+            theme: "L'aquaculture et l'environnement",
+            level: 'Medium',
+            type: 'true-false',
+            question:
+               "L'aquaculture au Maroc contribue à réduire la pression sur les stocks de poissons sauvages",
+            options: [
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         // Difficult Level
+         {
+            id: 52,
+            theme: "L'aquaculture et l'environnement",
+            level: 'Difficult',
+            type: 'true-false',
+            question:
+               "L'aquaculture peut contribuer à la restauration des écosystèmes marins au Maroc.",
+            options: [
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 53,
+            theme: "L'aquaculture et l'environnement",
+            level: 'Difficult',
+            type: 'image-association',
+            question:
+               "Relie ces technologies à leurs avantages pour l'environnement.",
+            options: [
+               {
+                  id: 'A',
+                  text: 'Image système en circuit fermé',
+                  image: '/placeholder.svg?text=système en circuit fermé',
+               },
+               {
+                  id: 'B',
+                  text: 'Image énergies renouvelables',
+                  image: '/placeholder.svg?text=énergies renouvelables',
+               },
+               {
+                  id: 'C',
+                  text: "Image économie d'eau",
+                  image: "/placeholder.svg?text=économie d'eau",
+               },
+               {
+                  id: 'D',
+                  text: 'Image réduction des émissions de CO2',
+                  image: '/placeholder.svg?text=réduction des émissions de CO2',
+               },
+            ],
+            correctAnswer: 'A-C,B-D',
+            explanation: '',
+         },
+         {
+            id: 54,
+            theme: "L'aquaculture et l'environnement",
+            level: 'Difficult',
+            type: 'true-false',
+            question:
+               "Le Maroc a mis en place des plans d'aménagement aquacole pour assurer un développement durable du secteur.",
+            options: [
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+      ],
+      "L'importance économique et sociale de l'aquaculture au Maroc": [
+         // Easy Level
+         {
+            id: 55,
+            theme: "L'importance économique et sociale de l'aquaculture au Maroc",
+            level: 'Easy',
+            type: 'multiple-choice',
+            question: 'Que produit-on dans les fermes aquacoles au Maroc ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Poisson',
+                  image: '/placeholder.svg?text=poisson',
+               },
+               {
+                  id: 'B',
+                  text: 'Voiture',
+                  image: '/placeholder.svg?text=voiture',
+               },
+               {
+                  id: 'C',
+                  text: 'Téléphone',
+                  image: '/placeholder.svg?text=téléphone',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 56,
+            theme: "L'importance économique et sociale de l'aquaculture au Maroc",
+            level: 'Easy',
+            type: 'true-false',
+            question: "L'aquaculture crée des emplois au Maroc.",
+            options: [
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 57,
+            theme: "L'importance économique et sociale de l'aquaculture au Maroc",
+            level: 'Easy',
+            type: 'image-association',
+            question: 'Relie ces produits aquacoles à leur utilisation.',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Image Huître',
+                  image: '/placeholder.svg?text=huître',
+               },
+               {
+                  id: 'B',
+                  text: 'Image Algue',
+                  image: '/placeholder.svg?text=algue',
+               },
+               {
+                  id: 'C',
+                  text: 'Image Alimentation',
+                  image: '/placeholder.svg?text=alimentation',
+               },
+               {
+                  id: 'D',
+                  text: 'Image Cosmétique',
+                  image: '/placeholder.svg?text=cosmétique',
+               },
+            ],
+            correctAnswer: 'A-C,B-D',
+            explanation: '',
+         },
+         {
+            id: 58,
+            theme: "L'importance économique et sociale de l'aquaculture au Maroc",
+            level: 'Easy',
+            type: 'multiple-choice',
+            question:
+               "Quelle région du Maroc est connue pour sa production d'huîtres ?",
+            options: [
+               {
+                  id: 'A',
+                  text: 'Dakhla-Oued Eddahab',
+                  image: '/placeholder.svg?text=Dakhla-Oued Eddahab',
+               },
+               {
+                  id: 'B',
+                  text: 'Marrakech Safi',
+                  image: '/placeholder.svg?text=Marrakech Safi',
+               },
+               {
+                  id: 'C',
+                  text: 'Fès Meknes',
+                  image: '/placeholder.svg?text=Fès Meknes',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 60,
+            theme: "L'importance économique et sociale de l'aquaculture au Maroc",
+            level: 'Easy',
+            type: 'true-false',
+            question:
+               "Les produits de l'aquaculture marocaine sont uniquement vendus au Maroc.",
+            options: [
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
+            ],
+            correctAnswer: 'B',
+            explanation: '',
+         },
+         // Medium Level
+         {
+            id: 61,
+            theme: "L'importance économique et sociale de l'aquaculture au Maroc",
+            level: 'Medium',
+            type: 'multiple-choice',
+            question:
+               "Question avec images : Quel type de structure est utilisé pour l'élevage de poissons en mer au Maroc ?",
+            options: [
+               {
+                  id: 'A',
+                  text: 'Cage flottante',
+                  image: '/placeholder.svg?text=cage flottante',
+               },
+               {
+                  id: 'B',
+                  text: 'Aquarium',
+                  image: '/placeholder.svg?text=aquarium',
+               },
+               {
+                  id: 'C',
+                  text: 'Etang',
+                  image: '/placeholder.svg?text=étang',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 62,
+            theme: "L'importance économique et sociale de l'aquaculture au Maroc",
+            level: 'Medium',
+            type: 'true-false',
+            question:
+               "L'aquaculture aide à réduire la dépendance du Maroc aux importations de produits de la mer.",
+            options: [
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 63,
+            theme: "L'importance économique et sociale de l'aquaculture au Maroc",
+            level: 'Medium',
+            type: 'image-association',
+            question:
+               'Relie ces régions marocaines à leur spécialité aquacole.',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Image Souss-Massa',
+                  image: '/placeholder.svg?text=Souss-Massa',
+               },
+               {
+                  id: 'B',
+                  text: 'Image Dakhla-Oued Eddahab',
+                  image: '/placeholder.svg?text=Dakhla-Oued Eddahab',
+               },
+               {
+                  id: 'C',
+                  text: 'Image Moule',
+                  image: '/placeholder.svg?text=Moule',
+               },
+               {
+                  id: 'D',
+                  text: 'Image Huître',
+                  image: '/placeholder.svg?text=Huître',
+               },
+            ],
+            correctAnswer: 'A-C,B-D',
+            explanation: '',
+         },
+         {
+            id: 64,
+            theme: "L'importance économique et sociale de l'aquaculture au Maroc",
+            level: 'Medium',
+            type: 'multiple-choice',
+            question:
+               "Quelle agence gouvernementale est chargée de développer l'aquaculture au Maroc ?",
+            options: [
+               {
+                  id: 'A',
+                  text: 'ANDA',
+                  image: '/placeholder.svg?text=ANDA',
+               },
+               {
+                  id: 'B',
+                  text: 'FIFA',
+                  image: '/placeholder.svg?text=FIFA',
+               },
+               {
+                  id: 'C',
+                  text: 'NASA',
+                  image: '/placeholder.svg?text=NASA',
+               },
+            ],
+            correctAnswer: 'B',
+            explanation:
+               "ANDA (Agence Nationale pour le Développement de l'Aquaculture)",
+         },
+         {
+            id: 65,
+            theme: "L'importance économique et sociale de l'aquaculture au Maroc",
+            level: 'Medium',
+            type: 'true-false',
+            question:
+               "L'aquaculture au Maroc contribue à réduire la pression sur les stocks de poissons sauvages",
+            options: [
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         // Difficult Level
+         {
+            id: 64,
+            theme: "L'importance économique et sociale de l'aquaculture au Maroc",
+            level: 'Difficult',
+            type: 'multiple-choice',
+            question:
+               "Question avec images : Quel pourcentage de la côte marocaine est couvert par des plans d'aménagement aquacole ?",
+            options: [
+               {
+                  id: 'A',
+                  text: '25%',
+                  image: '/placeholder.svg?text=25%',
+               },
+               {
+                  id: 'B',
+                  text: '50%',
+                  image: '/placeholder.svg?text=50%',
+               },
+               {
+                  id: 'C',
+                  text: '77%',
+                  image: '/placeholder.svg?text=70%',
+               },
+            ],
+            correctAnswer: 'C',
+            explanation: '',
+         },
+         {
+            id: 67,
+            theme: "L'importance économique et sociale de l'aquaculture au Maroc",
+            level: 'Difficult',
+            type: 'true-false',
+            question:
+               "L'aquaculture au Maroc contribue à la sécurité alimentaire du pays.",
+            options: [
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 68,
+            theme: "L'importance économique et sociale de l'aquaculture au Maroc",
+            level: 'Difficult',
+            type: 'image-association',
+            question:
+               'Relie ces produits aquacoles marocains à leur valeur ajoutée',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Image Loup bar',
+                  image: '/placeholder.svg?text=Loup bar',
+               },
+               {
+                  id: 'B',
+                  text: 'Image algue',
+                  image: '/placeholder.svg?text=algue',
+               },
+               {
+                  id: 'C',
+                  text: 'Image exportation',
+                  image: '/placeholder.svg?text=exportation',
+               },
+               {
+                  id: 'D',
+                  text: 'Image industrie cosmétique',
+                  image: '/placeholder.svg?text=industrie cosmétique',
+               },
+            ],
+            correctAnswer: 'A-C,B-D',
+            explanation: '',
+         },
+         {
+            id: 69,
+            theme: "L'importance économique et sociale de l'aquaculture au Maroc",
+            level: 'Difficult',
+            type: 'true-false',
+            question:
+               "Le Maroc a mis en place une loi spécifique pour l'aquaculture marine en 2022.",
+            options: [
+               { id: 'A', text: 'Oui' },
+               { id: 'B', text: 'Non' },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+      ],
+   },
+   AVANCÉ: {
+      "Découverte de l'Aquaculture": [
+         // Easy Level
+         {
+            id: 70,
+            theme: "Découverte de l'Aquaculture",
+            level: 'Easy',
+            type: 'multiple-choice',
+            question: "Qu'est-ce que l'aquaculture ?",
+            options: [
+               {
+                  id: 'A',
+                  text: "L’élevage de poissons et d'autres espèces aquatiques",
+                  image: "/placeholder.svg?text=L’élevage de poissons et d'autres espèces aquatiques",
+               },
+               {
+                  id: 'B',
+                  text: 'La pêche traditionnelle',
+                  image: '/placeholder.svg?text=La pêche traditionnelle',
+               },
+               {
+                  id: 'C',
+                  text: 'La culture de céréales',
+                  image: '/placeholder.svg?text=La culture de céréales',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 71,
+            theme: "Découverte de l'Aquaculture",
+            level: 'Easy',
+            type: 'multiple-choice',
+            question: 'Quel est le principal objectif de l’aquaculture ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Protéger les espèces sauvages',
+                  image: '/placeholder.svg?text=Protéger les espèces sauvages',
+               },
+               {
+                  id: 'B',
+                  text: 'Récolter des algues pour les cosmétiques',
+                  image: '/placeholder.svg?text=Récolter des algues pour les cosmétiques',
+               },
+               {
+                  id: 'C',
+                  text: 'Fournir des ressources alimentaires durables',
+                  image: '/placeholder.svg?text=Fournir des ressources alimentaires durables',
+               },
+            ],
+            correctAnswer: 'C',
+            explanation: '',
+         },
+         {
+            id: 72,
+            theme: "Découverte de l'Aquaculture",
+            level: 'Easy',
+            type: 'multiple-choice',
+            question: 'Pourquoi l’aquaculture est-elle importante ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Elle aide à préserver les ressources naturelles',
+                  image: '/placeholder.svg?text=Elle aide à préserver les ressources naturelles',
+               },
+               {
+                  id: 'B',
+                  text: 'Elle augmente les coûts de production',
+                  image: '/placeholder.svg?text=Elle augmente les coûts de production',
+               },
+               {
+                  id: 'C',
+                  text: 'Elle remplace l’agriculture',
+                  image: '/placeholder.svg?text=Elle remplace l’agriculture',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         // Medium Level
+         {
+            id: 73,
+            theme: "Découverte de l'Aquaculture",
+            level: 'Medium',
+            type: 'multiple-choice',
+            question:
+               'Quel est l’un des principaux avantages de l’aquaculture ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Réduction de la pression sur les stocks de poissons sauvages',
+                  image: '/placeholder.svg?text=Réduction de la pression sur les stocks de poissons sauvages',
+               },
+               {
+                  id: 'B',
+                  text: 'Augmentation des prix du poisson',
+                  image: '/placeholder.svg?text=Augmentation des prix du poisson',
+               },
+               {
+                  id: 'C',
+                  text: 'Consommation de plus d’eau',
+                  image: '/placeholder.svg?text=Consommation de plus d’eau',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 74,
+            theme: "Découverte de l'Aquaculture",
+            level: 'Medium',
+            type: 'multiple-choice',
+            question:
+               'Comment l’aquaculture contribue-t-elle à la sécurité alimentaire ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'En augmentant les réserves de poissons sauvages',
+                  image: '/placeholder.svg?text=En augmentant les réserves de poissons sauvages',
+               },
+               {
+                  id: 'B',
+                  text: 'En produisant plus de poissons à consommer localement et à l’export',
+                  image: '/placeholder.svg?text=En produisant plus de poissons à consommer localement et à l’export',
+               },
+               {
+                  id: 'C',
+                  text: 'En réduisant la consommation de viande',
+                  image: '/placeholder.svg?text=En réduisant la consommation de viande',
+               },
+            ],
+            correctAnswer: 'B',
+            explanation: '',
+         },
+         {
+            id: 75,
+            theme: "Découverte de l'Aquaculture",
+            level: 'Medium',
+            type: 'multiple-choice',
+            question: "Quels types de produits sont issus de l'aquaculture ?",
+            options: [
+               {
+                  id: 'A',
+                  text: 'Fruits de mer, poissons et algues',
+                  image: '/placeholder.svg?text=Fruits de mer, poissons et algues',
+               },
+               {
+                  id: 'B',
+                  text: 'Fruits exotiques',
+                  image: '/placeholder.svg?text=Fruits exotiques',
+               },
+               {
+                  id: 'C',
+                  text: 'Céréales',
+                  image: '/placeholder.svg?text=Céréales',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         // Difficult Level
+         {
+            id: 76,
+            theme: "Découverte de l'Aquaculture",
+            level: 'Difficult',
+            type: 'multiple-choice',
+            question:
+               "Quelles espèces sont élevées dans l'aquaculture marine marocaine ?",
+            options: [
+               {
+                  id: 'A',
+                  text: 'Dorade royale, bar et huîtres',
+                  image: '/placeholder.svg?text=Dorade royale, bar et huîtres',
+               },
+               {
+                  id: 'B',
+                  text: 'Poisson-clown et raies',
+                  image: '/placeholder.svg?text=Poisson-clown et raies',
+               },
+               {
+                  id: 'C',
+                  text: "Crabes et crevettes d'eau douce",
+                  image: "/placeholder.svg?text=Crabes et crevettes d'eau douce",
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 77,
+            theme: "Découverte de l'Aquaculture",
+            level: 'Difficult',
+            type: 'multiple-choice',
+            question: 'Qu’est-ce que la polyculture en aquaculture ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'L’élevage de plusieurs espèces dans le même espace pour optimiser l’usage des ressources',
+                  image: '/placeholder.svg?text=L’élevage de plusieurs espèces dans le même espace pour optimiser l’usage des ressources',
+               },
+               {
+                  id: 'B',
+                  text: 'La plantation de cultures alimentaires sous-marines',
+                  image: '/placeholder.svg?text=La plantation de cultures alimentaires sous-marines',
+               },
+               {
+                  id: 'C',
+                  text: 'La production d’une seule espèce à grande échelle',
+                  image: '/placeholder.svg?text=La production d’une seule espèce à grande échelle',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 78,
+            theme: "Découverte de l'Aquaculture",
+            level: 'Difficult',
+            type: 'multiple-choice',
+            question:
+               "Quel est l'impact environnemental positif de l'aquaculture bien gérée ?",
+            options: [
+               {
+                  id: 'A',
+                  text: 'Réduction de la pression sur les écosystèmes marins',
+                  image: '/placeholder.svg?text=Réduction de la pression sur les écosystèmes marins',
+               },
+               {
+                  id: 'B',
+                  text: 'Minimisation des émissions de CO2',
+                  image: '/placeholder.svg?text=Minimisation des émissions de CO2',
+               },
+               {
+                  id: 'C',
+                  text: 'Consommation accrue de ressources naturelles',
+                  image: '/placeholder.svg?text=Consommation accrue de ressources naturelles',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+      ],
+      'Les Régions d’Aquaculture au Maroc': [
+         // Easy Level
+         {
+            id: 79,
+            theme: 'Les Régions d’Aquaculture au Maroc',
+            level: 'Easy',
+            type: 'multiple-choice',
+            question:
+               'Dans quelle région marocaine trouve-t-on beaucoup de fermes aquacoles',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Dakhla-Oued Eddahab',
+                  image: '/placeholder.svg?text=Dakhla-Oued Eddahab',
+               },
+               {
+                  id: 'B',
+                  text: 'Marrakech-Safi',
+                  image: '/placeholder.svg?text=Marrakech-Safi',
+               },
+               {
+                  id: 'C',
+                  text: 'Fès-Meknès',
+                  image: '/placeholder.svg?text=Fès-Meknès',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 80,
+            theme: 'Les Régions d’Aquaculture au Maroc',
+            level: 'Easy',
+            type: 'multiple-choice',
+            question:
+               "Quel type d'espèces est souvent élevé dans la région de Souss-Massa ?",
+            options: [
+               {
+                  id: 'A',
+                  text: 'Les mollusques comme les moules',
+                  image: '/placeholder.svg?text=Les mollusques comme les moules',
+               },
+               {
+                  id: 'B',
+                  text: 'Les poissons d’eau douce',
+                  image: '/placeholder.svg?text=Les poissons d’eau douce',
+               },
+               {
+                  id: 'C',
+                  text: 'Les fruits de mer exotiques',
+                  image: '/placeholder.svg?text=Les fruits de mer exotiques',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 81,
+            theme: 'Les Régions d’Aquaculture au Maroc',
+            level: 'Easy',
+            type: 'multiple-choice',
+            question:
+               'La région de Casablanca-Settat est connue pour la culture de ',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Poisson-chat',
+                  image: '/placeholder.svg?text=Poisson-chat',
+               },
+               {
+                  id: 'B',
+                  text: 'Bar et dorade royale',
+                  image: '/placeholder.svg?text=Bar et dorade royale',
+               },
+               {
+                  id: 'C',
+                  text: 'Thon rouge',
+                  image: '/placeholder.svg?text=Thon rouge',
+               },
+            ],
+            correctAnswer: 'B',
+            explanation: '',
+         },
+         // Medium Level
+         {
+            id: 82,
+            theme: 'Les Régions d’Aquaculture au Maroc',
+            level: 'Medium',
+            type: 'multiple-choice',
+            question:
+               'Quelle région est réputée pour la culture des huîtres au Maroc ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Dakhla-Oued Eddahab',
+                  image: '/placeholder.svg?text=Dakhla-Oued Eddahab',
+               },
+               {
+                  id: 'B',
+                  text: 'Laayoune-Sakia El Hamra',
+                  image: '/placeholder.svg?text=Laayoune-Sakia El Hamra',
+               },
+               {
+                  id: 'C',
+                  text: 'L’Oriental',
+                  image: '/placeholder.svg?text=L’Oriental',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 83,
+            theme: 'Les Régions d’Aquaculture au Maroc',
+            level: 'Medium',
+            type: 'multiple-choice',
+            question:
+               'Quel est le climat favorable aux fermes aquacoles dans la région de Souss-Massa ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Climat chaud et sec',
+                  image: '/placeholder.svg?text=Climat chaud et sec',
+               },
+               {
+                  id: 'B',
+                  text: 'Climat tempéré et humide',
+                  image: '/placeholder.svg?text=Climat tempéré et humide',
+               },
+               {
+                  id: 'C',
+                  text: 'Climat froid et neigeux',
+                  image: '/placeholder.svg?text=Climat froid et neigeux',
+               },
+            ],
+            correctAnswer: 'C',
+            explanation: '',
+         },
+         {
+            id: 84,
+            theme: 'Les Régions d’Aquaculture au Maroc',
+            level: 'Medium',
+            type: 'multiple-choice',
+            question:
+               'Quels facteurs font de Dakhla-Oued Eddahab une région privilégiée pour l’aquaculture ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Eau de mer de haute qualité et climat favorable',
+                  image: '/placeholder.svg?text=dolphin',
+               },
+               {
+                  id: 'B',
+                  text: 'Eau douce et nombreux lacs',
+                  image: '/placeholder.svg?text=salmon',
+               },
+               {
+                  id: 'C',
+                  text: 'Sols fertiles',
+                  image: '/placeholder.svg?text=whale',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         // Difficult Level
+         {
+            id: 85,
+            theme: 'Les Régions d’Aquaculture au Maroc',
+            level: 'Difficult',
+            type: 'multiple-choice',
+            question:
+               'Quels avantages spécifiques les lagunes marocaines offrent-elles pour l’aquaculture ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Un environnement protégé avec une bonne circulation de l’eau',
+                  image: '/placeholder.svg?text=Un environnement protégé avec une bonne circulation de l’eau',
+               },
+               {
+                  id: 'B',
+                  text: 'Une protection totale contre les prédateurs',
+                  image: '/placeholder.svg?text=Une protection totale contre les prédateurs',
+               },
+               {
+                  id: 'C',
+                  text: 'Des ressources illimitées en eau douce',
+                  image: '/placeholder.svg?text=Des ressources illimitées en eau douce',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 86,
+            theme: 'Les Régions d’Aquaculture au Maroc',
+            level: 'Difficult',
+            type: 'multiple-choice',
+            question:
+               'Quelle région marocaine développe des projets de culture d’algues ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Région de Casablanca-Settat',
+                  image: '/placeholder.svg?text=Région de Casablanca-Settat',
+               },
+               {
+                  id: 'B',
+                  text: 'Région de Dakhla-Oued Eddahab',
+                  image: '/placeholder.svg?text=Région de Dakhla-Oued Eddahab',
+               },
+               {
+                  id: 'C',
+                  text: 'Région de l’Oriental',
+                  image: '/placeholder.svg?text=Région de l’Oriental',
+               },
+            ],
+            correctAnswer: 'B',
+            explanation: '',
+         },
+         {
+            id: 87,
+            theme: 'Les Régions d’Aquaculture au Maroc',
+            level: 'Difficult',
+            type: 'multiple-choice',
+            question:
+               'Les conditions favorables dans les régions côtières du Maroc permettent principalement la culture de ',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Poissons marins et mollusques',
+                  image: '/placeholder.svg?text=Poissons marins et mollusques',
+               },
+               {
+                  id: 'B',
+                  text: "Algues d'eau douce uniquement",
+                  image: "/placeholder.svg?text=Algues d'eau douce uniquement",
+               },
+               {
+                  id: 'C',
+                  text: 'Oiseaux aquatiques',
+                  image: '/placeholder.svg?text=Oiseaux aquatiques',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+      ],
+      'Alimentation et Croissance des Espèces Aquacoles': [
+         // Easy Level
+         {
+            id: 88,
+            theme: 'Alimentation et Croissance des Espèces Aquacoles',
+            level: 'Easy',
+            type: 'multiple-choice',
+            question: "Que mangent les poissons d'élevage ?",
+            options: [
+               {
+                  id: 'A',
+                  text: 'Granulés de protéines spéciales',
+                  image: '/placeholder.svg?text=Granulés de protéines spéciales',
+               },
+               {
+                  id: 'B',
+                  text: 'Graines de blé',
+                  image: '/placeholder.svg?text=Graines de blé',
+               },
+               {
+                  id: 'C',
+                  text: 'Céréales',
+                  image: '/placeholder.svg?text=Céréales',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 89,
+            theme: 'Alimentation et Croissance des Espèces Aquacoles',
+            level: 'Easy',
+            type: 'multiple-choice',
+            question:
+               "Les poissons d'élevage mangent-ils la même nourriture que les poissons sauvages ?",
+            options: [
+               {
+                  id: 'A',
+                  text: 'Oui, exactement la même',
+                  image: '/placeholder.svg?text=Oui, exactement la même',
+               },
+               {
+                  id: 'B',
+                  text: 'Non, ils ont des régimes spécifiques d’aquaculture',
+                  image: '/placeholder.svg?text=Non, ils ont des régimes spécifiques d’aquaculture',
+               },
+               {
+                  id: 'C',
+                  text: 'Ils mangent seulement des algues',
+                  image: '/placeholder.svg?text=Ils mangent seulement des algues',
+               },
+            ],
+            correctAnswer: 'B',
+            explanation: '',
+         },
+         {
+            id: 90,
+            theme: 'Alimentation et Croissance des Espèces Aquacoles',
+            level: 'Easy',
+            type: 'multiple-choice',
+            question:
+               'Les poissons herbivores en aquaculture consomment souvent :',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Des algues et des plantes aquatiques',
+                  image: '/placeholder.svg?text=es algues et des plantes aquatiques',
+               },
+               {
+                  id: 'B',
+                  text: 'De la viande',
+                  image: '/placeholder.svg?text=De la viande',
+               },
+               {
+                  id: 'C',
+                  text: 'Des fruits',
+                  image: '/placeholder.svg?text=Des fruits',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         // Medium Level
+         {
+            id: 91,
+            theme: 'Alimentation et Croissance des Espèces Aquacoles',
+            level: 'Medium',
+            type: 'multiple-choice',
+            question:
+               'Pourquoi ajoute-t-on des protéines dans la nourriture des poissons ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Pour favoriser leur croissance rapide',
+                  image: '/placeholder.svg?text=Pour favoriser leur croissance rapide',
+               },
+               {
+                  id: 'B',
+                  text: 'Pour réduire la pollution de l’eau',
+                  image: '/placeholder.svg?text=Pour réduire la pollution de l’eau',
+               },
+               {
+                  id: 'C',
+                  text: 'Pour les protéger des prédateurs',
+                  image: '/placeholder.svg?text=Pour les protéger des prédateurs',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 92,
+            theme: 'Les Régions d’Aquaculture au Maroc',
+            level: 'Medium',
+            type: 'multiple-choice',
+            question:
+               'Comment s’assure-t-on que les poissons d’aquaculture sont bien nourris ?',
+            options: [
+               {
+                  id: 'A',
+                  text: "En utilisant des systèmes d'alimentation automatiques",
+                  image: "/placeholder.svg?text=En utilisant des systèmes d'alimentation automatiques",
+               },
+               {
+                  id: 'B',
+                  text: 'En les laissant chercher eux-mêmes leur nourriture',
+                  image: '/placeholder.svg?text=En les laissant chercher eux-mêmes leur nourriture',
+               },
+               {
+                  id: 'C',
+                  text: 'En leur donnant à manger une fois par mois',
+                  image: '/placeholder.svg?text=En leur donnant à manger une fois par mois',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 93,
+            theme: 'Alimentation et Croissance des Espèces Aquacoles',
+            level: 'Medium',
+            type: 'multiple-choice',
+            question:
+               'Quel est le rôle des algues dans certains systèmes aquacoles ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Fournir de l’oxygène et filtrer les nutriments',
+                  image: '/placeholder.svg?text=Fournir de l’oxygène et filtrer les nutriments',
+               },
+               {
+                  id: 'B',
+                  text: 'Protéger les poissons des prédateurs',
+                  image: '/placeholder.svg?text=Protéger les poissons des prédateurs',
+               },
+               {
+                  id: 'C',
+                  text: 'Servir de barrière physique',
+                  image: '/placeholder.svg?text=Servir de barrière physique',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         // Difficult Level
+         {
+            id: 94,
+            theme: 'Alimentation et Croissance des Espèces Aquacoles',
+            level: 'Difficult',
+            type: 'multiple-choice',
+            question:
+               'Quelles sont les composantes nutritives essentielles dans l’alimentation des poissons ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Protéines, lipides, et vitamines',
+                  image: '/placeholder.svg?text=Protéines, lipides, et vitamines',
+               },
+               {
+                  id: 'B',
+                  text: 'Sucre et sel',
+                  image: '/placeholder.svg?text=Sucre et sel',
+               },
+               {
+                  id: 'C',
+                  text: 'Fleurs et épices',
+                  image: '/placeholder.svg?text=Fleurs et épices',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 95,
+            theme: 'Alimentation et Croissance des Espèces Aquacoles',
+            level: 'Difficult',
+            type: 'multiple-choice',
+            question:
+               'Pourquoi est-il important de surveiller l’alimentation en aquaculture ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Pour garantir une croissance optimale et limiter les déchets',
+                  image: '/placeholder.svg?text=Pour garantir une croissance optimale et limiter les déchets',
+               },
+               {
+                  id: 'B',
+                  text: 'Pour augmenter les coûts',
+                  image: '/placeholder.svg?text=our augmenter les coûts',
+               },
+               {
+                  id: 'C',
+                  text: 'Pour maintenir l’eau propre',
+                  image: '/placeholder.svg?text=Pour maintenir l’eau propre',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 96,
+            theme: 'Alimentation et Croissance des Espèces Aquacoles',
+            level: 'Difficult',
+            type: 'multiple-choice',
+            question:
+               'Comment les aliments pour poissons influencent-ils l’environnement ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Une alimentation équilibrée réduit les déchets et la pollution de l’eau',
+                  image: '/placeholder.svg?text=ne alimentation équilibrée réduit les déchets et la pollution de l’eau',
+               },
+               {
+                  id: 'B',
+                  text: 'Les poissons ne rejettent aucun déchet',
+                  image: '/placeholder.svg?text=Les poissons ne rejettent aucun déchet',
+               },
+               {
+                  id: 'C',
+                  text: 'Ils n’ont aucun impact environnemental',
+                  image: '/placeholder.svg?text=Ils n’ont aucun impact environnemental',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
          },
       ],
    },
    EXCELLENT: {
-      'Aquatic Animals': [],
-      'Feed for Farmed Fish': [
+      'Aquaculture marine': [
          // Easy Level
          {
-            id: 1,
-            theme: 'Feed for Farmed Fish',
+            id: 97,
+            theme: 'Aquaculture marine',
+            level: 'Easy',
+            type: 'multiple-choice',
+            question: 'L’aquaculture marine c’est ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'L’élevage des organismes marins',
+                  image: '/placeholder.svg?text=L’élevage des organismes marins ',
+               },
+               {
+                  id: 'B',
+                  text: 'L’élevage des poissons d’eau douce',
+                  image: '/placeholder.svg?text=L’élevage des poissons d’eau douce',
+               },
+               {
+                  id: 'C',
+                  text: 'La culture de céréales',
+                  image: '/placeholder.svg?text=La culture de céréales',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 98,
+            theme: 'Aquaculture marine',
+            level: 'Easy',
+            type: 'multiple-choice',
+            question: 'La pisciculture c’est ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'L’élevage en eau douce',
+                  image: '/placeholder.svg?text=L’élevage en eau douce',
+               },
+               {
+                  id: 'B',
+                  text: 'L’élevage des poissons',
+                  image: '/placeholder.svg?text=L’élevage des poissons',
+               },
+               {
+                  id: 'C',
+                  text: 'L’aquaculture continentale',
+                  image: '/placeholder.svg?text=whale',
+               },
+            ],
+            correctAnswer: 'B',
+            explanation: '',
+         },
+         {
+            id: 99,
+            theme: 'Aquaculture marine',
+            level: 'Easy',
+            type: 'multiple-choice',
+            question: 'L’élevage des coquillages c’est ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'La coquiculture',
+                  image: '/placeholder.svg?text=La coquiculture',
+               },
+               {
+                  id: 'B',
+                  text: 'La conchyliculture',
+                  image: '/placeholder.svg?text=La conchyliculture',
+               },
+               {
+                  id: 'C',
+                  text: 'La culture d’huitres',
+                  image: '/placeholder.svg?text=La culture d’huitres',
+               },
+            ],
+            correctAnswer: 'B',
+            explanation: '',
+         },
+         {
+            id: 100,
+            theme: 'Aquaculture marine',
+            level: 'Easy',
+            type: 'multiple-choice',
+            question: 'La mariculture c’est ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'L’aquaculture d’espèces marines',
+                  image: '/placeholder.svg?text=L’aquaculture d’espèces marines',
+               },
+               {
+                  id: 'B',
+                  text: 'La culture des algues',
+                  image: '/placeholder.svg?text=La culture des algues',
+               },
+               {
+                  id: 'C',
+                  text: 'L’aquaculture en milieu contrôlé',
+                  image: '/placeholder.svg?text=L’aquaculture en milieu contrôlé',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 101,
+            theme: 'Aquaculture marine',
+            level: 'Easy',
+            type: 'multiple-choice',
+            question: 'Les coquillages se nourrissent de ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'De sel',
+                  image: '/placeholder.svg?text=De sel',
+               },
+               {
+                  id: 'B',
+                  text: 'Phyto et zooplancton',
+                  image: '/placeholder.svg?text=Phyto et zooplancton',
+               },
+               {
+                  id: 'C',
+                  text: 'D’aliments composés',
+                  image: '/placeholder.svg?text=D’aliments composés',
+               },
+            ],
+            correctAnswer: 'B',
+            explanation: '',
+         },
+         {
+            id: 102,
+            theme: 'Aquaculture marine',
+            level: 'Easy',
+            type: 'multiple-choice',
+            question: 'L’aliment de poisson est principalement composé de ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Céréales et farines animales',
+                  image: '/placeholder.svg?text=Céréales et farines animales',
+               },
+               {
+                  id: 'B',
+                  text: 'Produits chimiques',
+                  image: '/placeholder.svg?text=Produits chimiques',
+               },
+               {
+                  id: 'C',
+                  text: 'Farine et huile de poissons',
+                  image: '/placeholder.svg?text=Farine et huile de poissons',
+               },
+            ],
+            correctAnswer: 'C',
+            explanation: '',
+         },
+         {
+            id: 103,
+            theme: 'Aquaculture marine',
             level: 'Easy',
             type: 'multiple-choice',
             question:
-               'Which alternative protein source is being explored for sustainable aquaculture feed in Morocco?',
+               'Qu’elle est la durée du cycle de grossissement des huitres creuses ?',
             options: [
                {
                   id: 'A',
-                  text: 'Insect meal',
-                  image: '/placeholder.svg?text=insect_meal',
+                  text: 'Entre 2 et 6 mois',
+                  image: '/placeholder.svg?text=Entre 2 et 6 mois',
                },
                {
                   id: 'B',
-                  text: 'Beef protein',
-                  image: '/placeholder.svg?text=beef_protein',
+                  text: 'Entre 12 et 18 mois',
+                  image: '/placeholder.svg?text=Entre 12 et 18 mois',
                },
                {
                   id: 'C',
-                  text: 'Synthetic amino acids',
-                  image: '/placeholder.svg?text=synthetic_amino_acids',
+                  text: 'Entre 2 et 4ans',
+                  image: '/placeholder.svg?text=Entre 2 et 4ans',
                },
             ],
-            correctAnswer: 'A',
-            explanation:
-               'Insect meal, particularly from black soldier fly larvae, is being explored as a sustainable alternative protein source for aquaculture feed in Morocco andglobally.',
+            correctAnswer: 'B',
+            explanation: '',
          },
          {
-            id: 2,
-            theme: 'Feed for Farmed Fish',
-            level: 'Easy',
-            type: 'true-false',
-            question:
-               'Morocco has implemented specific regulations for aquaculture feed quality and safety.',
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'True. Morocco has implemented regulations to ensure the quality and safety of aquaculture feed, aligning with international standards and supporting the growth of sustainable aquaculture.',
-         },
-         {
-            id: 3,
-            theme: 'Feed for Farmed Fish',
-            level: 'Easy',
-            type: 'image-association',
-            question:
-               'Match these feed management strategies to their primary benefits in Moroccan aquaculture.',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Precision feeding',
-                  image: '/placeholder.svg?text=precision_feeding',
-               },
-               {
-                  id: 'B',
-                  text: 'Use of probiotics',
-                  image: '/placeholder.svg?text=probiotics',
-               },
-               {
-                  id: 'C',
-                  text: 'Reduced feed waste',
-                  image: '/placeholder.svg?text=reduced_waste',
-               },
-               {
-                  id: 'D',
-                  text: 'Improved fish health',
-                  image: '/placeholder.svg?text=fish_health',
-               },
-            ],
-            correctAnswer: 'A-C,B-D',
-            explanation:
-               'Precision feeding technologies help reduce feed waste and environmental impact, while the use of probiotics in feed can improve fish health and disease resistance in Moroccan aquaculture.',
-         },
-         {
-            id: 4,
-            theme: 'Feed for Farmed Fish',
+            id: 104,
+            theme: 'Aquaculture marine',
             level: 'Easy',
             type: 'multiple-choice',
             question:
-               'What advanced technology is being adopted in Moroccan aquaculture for feed management?',
+               'Comment peut ont faire l’élevage des poissons en pleine mer ?',
             options: [
                {
                   id: 'A',
-                  text: 'AI-powered feeding systems',
-                  image: '/placeholder.svg?text=ai_feeding',
+                  text: 'Dans des bassins en PVC',
+                  image: '/placeholder.svg?text=Dans des bassins en PVC',
                },
                {
                   id: 'B',
-                  text: 'Manual feeding',
-                  image: '/placeholder.svg?text=manual_feeding',
+                  text: 'Dans des bassins en béton',
+                  image: '/placeholder.svg?text=Dans des bassins en béton',
                },
                {
                   id: 'C',
-                  text: 'Seasonal feeding',
-                  image: '/placeholder.svg?text=seasonal_feeding',
+                  text: 'Dans des cages flottantes',
+                  image: '/placeholder.svg?text=Dans des cages flottantes',
                },
             ],
-            correctAnswer: 'A',
-            explanation:
-               'AI-powered feeding systems are being adopted in modern Moroccan aquaculture. These systems can optimize feed distribution based on factors like fish behavior, water conditions, and growth rates.',
-         },
-         {
-            id: 5,
-            theme: 'Feed for Farmed Fish',
-            level: 'Easy',
-            type: 'true-false',
-            question:
-               "The development of local feed production capacity is a priority for Morocco's aquaculture sector.",
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               "True. Developing local feed production capacity is a priority for Morocco's aquaculture sector. It aims to reduce dependency on imported feed, lower costs, and ensure a stable supply of high-quality feed.",
+            correctAnswer: 'C',
+            explanation: '',
          },
          // Medium Level
          {
-            id: 6,
-            theme: 'Feed for Farmed Fish',
+            id: 105,
+            theme: 'Aquaculture marine',
             level: 'Medium',
             type: 'multiple-choice',
-            question:
-               'Which Moroccan research institution is leading studies on sustainable aquaculture feed?',
+            question: 'La pénéiculture s’exerce  ?',
             options: [
                {
                   id: 'A',
-                  text: 'National Institute of Fisheries Research (INRH)',
-                  image: '/placeholder.svg?text=INRH',
+                  text: 'En mer ouverte',
+                  image: '/placeholder.svg?text=En mer ouverte',
                },
                {
                   id: 'B',
-                  text: 'Hassan II Agronomic and Veterinary Institute',
-                  image: '/placeholder.svg?text=Hassan_II',
+                  text: 'A terre',
+                  image: '/placeholder.svg?text=A terre',
                },
                {
                   id: 'C',
-                  text: 'Moroccan Institute for Agricultural Research (INRA)',
-                  image: '/placeholder.svg?text=INRA',
+                  text: 'Embouchure d’oued',
+                  image: '/placeholder.svg?text=Embouchure d’oued',
+               },
+            ],
+            correctAnswer: 'B',
+            explanation: '',
+         },
+         {
+            id: 106,
+            theme: 'Aquaculture marine',
+            level: 'Medium',
+            type: 'multiple-choice',
+            question:
+               'Par quelle technique se fait l’élevage du loup et dorade ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Cages flottantes en mer',
+                  image: '/placeholder.svg?text=Cages flottantes en mer',
+               },
+               {
+                  id: 'B',
+                  text: 'Etangs dans les lagunes',
+                  image: '/placeholder.svg?text=Etangs dans les lagunes',
+               },
+               {
+                  id: 'C',
+                  text: 'Bassins de grossissement en PVC',
+                  image: '/placeholder.svg?text=Bassins de grossissement en PVC',
                },
             ],
             correctAnswer: 'A',
-            explanation:
-               'The National Institute of Fisheries Research (INRH) is leading studies on sustainable aquaculture feed in Morocco. They conduct research on feed formulation, alternative ingredients, and feeding strategies.',
+            explanation: '',
          },
          {
-            id: 7,
-            theme: 'Feed for Farmed Fish',
+            id: 107,
+            theme: 'Aquaculture marine',
             level: 'Medium',
-            type: 'true-false',
-            question:
-               "Morocco's aquaculture sector has achieved complete self-sufficiency in feed production.",
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'B',
-            explanation:
-               'False. While Morocco is working towards increasing local feed production, the aquaculture sector has not yet achieved complete self-sufficiency. Some feed ingredients and specialized feeds are still imported.',
-         },
-         {
-            id: 8,
-            theme: 'Feed for Farmed Fish',
-            level: 'Medium',
-            type: 'image-association',
-            question:
-               'Match these feed ingredients to their roles in Moroccan aquaculture nutrition.',
+            type: 'multiple-choice',
+            question: 'La culture des micro-algues sert à ?',
             options: [
                {
                   id: 'A',
-                  text: 'Algae extract',
-                  image: '/placeholder.svg?text=algae_extract',
+                  text: 'Extraction d’huiles',
+                  image: '/placeholder.svg?text=Extraction d’huiles',
                },
                {
                   id: 'B',
-                  text: 'Krill meal',
-                  image: '/placeholder.svg?text=krill_meal',
+                  text: 'L’alimentation humaine et animale',
+                  image: '/placeholder.svg?text=L’alimentation humaine et animale',
                },
                {
                   id: 'C',
-                  text: 'Pigmentation',
-                  image: '/placeholder.svg?text=pigmentation',
-               },
-               {
-                  id: 'D',
-                  text: 'Omega-3 boost',
-                  image: '/placeholder.svg?text=omega3_boost',
+                  text: 'La production de l’agar agar',
+                  image: '/placeholder.svg?text=La production de l’agar agar',
                },
             ],
-            correctAnswer: 'A-C,B-D',
-            explanation:
-               'In Moroccan aquaculture, algae extracts are often used for fish pigmentation, especially in species like sea bream, while krill meal is used to boost omega-3 fatty acid content in fish feed.',
+            correctAnswer: 'A',
+            explanation: '',
          },
          {
-            id: 9,
-            theme: 'Feed for Farmed Fish',
+            id: 108,
+            theme: 'Aquaculture marine',
+            level: 'Medium',
+            type: 'multiple-choice',
+            question: 'L’élevage des poissons s’exerce seulement en mer ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Oui',
+                  image: '/placeholder.svg?text=Oui',
+               },
+               {
+                  id: 'B',
+                  text: 'Non',
+                  image: '/placeholder.svg?text=Non',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 109,
+            theme: 'Aquaculture marine',
+            level: 'Medium',
+            type: 'multiple-choice',
+            question: 'L’aquaponie c’est ?',
+            options: [
+               {
+                  id: 'A',
+                  text: "Une méthode de culture qui combine l'élevage de poissons et la culture de plantes en symbiose.",
+                  image: "/placeholder.svg?text=Une méthode de culture qui combine l'élevage de poissons et la culture de plantes en symbiose.",
+               },
+               {
+                  id: 'B',
+                  text: 'Une technique de culture en terre utilisant des engrais chimiques.',
+                  image: '/placeholder.svg?text=Une technique de culture en terre utilisant des engrais chimiques.',
+               },
+               {
+                  id: 'C',
+                  text: 'Une méthode de culture de plantes sans eau.',
+                  image: '/placeholder.svg?text=Une méthode de culture de plantes sans eau.',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 110,
+            theme: 'Aquaculture marine',
+            level: 'Medium',
+            type: 'multiple-choice',
+            question: 'C’est quoi la peneiculture ',
+            options: [
+               {
+                  id: 'A',
+                  text: "L'élevage de poissons en eau douce.",
+                  image: "/placeholder.svg?text=L'élevage de poissons en eau douce.",
+               },
+               {
+                  id: 'B',
+                  text: "L'élevage des crevettes.",
+                  image: "/placeholder.svg?text=L'élevage des crevettes.",
+               },
+               {
+                  id: 'C',
+                  text: "La culture de plantes aquatiques pour l'alimentation.",
+                  image: "/placeholder.svg?text=La culture de plantes aquatiques pour l'alimentation.",
+               },
+            ],
+            correctAnswer: 'B',
+            explanation: '',
+         },
+         {
+            id: 111,
+            theme: 'Aquaculture marine',
+            level: 'Medium',
+            type: 'multiple-choice',
+            question: "Qu'est-ce que l'holothuriculture ?",
+            options: [
+               {
+                  id: 'A',
+                  text: "L'élevage des huîtres pour la production de perles.",
+                  image: "/placeholder.svg?text=L'élevage des huîtres pour la production de perles.",
+               },
+               {
+                  id: 'B',
+                  text: "L'élevage des concombres de mer.",
+                  image: "/placeholder.svg?text=L'élevage des concombres de mer.",
+               },
+               {
+                  id: 'C',
+                  text: "La culture des algues marines pour l'industrie alimentaire.",
+                  image: "/placeholder.svg?text=La culture des algues marines pour l'industrie alimentaire.",
+               },
+            ],
+            correctAnswer: 'B',
+            explanation: '',
+         },
+         {
+            id: 112,
+            theme: 'Aquaculture marine',
+            level: 'Medium',
+            type: 'multiple-choice',
+            question: 'C’est quoi la mytiliculture',
+            options: [
+               {
+                  id: 'A',
+                  text: "L'élevage des huîtres pour la production de perles.",
+                  image: "/placeholder.svg?text=L'élevage des huîtres pour la production de perles.",
+               },
+               {
+                  id: 'B',
+                  text: "L'élevage des palourdes.",
+                  image: "/placeholder.svg?text=L'élevage des palourdes.",
+               },
+               {
+                  id: 'C',
+                  text: 'L’élevage des moules.',
+                  image: '/placeholder.svg?text=L’élevage des moules.',
+               },
+            ],
+            correctAnswer: 'C',
+            explanation: '',
+         },
+         {
+            id: 113,
+            theme: 'Aquaculture marine',
             level: 'Medium',
             type: 'multiple-choice',
             question:
-               'What sustainability certification is being promoted for aquaculture feed in Morocco?',
+               'Qu’elle est la technique communément utilisée pour l’élevage des palourdes',
             options: [
                {
                   id: 'A',
-                  text: 'Marine Stewardship Council (MSC)',
-                  image: '/placeholder.svg?text=MSC',
+                  text: "L'élevage dans des cages flottantes en mer.",
+                  image: "/placeholder.svg?text=L'élevage dans des cages flottantes en mer.",
                },
                {
                   id: 'B',
-                  text: 'Aquaculture Stewardship Council (ASC)',
-                  image: '/placeholder.svg?text=ASC',
+                  text: 'L’élevage dans les lanternes sur filières en offshore.',
+                  image: '/placeholder.svg?text=L’élevage dans les lanternes sur filières en offshore.',
                },
                {
                   id: 'C',
-                  text: 'Global G.A.P.',
-                  image: '/placeholder.svg?text=Global_GAP',
+                  text: "L'élevage sur sol en Estran.",
+                  image: "/placeholder.svg?text=L'élevage sur sol en Estran.",
                },
             ],
-            correctAnswer: 'B',
-            explanation:
-               'The Aquaculture Stewardship Council (ASC) certification is being promoted for aquaculture feed in Morocco. This certification ensures that feed is sourced and produced responsibly, considering environmental and social factors.',
+            correctAnswer: 'C',
+            explanation: '',
          },
          {
-            id: 10,
-            theme: 'Feed for Farmed Fish',
+            id: 114,
+            theme: 'Aquaculture marine',
             level: 'Medium',
-            type: 'true-false',
+            type: 'multiple-choice',
             question:
-               'Morocco has banned the use of antibiotics in aquaculture feed.',
+               'Qu’elle est la région qui produit les grandes quantités d’huitres au Maroc',
             options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
+               {
+                  id: 'A',
+                  text: 'Casablanca Settat',
+                  image: '/placeholder.svg?text=Casablanca Settat',
+               },
+               {
+                  id: 'B',
+                  text: 'Souss Massa',
+                  image: '/placeholder.svg?text=Souss Massa',
+               },
+               {
+                  id: 'C',
+                  text: 'Dakhla oued Eddahab',
+                  image: '/placeholder.svg?text=Dakhla oued Eddahab',
+               },
             ],
-            correctAnswer: 'B',
-            explanation:
-               'False. While Morocco regulates the use of antibiotics in aquaculture, they are not completely banned. Their use is restricted and monitored to prevent antimicrobial resistance and ensure food safety.',
+            correctAnswer: 'C',
+            explanation: '',
          },
          // Difficult Level
          {
-            id: 11,
-            theme: 'Feed for Farmed Fish',
+            id: 115,
+            theme: 'Aquaculture marine',
             level: 'Difficult',
             type: 'multiple-choice',
             question:
-               'Which innovative feed technology is being tested in Moroccan marine aquaculture?',
+               'En Méditerranée quelle est la meilleure période pour l’alevinage des cages  ?',
             options: [
                {
                   id: 'A',
-                  text: 'Acoustic feeding triggers',
-                  image: '/placeholder.svg?text=acoustic_triggers',
+                  text: 'Eté',
+                  image: '/placeholder.svg?text=Eté',
                },
                {
                   id: 'B',
-                  text: 'Drone-based feed distribution',
-                  image: '/placeholder.svg?text=drone_feeding',
+                  text: 'Automne',
+                  image: '/placeholder.svg?text=Automne',
                },
                {
                   id: 'C',
-                  text: 'Submerged feeding stations',
-                  image: '/placeholder.svg?text=submerged_stations',
-               },
-            ],
-            correctAnswer: 'C',
-            explanation:
-               'Submerged feeding stations are being tested in Moroccan marine aquaculture. These stations allow for precise feeding at different depths, reducing feed waste and improving distribution in offshore farms.',
-         },
-         {
-            id: 12,
-            theme: 'Feed for Farmed Fish',
-            level: 'Difficult',
-            type: 'true-false',
-            question:
-               'Morocco has implemented a traceability system for aquaculture feed ingredients.',
-            options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
-            ],
-            correctAnswer: 'A',
-            explanation:
-               'True. Morocco has implemented a traceability system for aquaculture feed ingredients. This system helps ensure the quality and safety of feed, and supports sustainable sourcing practices.',
-         },
-         {
-            id: 13,
-            theme: 'Feed for Farmed Fish',
-            level: 'Difficult',
-            type: 'image-association',
-            question:
-               'Match these advanced feed concepts to their applications in Moroccan aquaculture.',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Nutrigenomics',
-                  image: '/placeholder.svg?text=nutrigenomics',
-               },
-               {
-                  id: 'B',
-                  text: 'Nanotechnology',
-                  image: '/placeholder.svg?text=nanotechnology',
-               },
-               {
-                  id: 'C',
-                  text: 'Personalized fish diets',
-                  image: '/placeholder.svg?text=personalized_diets',
+                  text: 'Hiver',
+                  image: '/placeholder.svg?text=Hiver',
                },
                {
                   id: 'D',
-                  text: 'Enhanced nutrient delivery',
-                  image: '/placeholder.svg?text=nutrient_delivery',
+                  text: 'Printemps',
+                  image: '/placeholder.svg?text=Printemps',
                },
             ],
-            correctAnswer: 'A-C,B-D',
-            explanation:
-               'In advanced Moroccan aquaculture, nutrigenomics is being used to develop personalized fish diets based on genetic factors, while nanotechnology is explored for enhanced nutrient delivery in feeds.',
+            correctAnswer: 'B',
+            explanation: '',
          },
          {
-            id: 14,
-            theme: 'Feed for Farmed Fish',
+            id: 116,
+            theme: 'Aquaculture marine',
             level: 'Difficult',
             type: 'multiple-choice',
-            question:
-               'What innovative approach is Morocco taking to address the fish oil shortage in aquaculture feed?',
+            question: 'Combien de filets sont utilisés dans une cage en mer?',
             options: [
                {
                   id: 'A',
-                  text: 'Genetic modification of marine microalgae',
-                  image: '/placeholder.svg?text=gm_microalgae',
+                  text: 'Un seul',
+                  image: '/placeholder.svg?text=Un seul',
                },
                {
                   id: 'B',
-                  text: 'Synthetic fish oil production',
-                  image: '/placeholder.svg?text=synthetic_oil',
+                  text: 'Deux',
+                  image: '/placeholder.svg?text=Deux',
                },
                {
                   id: 'C',
-                  text: 'Land-based plant oil blends',
-                  image: '/placeholder.svg?text=plant_oil_blends',
+                  text: 'Plus que 2',
+                  image: '/placeholder.svg?text=Plus que 2',
                },
             ],
             correctAnswer: 'C',
-            explanation:
-               'Morocco is exploring the use of land-based plant oil blends as a sustainable alternative to fish oilin aquaculture feed. This approach aims to reduce dependency on marine resources while maintaining the nutritional quality of feed.',
+            explanation: '',
          },
          {
-            id: 15,
-            theme: 'Feed for Farmed Fish',
+            id: 117,
+            theme: 'Aquaculture marine',
             level: 'Difficult',
-            type: 'true-false',
+            type: 'multiple-choice',
             question:
-               "Morocco's aquaculture feed research includes studies on the impact of climate change on feed efficiency.",
+               'La culture des huitres se fait seulement en poche sur tables ?',
             options: [
-               { id: 'A', text: 'True' },
-               { id: 'B', text: 'False' },
+               {
+                  id: 'A',
+                  text: 'Oui',
+                  image: '/placeholder.svg?text=Oui',
+               },
+               {
+                  id: 'B',
+                  text: 'Non',
+                  image: '/placeholder.svg?text=Non',
+               },
+            ],
+            correctAnswer: 'B',
+            explanation: '',
+         },
+         {
+            id: 118,
+            theme: 'Aquaculture marine',
+            level: 'Difficult',
+            type: 'multiple-choice',
+            question: 'La mytiliculture sur bouchots dépend de ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'La profondeur',
+                  image: '/placeholder.svg?text=La profondeur',
+               },
+               {
+                  id: 'B',
+                  text: 'Le marnage',
+                  image: '/placeholder.svg?text=Le marnage',
+               },
+               {
+                  id: 'C',
+                  text: 'La nature du bois',
+                  image: '/placeholder.svg?text=La nature du bois',
+               },
+            ],
+            correctAnswer: 'B',
+            explanation: '',
+         },
+         {
+            id: 119,
+            theme: 'Aquaculture marine',
+            level: 'Difficult',
+            type: 'multiple-choice',
+            question: 'Le Thon Rouge peut il être élevé en mer ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Oui',
+                  image: '/placeholder.svg?text=Oui',
+               },
+               {
+                  id: 'B',
+                  text: 'Non',
+                  image: '/placeholder.svg?text=Non',
+               },
             ],
             correctAnswer: 'A',
-            explanation:
-               "True. Morocco's aquaculture feed research includes studies on how climate change affects feed efficiency. This research aims to develop adaptive feeding strategies for changing environmental conditions.",
+            explanation: '',
+         },
+         {
+            id: 120,
+            theme: 'Aquaculture marine',
+            level: 'Difficult',
+            type: 'multiple-choice',
+            question: 'Les coquilles des huitres peuvent être transformé en ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Ciment',
+                  image: '/placeholder.svg?text=Ciment',
+               },
+               {
+                  id: 'B',
+                  text: 'Aliment',
+                  image: '/placeholder.svg?text=Aliment',
+               },
+               {
+                  id: 'C',
+                  text: 'Engrais',
+                  image: '/placeholder.svg?text=Engrais',
+               },
+            ],
+            correctAnswer: 'C',
+            explanation: '',
+         },
+         {
+            id: 121,
+            theme: 'Aquaculture marine',
+            level: 'Difficult',
+            type: 'multiple-choice',
+            question:
+               'Le pays le plus producteur, importateur et exportateur des produits aquacoles  est ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'La Norvège',
+                  image: '/placeholder.svg?text=La Norvège',
+               },
+               {
+                  id: 'B',
+                  text: 'L’Espagne',
+                  image: '/placeholder.svg?text=L’Espagne',
+               },
+               {
+                  id: 'C',
+                  text: 'La Chine',
+                  image: '/placeholder.svg?text=La Chine',
+               },
+            ],
+            correctAnswer: 'C',
+            explanation: '',
+         },
+         {
+            id: 122,
+            theme: 'Aquaculture marine',
+            level: 'Difficult',
+            type: 'multiple-choice',
+            question:
+               'Pour les espèces à haute valeur commerciale la technique la plus efficace pour contrôler les conditions d’élevage et économiser la consommation d’eau est :',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Les cages flottantes en mer ouverte',
+                  image: '/placeholder.svg?text=Les cages flottantes en mer ouverte',
+               },
+               {
+                  id: 'B',
+                  text: 'Le système de recirculation en circuit fermé à terre (RAS)',
+                  image: '/placeholder.svg?text=Le système de recirculation en circuit fermé à terre (RAS)',
+               },
+               {
+                  id: 'C',
+                  text: 'Les étangs dans les lagunes',
+                  image: '/placeholder.svg?text=Les étangs dans les lagunes',
+               },
+            ],
+            correctAnswer: 'B',
+            explanation: '',
          },
       ],
    },

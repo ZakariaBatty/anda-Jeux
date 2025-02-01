@@ -1,7 +1,7 @@
 name: Deploy to cPanel
 on:
    push:
-      branches: [deploy] # or your default branch
+      branches: [main]
 
 jobs:
    build-and-deploy:
@@ -23,10 +23,21 @@ jobs:
            run: npm run build
            env:
               DATABASE_URL: ${{ secrets.DATABASE_URL }}
-              # Add other environment variables your app needs
 
-         - name: Generate Prisma Client
-           run: npx prisma generate
+         - name: Prepare Deployment Files
+           run: |
+              # Create deployment directory
+              mkdir -p deployment/quiz
+
+              # Copy standalone build
+              cp -r .next/standalone/* deployment/quiz/
+
+              # Copy static files
+              cp -r .next/static deployment/quiz/.next/static
+              cp -r public/* deployment/quiz/public
+
+              # Copy .htaccess
+              cp public/.htaccess deployment/quiz/
 
          - name: FTP Deploy
            uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -34,8 +45,8 @@ jobs:
               server: ${{ secrets.FTP_SERVER }}
               username: ${{ secrets.FTP_USERNAME }}
               password: ${{ secrets.FTP_PASSWORD }}
-              local-dir: ./.next/
-              server-dir: / # Adjust this path according to your cPanel setup
+              local-dir: ./deployment/quiz/
+              server-dir: /
               exclude: |
                  **/.git*
                  **/.git*/**

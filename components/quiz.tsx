@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { Timer, CheckCircle2, XCircle } from "lucide-react"
 import type { QuizState, QuizResults, UserInfo } from "@/types/quiz"
-import { getRandomQuestions, themes } from "@/data/questions"
+import { getRandomQuestions, themes } from '@/types/quiz'
 import { QuizResults as QuizResultsComponent } from "./quiz-results"
 import Image from "next/image"
 
