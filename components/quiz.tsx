@@ -7,6 +7,7 @@ import type { QuizState, QuizResults, UserInfo } from "@/types/quiz"
 import { getRandomQuestions, themes } from "@/data/questions"
 import { QuizResults as QuizResultsComponent } from "./quiz-results"
 import Image from "next/image"
+import { createWinner } from "@/app/actions/winners"
 
 interface QuizProps {
   onBack: () => void
@@ -174,12 +175,14 @@ export function Quiz({ onHome, onRestart }: QuizProps) {
     return result
   }
 
+
   const handleQuizComplete = async (results: QuizResults) => {
-    const storedUserInfo = localStorage.getItem("quizUserInfo")
+    const storedUserInfo = localStorage.getItem("quizUserInfo");
     if (storedUserInfo) {
-      const userInfo: UserInfo = JSON.parse(storedUserInfo)
-      const generatedCode = generateWinnerCode()
-      setWinnerCode(generatedCode)
+      const userInfo: UserInfo = JSON.parse(storedUserInfo);
+      const generatedCode = generateWinnerCode();
+      setWinnerCode(generatedCode);
+
       const winner = {
         fullName: userInfo.fullName,
         email: userInfo.email,
@@ -189,27 +192,20 @@ export function Quiz({ onHome, onRestart }: QuizProps) {
         score: results.score,
         wonLevels: [quizState.currentLevel],
         winnerCode: generatedCode,
-      }
+      };
 
-      try {
-        const response = await fetch("/api/winners", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(winner),
-        })
-
-        if (!response.ok) {
-          throw new Error("Failed to save winner data")
-        }
-      } catch (error) {
-        console.error("Error saving winner data:", error)
+      const response = await createWinner(winner);
+      console.log('response', response);
+      if (response.success) {
+        console.log("Winner saved:", response.winner);
+      } else {
+        console.error("Error saving winner:", response.error);
       }
     }
 
-    setShowResults(true)
-  }
+    setShowResults(true);
+  };
+
 
   if (showResults) {
     const totalQuestions = Object.keys(quizState.answers).length

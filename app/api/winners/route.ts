@@ -84,7 +84,7 @@ export async function POST(request: Request) {
       // Ensure we're returning a plain object, not a Prisma model instance
       const safeWinner = JSON.parse(JSON.stringify(winner));
       console.log('safeWinner', safeWinner);
-      // return NextResponse.json({ success: true, data: safeWinner });
+      return;
    } catch (error) {
       console.error('Detailed error in POST /api/winners:', error);
 

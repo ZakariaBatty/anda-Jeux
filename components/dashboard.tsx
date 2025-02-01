@@ -1,48 +1,46 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Input } from "@/components/ui/input"
-import { Trophy } from "lucide-react"
+import { useState, useEffect } from "react";
+import { getWinners } from "@/app/actions/winners";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Input } from "@/components/ui/input";
+import { Trophy } from "lucide-react";
 
 interface Winner {
-  id: number
-  fullName: string
-  email: string
-  level: string
-  score: number
-  wonLevels: string
-  winnerCode: string
-  phone: string
-  profession: string
+  id: number;
+  fullName: string | null;
+  email: string;
+  level: string;
+  score: number;
+  wonLevels: string;
+  winnerCode: string;
+  phone: string | null;
+  profession: string | null;
 }
 
 export function Dashboard() {
-  const [winners, setWinners] = useState<Winner[]>([])
-  const [searchTerm, setSearchTerm] = useState("")
+  const [winners, setWinners] = useState<Winner[]>([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const fetchWinners = async () => {
-      try {
-        const response = await fetch("/api/winners")
-        if (!response.ok) {
-          throw new Error("Failed to fetch winners")
-        }
-        const data = await response.json()
-        setWinners(data)
-      } catch (error) {
-        console.error("Error fetching winners:", error)
+      const response = await getWinners();
+      if (response?.success) {
+        setWinners(Array.isArray(response.winners) ? response.winners : []);
+      } else {
+        console.error("Error fetching winners:", response?.error);
       }
-    }
+    };
 
-    fetchWinners()
-  }, [])
+    fetchWinners();
+  }, []);
+
 
   const filteredWinners = winners.filter(
     (winner) =>
       winner.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      winner.winnerCode.toLowerCase().includes(searchTerm.toLowerCase()),
-  )
+      winner.winnerCode.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="container mx-auto p-4">
@@ -87,6 +85,5 @@ export function Dashboard() {
         </TableBody>
       </Table>
     </div>
-  )
+  );
 }
-
