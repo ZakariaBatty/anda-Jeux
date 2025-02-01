@@ -34,16 +34,15 @@ jobs:
               # Create deployment directory
               mkdir -p deployment/quiz
 
-              # Move built files into deployment folder
-              mv .next/standalone deployment/quiz/
-              mv .next/static deployment/quiz/
-              mv public deployment/quiz/
+              # Copy standalone build (Check if `server.js` exists)
+              cp -r .next/standalone/* deployment/quiz/
 
-              # Copy .htaccess for routing
-              cp .htaccess deployment/quiz/
+              # Ensure server.js is executable
+              chmod +x deployment/quiz/server.js || echo "server.js not found!"
 
-              # Ensure Next.js server is executable
-              chmod +x deployment/quiz/server.js
+              # Copy static files
+              cp -r .next/static deployment/quiz/.next/static
+              cp -r public/* deployment/quiz/public || echo "No public files found"
 
          - name: FTP Deploy
            uses: SamKirkland/FTP-Deploy-Action@v4.3.4
