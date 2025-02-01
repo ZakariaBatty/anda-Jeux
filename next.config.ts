@@ -1,8 +1,14 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import type { NextConfig } from 'next';
+
+const nextConfig: NextConfig = {
+   /* config options here */
    output: 'standalone',
-   basePath: '/quiz', // 👈 Set basePath for subdirectory hosting
-   assetPrefix: '/quiz', // 👈 Ensure static assets load correctly
+   basePath: '/quiz',
+   assetPrefix: '/quiz/',
+
+   images: {
+      dangerouslyAllowSVG: true,
+   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;

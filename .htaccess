@@ -1,8 +1,5 @@
 RewriteEngine On
-
-# Redirect everything to Next.js handler
 RewriteBase /quiz
-RewriteRule ^index\.html$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /quiz/server.js [L]
+RewriteRule ^(.*)$ /quiz/standalone/server.js [L]
