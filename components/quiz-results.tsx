@@ -1,45 +1,52 @@
-import { Button } from "@/components/ui/button"
-import type { QuizResults, UserInfo } from "@/types/quiz"
+import { useEffect } from "react";
+import { createWinner } from "@/app/actions/winners";
+import { Button } from "@/components/ui/button";
+import type { QuizResults, UserInfo } from "@/types/quiz";
 
 interface QuizResultsProps {
-  results: QuizResults
-  onRestart: () => void
-  onHome: () => void
+  results: QuizResults;
+  onRestart: () => void;
+  onHome: () => void;
 }
 
 export function QuizResults({ results, onRestart, onHome }: QuizResultsProps) {
 
-  const handleQuizComplete = async (results: QuizResults) => {
-    const storedUserInfo = localStorage.getItem("quizUserInfo");
-    if (storedUserInfo) {
-      const userInfo: UserInfo = JSON.parse(storedUserInfo);
+  useEffect(() => {
+    const handleQuizComplete = async (results: QuizResults) => {
+      const storedUserInfo = localStorage.getItem("quizUserInfo");
+      if (storedUserInfo) {
+        const userInfo: UserInfo = JSON.parse(storedUserInfo);
+        console.log("isWinner", results.isWinner);
+        if (!results.isWinner) {
+          return;
+        }
+        const winner = {
+          fullName: userInfo.fullName,
+          email: userInfo.email,
+          phone: userInfo.phone,
+          profession: userInfo.profession,
+          level: userInfo.level,
+          score: results.score,
+          wonLevels: [results.quizState],
+          winnerCode: results.winnerCode || "",
+        };
+        const response = await createWinner(winner);
+        console.log("response", response);
+        if (response.success) {
+          console.log("Winner saved:", response.winner);
+        } else {
+          console.error("Error saving winner:", response.error);
+        }
+      }
+    };
 
-      const winner = {
-        fullName: userInfo.fullName,
-        email: userInfo.email,
-        phone: userInfo.phone,
-        profession: userInfo.profession,
-        level: userInfo.level,
-        score: results.score,
-        wonLevels: [results.quizState],
-        winnerCode: results.winnerCode,
-      };
-      console.log('winner', winner);
-      // const response = await createWinner(winner);
-      // console.log('response', response);
-      // if (response.success) {
-      //   console.log("Winner saved:", response.winner);
-      // } else {
-      //   console.error("Error saving winner:", response.error);
-      // }
-    }
-  };
+    // Call the function after the component has mounted
+    handleQuizComplete(results);
+  }, [results]); // Re-run if `results` change
 
-  handleQuizComplete(results);
   return (
     <div className="w-full max-w-4xl mx-auto px-4 text-center">
-      <div className="mb-8">
-      </div>
+      <div className="mb-8"></div>
 
       <div className="space-y-12">
         <div className="text-8xl font-bold text-white">
@@ -53,7 +60,7 @@ export function QuizResults({ results, onRestart, onHome }: QuizResultsProps) {
             ✅ Félicitations ! Vous avez gagné.
             {results.winnerCode && (
               <div className="mt-4">
-                Votre code gagnant : <span className="text-yellow-400">{results.winnerCode}</span>
+                Votre code gagnant: <span className="text-yellow-400">{results.winnerCode}</span>
                 <p className="text-sm mt-2">Présentez ce code à l&apos;accueil du stand pour récupérer votre cadeau.</p>
               </div>
             )}
@@ -92,6 +99,5 @@ export function QuizResults({ results, onRestart, onHome }: QuizResultsProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

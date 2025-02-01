@@ -87,19 +87,22 @@ export function Quiz({ onHome, onRestart }: QuizProps) {
   }, [showFeedback, handleAnswerSubmit])
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft((prevTime) => {
-        if (prevTime <= 1) {
-          clearInterval(timer)
-          handleTimeUp()
-          return 0
-        }
-        return prevTime - 1
-      })
-    }, 1000)
+    let timer: NodeJS.Timeout
+    if (!showResults) {
+      timer = setInterval(() => {
+        setTimeLeft((prevTime) => {
+          if (prevTime <= 1) {
+            clearInterval(timer)
+            handleTimeUp()
+            return 0
+          }
+          return prevTime - 1
+        })
+      }, 1000)
+    }
 
     return () => clearInterval(timer)
-  }, [handleTimeUp])
+  }, [handleTimeUp, showResults])
 
   const handleAnswerSelect = (answerId: string) => {
     if (showFeedback) return
