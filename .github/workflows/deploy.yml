@@ -1,16 +1,14 @@
 name: Deploy to cPanel
-
 on:
    push:
-      branches: [deploy] # Change this to your deployment branch
+      branches: [deploy] # or your default branch
 
 jobs:
    build-and-deploy:
       runs-on: ubuntu-latest
 
       steps:
-         - name: Checkout repository
-           uses: actions/checkout@v3
+         - uses: actions/checkout@v3
 
          - name: Setup Node.js
            uses: actions/setup-node@v3
@@ -21,40 +19,14 @@ jobs:
          - name: Install Dependencies
            run: npm ci
 
-         - name: Generate Prisma Client
-           run: npx prisma generate
-
          - name: Build Application
+           run: npm run build
            env:
               DATABASE_URL: ${{ secrets.DATABASE_URL }}
-           run: npm run build
+              # Add other environment variables your app needs
 
-         - name: Check Build Output
-           run: ls -R .next/standalone
-
-         - name: Prepare Deployment Files
-           run: |
-              # Create deployment directory
-              mkdir -p deployment/quiz
-
-              # Copy standalone build (server.js should be here)
-              cp -r .next/standalone/* deployment/quiz/
-
-              # Ensure server.js exists
-              if [ ! -f deployment/quiz/server.js ]; then
-                echo "❌ ERROR: server.js not found in standalone build!";
-                exit 1;
-              fi
-
-              # Ensure server.js is executable
-              chmod +x deployment/quiz/server.js
-
-              # Copy static files
-              cp -r .next/static deployment/quiz/.next/static
-              cp -r public/* deployment/quiz/public || echo "⚠️ No public files found"
-
-              # Copy .htaccess
-              cp public/.htaccess deployment/quiz/ || echo "⚠️ No .htaccess found"
+         - name: Generate Prisma Client
+           run: npx prisma generate
 
          - name: FTP Deploy
            uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -62,8 +34,8 @@ jobs:
               server: ${{ secrets.FTP_SERVER }}
               username: ${{ secrets.FTP_USERNAME }}
               password: ${{ secrets.FTP_PASSWORD }}
-              local-dir: deployment/quiz/
-              server-dir: /
+              local-dir: ./.next/
+              server-dir: / # Adjust this path according to your cPanel setup
               exclude: |
                  **/.git*
                  **/.git*/**
