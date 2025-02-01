@@ -239,7 +239,7 @@ export function Quiz({ onHome, onRestart }: QuizProps) {
         {currentQuestion.image && (
           <div className="mb-6">
             <Image
-              src={currentQuestion.image || "/placeholder.svg"}
+              src={currentQuestion.image ? encodeURI(currentQuestion.image.trim()) : "/placeholder.svg"}
               alt="Question Image"
               width={300}
               height={200}
@@ -277,13 +277,14 @@ export function Quiz({ onHome, onRestart }: QuizProps) {
               <span className="text-white text-lg">{option.text}</span>
               {option.image && (
                 <Image
-                  src={option.image || "/placeholder.svg"}
+                  src={option.image ? encodeURI(option.image.trim()) : "/placeholder.svg"}
                   alt={option.text}
                   width={50}
                   height={50}
                   className="rounded-lg"
                 />
               )}
+
             </button>
           ))}
         </div>

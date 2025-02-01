@@ -1,36 +1,8 @@
-# Enable rewrite engine
 RewriteEngine On
 
-# Set the base for rewrites to match your subdirectory
-RewriteBase /quiz/
-
-# Don't rewrite files or directories
+# Redirect everything to Next.js handler
+RewriteBase /quiz
+RewriteRule ^index\.html$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-
-# Handle Next.js client-side routing
-RewriteRule ^(.*)$ index.html [L]
-
-# PHP settings (if needed)
-<IfModule mod_php.c>
-    php_value upload_max_filesize 64M
-    php_value post_max_size 64M
-    php_value max_execution_time 300
-    php_value max_input_time 300
-</IfModule>
-
-# Set proper MIME types
-AddType application/javascript .js
-AddType application/json .json
-AddType text/css .css
-
-# Enable CORS if needed
-<IfModule mod_headers.c>
-    Header set Access-Control-Allow-Origin "*"
-</IfModule>
-
-# Set directory index
-DirectoryIndex index.html
-
-# Prevent directory listing
-Options -Indexes
+RewriteRule ^(.*)$ /quiz/server.js [L]
