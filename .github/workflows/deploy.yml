@@ -2,7 +2,7 @@ name: Deploy to cPanel
 
 on:
    push:
-      branches: [deploy] # Change to the branch you use for deployment
+      branches: [deploy] # Change this to your deployment branch
 
 jobs:
    build-and-deploy:
@@ -29,20 +29,32 @@ jobs:
               DATABASE_URL: ${{ secrets.DATABASE_URL }}
            run: npm run build
 
+         - name: Check Build Output
+           run: ls -R .next/standalone
+
          - name: Prepare Deployment Files
            run: |
               # Create deployment directory
               mkdir -p deployment/quiz
 
-              # Copy standalone build (Check if `server.js` exists)
+              # Copy standalone build (server.js should be here)
               cp -r .next/standalone/* deployment/quiz/
 
+              # Ensure server.js exists
+              if [ ! -f deployment/quiz/server.js ]; then
+                echo "❌ ERROR: server.js not found in standalone build!";
+                exit 1;
+              fi
+
               # Ensure server.js is executable
-              chmod +x deployment/quiz/server.js || echo "server.js not found!"
+              chmod +x deployment/quiz/server.js
 
               # Copy static files
               cp -r .next/static deployment/quiz/.next/static
-              cp -r public/* deployment/quiz/public || echo "No public files found"
+              cp -r public/* deployment/quiz/public || echo "⚠️ No public files found"
+
+              # Copy .htaccess
+              cp public/.htaccess deployment/quiz/ || echo "⚠️ No .htaccess found"
 
          - name: FTP Deploy
            uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -51,7 +63,7 @@ jobs:
               username: ${{ secrets.FTP_USERNAME }}
               password: ${{ secrets.FTP_PASSWORD }}
               local-dir: deployment/quiz/
-              server-dir: /
+              server-dir: /public_html/devloup.com/quiz/
               exclude: |
                  **/.git*
                  **/.git*/**
