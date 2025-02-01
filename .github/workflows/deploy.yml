@@ -1,4 +1,4 @@
-name: Deploy to cPanel
+name: Deploy to LWS cPanel
 
 on:
    push:
@@ -10,16 +10,18 @@ jobs:
 
       steps:
          - name: Checkout repository
-           uses: actions/checkout@v3
+           uses: actions/checkout@v4
 
          - name: Setup Node.js
-           uses: actions/setup-node@v3
+           uses: actions/setup-node@v4
            with:
               node-version: '20'
               cache: 'npm'
 
          - name: Install Dependencies
-           run: npm ci
+           run: |
+              npm ci
+              npm i sharp@latest
 
          - name: Generate Prisma Client
            run: npx prisma generate
@@ -27,54 +29,68 @@ jobs:
          - name: Build Application
            env:
               DATABASE_URL: ${{ secrets.DATABASE_URL }}
+              # Add other environment variables here
            run: npm run build
-
-         - name: Debug Build Output
-           run: |
-              echo "Checking build output..."
-              ls -la .next/ || echo "⚠️ .next directory not found!"
-              ls -la .next/standalone/ || echo "⚠️ .next/standalone directory not found!"
-              ls -la .next/static/ || echo "⚠️ .next/static directory not found!"
 
          - name: Prepare Deployment Files
            run: |
-              echo "Creating deployment directory..."
-              mkdir -p deployment/quiz/.next/static || echo "⚠️ Failed to create .next/static directory"
-              mkdir -p deployment/quiz/public
+              # Create deployment structure
+              mkdir -p deployment/quiz
 
-              echo "Copying standalone files..."
-              if [ -d ".next/standalone" ]; then
-                cp -r .next/standalone/* deployment/quiz/
-              else
-                echo "⚠️ No standalone directory found!"
-              fi
+              # Copy standalone server and dependencies
+              cp -r .next/standalone/* deployment/quiz/
 
-              echo "Copying static files..."
-              if [ -d ".next/static" ]; then
-                cp -r .next/static deployment/quiz/.next/static
-              else
-                echo "⚠️ No static directory found!"
-              fi
+              # Copy static files and public assets
+              mkdir -p deployment/quiz/.next/static
+              cp -r .next/static deployment/quiz/.next/
+              cp -r public deployment/quiz/
 
-              echo "Copying project files..."
-              cp package.json deployment/quiz/ || echo "⚠️ package.json not found!"
-              cp -r public deployment/quiz/public || echo "⚠️ No public files found!"
+              # Copy Prisma files
+              mkdir -p deployment/quiz/prisma
+              cp prisma/schema.prisma deployment/quiz/prisma/
 
-              echo "Checking for server.js..."
-              if [ -f "deployment/quiz/server.js" ]; then
-                chmod +x deployment/quiz/server.js
-              else
-                echo "⚠️ server.js not found!"
-              fi
+              # Create PHP entry point for LWS
+              cat > deployment/quiz/index.php << 'EOL'
+              <?php
+              header("Location: /quiz/_next/server");
+              exit();
+              EOL
+
+              # Create optimized .htaccess for LWS
+              cat > deployment/quiz/.htaccess << 'EOL'
+              RewriteEngine On
+              RewriteBase /quiz
+
+              # Allow direct access to static files
+              RewriteCond %{REQUEST_URI} ^/quiz/_next/static/(.*)$
+              RewriteRule ^_next/static/(.*)$ .next/static/$1 [L]
+
+              # Handle Node.js application
+              RewriteCond %{REQUEST_FILENAME} !-f
+              RewriteCond %{REQUEST_FILENAME} !-d
+              RewriteRule ^(.*)$ http://localhost:3001/$1 [P,L]
+
+              # Handle errors
+              ErrorDocument 404 /quiz/_next/server
+              ErrorDocument 500 /quiz/_next/server
+
+              # Security headers for Cloudflare compatibility
+              Header set Access-Control-Allow-Origin "*"
+              Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+              Header set Access-Control-Allow-Headers "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type"
+              EOL
+
+              # Make server.js executable
+              chmod +x deployment/quiz/server.js
 
          - name: FTP Deploy
            uses: SamKirkland/FTP-Deploy-Action@v4.3.4
            with:
-              server: ${{ secrets.FTP_SERVER }}
+              server: ftp.lws.fr # LWS FTP server
               username: ${{ secrets.FTP_USERNAME }}
               password: ${{ secrets.FTP_PASSWORD }}
               local-dir: deployment/quiz/
-              server-dir: /
+              server-dir: /quiz/
               exclude: |
                  **/.git*
                  **/.git*/**
