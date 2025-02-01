@@ -2943,12 +2943,21 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
    },
 };
 
-export const themes = [
-   'Aquatic Animals',
-   'Feed for Farmed Fish',
-   'Aquaculture Professions',
-   'Aquaculture and Environment',
-] as const;
+export const themesByLevel = {
+   DÉBUTANT: [
+      'Les animaux aquatiques',
+      "L'alimentation des poissons d'élevage",
+      "Les métiers de l'aquaculture",
+      "L'aquaculture et l'environnement",
+      "L'importance économique et sociale de l'aquaculture au Maroc",
+   ],
+   AVANCÉ: [
+      "Découverte de l'Aquaculture",
+      "Les Régions d'Aquaculture au Maroc",
+      'Alimentation et Croissance des Espèces Aquacoles',
+   ],
+   EXCELLENT: ['Aquaculture marine'],
+} as const;
 
 export function getRandomQuestions(
    userLevel: string,

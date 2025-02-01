@@ -40,4 +40,5 @@ export interface QuizResults {
    isWinner: boolean;
    winnerCode?: string | null;
    quizState: string;
+   percentageCorrect: number;
 }

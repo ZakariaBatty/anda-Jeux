@@ -1,24 +1,23 @@
-import { useEffect } from "react";
-import { createWinner } from "@/app/actions/winners";
-import { Button } from "@/components/ui/button";
-import type { QuizResults, UserInfo } from "@/types/quiz";
+import { useEffect } from "react"
+import { createWinner } from "@/app/actions/winners"
+import { Button } from "@/components/ui/button"
+import type { QuizResults, UserInfo } from "@/types/quiz"
 
 interface QuizResultsProps {
-  results: QuizResults;
-  onRestart: () => void;
-  onHome: () => void;
+  results: QuizResults
+  onRestart: () => void
+  onHome: () => void
 }
 
 export function QuizResults({ results, onRestart, onHome }: QuizResultsProps) {
-
   useEffect(() => {
     const handleQuizComplete = async (results: QuizResults) => {
-      const storedUserInfo = localStorage.getItem("quizUserInfo");
+      const storedUserInfo = localStorage.getItem("quizUserInfo")
       if (storedUserInfo) {
-        const userInfo: UserInfo = JSON.parse(storedUserInfo);
-        console.log("isWinner", results.isWinner);
+        const userInfo: UserInfo = JSON.parse(storedUserInfo)
+        console.log("isWinner", results.isWinner)
         if (!results.isWinner) {
-          return;
+          return
         }
         const winner = {
           fullName: userInfo.fullName,
@@ -29,20 +28,18 @@ export function QuizResults({ results, onRestart, onHome }: QuizResultsProps) {
           score: results.score,
           wonLevels: [results.quizState],
           winnerCode: results.winnerCode || "",
-        };
-        const response = await createWinner(winner);
-        console.log("response", response);
+        }
+        const response = await createWinner(winner)
         if (response.success) {
-          console.log("Winner saved:", response.winner);
+          console.log("Winner saved:", response.winner)
         } else {
-          console.error("Error saving winner:", response.error);
+          console.error("Error saving winner:", response.error)
         }
       }
-    };
+    }
 
-    // Call the function after the component has mounted
-    handleQuizComplete(results);
-  }, [results]); // Re-run if `results` change
+    handleQuizComplete(results)
+  }, [results])
 
   return (
     <div className="w-full max-w-4xl mx-auto px-4 text-center">
@@ -54,6 +51,9 @@ export function QuizResults({ results, onRestart, onHome }: QuizResultsProps) {
         </div>
 
         <div className="text-white text-xl">Niveau: {results.level}</div>
+        <div className="text-white text-xl">
+          Pourcentage de réponses correctes: {results.percentageCorrect.toFixed(2)}%
+        </div>
 
         {results.isWinner ? (
           <div className="text-green-400 text-2xl font-bold">
@@ -99,5 +99,6 @@ export function QuizResults({ results, onRestart, onHome }: QuizResultsProps) {
         </div>
       </div>
     </div>
-  );
+  )
 }
+

@@ -3,8 +3,8 @@
 import { useState, useEffect, useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { Timer, CheckCircle2, XCircle } from "lucide-react"
-import type { QuizState, QuizResults, UserInfo } from "@/types/quiz"
-import { getRandomQuestions, themes } from '@/types/quiz'
+import type { QuizState, QuizResults, UserInfo, QuizQuestion } from "@/types/quiz"
+import { getRandomQuestions, quizQuestions, themesByLevel } from "@/data/questions"
 import { QuizResults as QuizResultsComponent } from "./quiz-results"
 import Image from "next/image"
 
@@ -29,20 +29,38 @@ export function Quiz({ onHome, onRestart }: QuizProps) {
   const [showFeedback, setShowFeedback] = useState(false)
   const [isAnswerCorrect, setIsAnswerCorrect] = useState(false)
   const [showResults, setShowResults] = useState(false)
-  // const [winnerCode, setWinnerCode] = useState<string | null>(null)
 
   const currentQuestion = quizState.selectedQuestions[quizState.currentQuestionIndex]
-  console.log('showResults', showResults);
 
   useEffect(() => {
     const storedUserInfo = localStorage.getItem("quizUserInfo")
     if (storedUserInfo) {
       const userInfo: UserInfo = JSON.parse(storedUserInfo)
       setUserInfo(userInfo)
-      const selectedQuestions = themes
-        .flatMap((theme) => getRandomQuestions(userInfo.level, theme, "Easy", 1))
+      let selectedQuestions: QuizQuestion[] = []
+
+      const themes = themesByLevel[userInfo.level]
+      if (userInfo.level === "DÉBUTANT") {
+        selectedQuestions = themes
+          .flatMap((theme) => getRandomQuestions(userInfo.level, theme, "Easy", 1))
+          .sort(() => Math.random() - 0.5)
+          .slice(0, 5)
+      } else if (userInfo.level === "AVANCÉ") {
+        selectedQuestions = themes
+          .flatMap((theme) => getRandomQuestions(userInfo.level, theme, "Easy", 1))
+          .sort(() => Math.random() - 0.5)
+          .slice(0, 3)
+      } else if (userInfo.level === "EXCELLENT") {
+        selectedQuestions = getRandomQuestions(userInfo.level, themes[0], "Easy", 5)
+      }
+
+      // Add 5 random questions from all subjects
+      const randomQuestions = Object.values(quizQuestions[userInfo.level])
+        .flat()
         .sort(() => Math.random() - 0.5)
         .slice(0, 5)
+
+      selectedQuestions = [...selectedQuestions, ...randomQuestions]
 
       if (selectedQuestions.length === 0) {
         console.error("No questions available")
@@ -116,14 +134,10 @@ export function Quiz({ onHome, onRestart }: QuizProps) {
       const currentScore = quizState.score
       const totalScore = quizState.totalScore + currentScore
 
-      if (quizState.currentLevel === "Easy" && currentScore >= 3) {
-        // Move to Medium level
-        const nextQuestions = themes
-          .flatMap((theme) => getRandomQuestions(userInfo!.level, theme, "Medium", 1))
-          .sort(() => Math.random() - 0.5)
-          .slice(0, 5)
-
-        if (nextQuestions.length > 0) {
+      if (userInfo?.level === "EXCELLENT") {
+        if (quizState.currentLevel === "Easy" && currentScore >= 3) {
+          // Move to Medium level
+          const nextQuestions = getRandomQuestions(userInfo.level, "Aquaculture marine", "Medium", 5)
           setQuizState({
             currentLevel: "Medium",
             currentQuestionIndex: 0,
@@ -132,17 +146,9 @@ export function Quiz({ onHome, onRestart }: QuizProps) {
             answers: {},
             totalScore,
           })
-        } else {
-          setShowResults(true)
-        }
-      } else if (quizState.currentLevel === "Medium" && currentScore >= 3) {
-        // Move to Difficult level
-        const nextQuestions = themes
-          .flatMap((theme) => getRandomQuestions(userInfo!.level, theme, "Difficult", 1))
-          .sort(() => Math.random() - 0.5)
-          .slice(0, 5)
-
-        if (nextQuestions.length > 0) {
+        } else if (quizState.currentLevel === "Medium" && currentScore >= 3) {
+          // Move to Difficult level
+          const nextQuestions = getRandomQuestions(userInfo.level, "Aquaculture marine", "Difficult", 5)
           setQuizState({
             currentLevel: "Difficult",
             currentQuestionIndex: 0,
@@ -155,7 +161,42 @@ export function Quiz({ onHome, onRestart }: QuizProps) {
           setShowResults(true)
         }
       } else {
-        setShowResults(true)
+        const totalQuestions = quizState.selectedQuestions.length
+        if (totalScore / totalQuestions >= 0.5) {
+          if (quizState.currentLevel === "Easy") {
+            // Move to Medium level
+            const nextQuestions = themesByLevel[userInfo!.level]
+              .flatMap((theme) => getRandomQuestions(userInfo!.level, theme, "Medium", 1))
+              .sort(() => Math.random() - 0.5)
+              .slice(0, userInfo!.level === "DÉBUTANT" ? 5 : 3)
+            setQuizState({
+              currentLevel: "Medium",
+              currentQuestionIndex: 0,
+              selectedQuestions: nextQuestions,
+              score: 0,
+              answers: {},
+              totalScore,
+            })
+          } else if (quizState.currentLevel === "Medium") {
+            // Move to Difficult level
+            const nextQuestions = themesByLevel[userInfo!.level]
+              .flatMap((theme) => getRandomQuestions(userInfo!.level, theme, "Difficult", 1))
+              .sort(() => Math.random() - 0.5)
+              .slice(0, userInfo!.level === "DÉBUTANT" ? 5 : 3)
+            setQuizState({
+              currentLevel: "Difficult",
+              currentQuestionIndex: 0,
+              selectedQuestions: nextQuestions,
+              score: 0,
+              answers: {},
+              totalScore,
+            })
+          } else {
+            setShowResults(true)
+          }
+        } else {
+          setShowResults(true)
+        }
       }
     } else {
       setQuizState((prev) => ({
@@ -178,13 +219,11 @@ export function Quiz({ onHome, onRestart }: QuizProps) {
     return result
   }
 
-
-
-
   if (showResults) {
     const totalQuestions = Object.keys(quizState.answers).length
-    const isWinner = quizState.totalScore / totalQuestions >= 0.5 // 60% correct to win
-    const generatedCode = generateWinnerCode();
+    const percentageCorrect = (quizState.totalScore / totalQuestions) * 100
+    const isWinner = percentageCorrect >= 50
+    const generatedCode = isWinner ? generateWinnerCode() : null
 
     const results: QuizResults = {
       score: quizState.totalScore,
@@ -193,8 +232,8 @@ export function Quiz({ onHome, onRestart }: QuizProps) {
       isWinner,
       winnerCode: generatedCode,
       quizState: quizState.currentLevel,
+      percentageCorrect,
     }
-
 
     return <QuizResultsComponent results={results} onRestart={onRestart} onHome={onHome} />
   }
@@ -212,8 +251,7 @@ export function Quiz({ onHome, onRestart }: QuizProps) {
 
   return (
     <div className="w-full max-w-4xl mx-auto px-4">
-      <div className="mb-8">
-      </div>
+      <div className="mb-8"></div>
 
       <div className="flex justify-between items-center mb-4">
         <div className="bg-[#001f2a]/80 px-4 py-2 rounded-lg border border-white/30">
@@ -224,7 +262,7 @@ export function Quiz({ onHome, onRestart }: QuizProps) {
         </div>
         <div className="bg-[#001f2a]/80 px-4 py-2 rounded-lg border border-white/30">
           <span className="text-white font-bold">
-            {quizState.currentLevel === "Easy" ? "FACILE" : quizState.currentLevel === "Medium" ? "MOYEN" : "EXCELLENT"}
+            {quizState.currentLevel === "Easy" ? "FACILE" : quizState.currentLevel === "Medium" ? "MOYEN" : "DIFFICILE"}
           </span>
         </div>
         <div className="flex gap-4">
