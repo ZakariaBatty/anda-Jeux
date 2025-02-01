@@ -59,6 +59,3 @@ jobs:
                  **/node_modules/**
                  README.md
                  .env*
-
-         - name: Restart Node.js App on cPanel
-           run: |
