@@ -1,5 +1,3 @@
-// "use client"
-
 import { Button } from "@/components/ui/button"
 import type { QuizResults } from "@/types/quiz"
 
@@ -10,11 +8,11 @@ interface QuizResultsProps {
 }
 
 export function QuizResults({ results, onHome }: QuizResultsProps) {
-  // const totalStars = 5
-  // const earnedStars = Math.round((results.score / results.totalQuestions) * totalStars)
-
   return (
     <div className="w-full max-w-4xl mx-auto px-4 text-center">
+      <div className="mb-8">
+      </div>
+
       <div className="space-y-12">
         <div className="text-8xl font-bold text-white">
           {results.score}/{results.totalQuestions}
@@ -24,7 +22,13 @@ export function QuizResults({ results, onHome }: QuizResultsProps) {
 
         {results.isWinner ? (
           <div className="text-green-400 text-2xl font-bold">
-            ✅ Félicitations ! Vous avez gagné. Allez chercher votre cadeau à l&apos;accueil du stand.
+            ✅ Félicitations ! Vous avez gagné.
+            {results.winnerCode && (
+              <div className="mt-4">
+                Votre code gagnant : <span className="text-yellow-400">{results.winnerCode}</span>
+                <p className="text-sm mt-2">Présentez ce code à l&apos;accueil du stand pour récupérer votre cadeau.</p>
+              </div>
+            )}
           </div>
         ) : (
           <div className="text-yellow-400 text-2xl font-bold">

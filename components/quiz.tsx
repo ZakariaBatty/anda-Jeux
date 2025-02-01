@@ -1,4 +1,4 @@
-// "use client"
+"use client"
 
 import { useState, useEffect, useCallback } from "react"
 import { Button } from "@/components/ui/button"
@@ -29,6 +29,7 @@ export function Quiz({ onHome, onRestart }: QuizProps) {
   const [showFeedback, setShowFeedback] = useState(false)
   const [isAnswerCorrect, setIsAnswerCorrect] = useState(false)
   const [showResults, setShowResults] = useState(false)
+  const [winnerCode, setWinnerCode] = useState<string | null>(null)
 
   const currentQuestion = quizState.selectedQuestions[quizState.currentQuestionIndex]
 
@@ -58,7 +59,6 @@ export function Quiz({ onHome, onRestart }: QuizProps) {
       })
     }
   }, [onRestart])
-
 
   const handleAnswerSubmit = useCallback(() => {
     if (!currentQuestion) return
@@ -100,13 +100,10 @@ export function Quiz({ onHome, onRestart }: QuizProps) {
     return () => clearInterval(timer)
   }, [handleTimeUp])
 
-
-
   const handleAnswerSelect = (answerId: string) => {
     if (showFeedback) return
     setSelectedAnswer(answerId)
   }
-
 
   const handleNextQuestion = () => {
     const isLastQuestion = quizState.currentQuestionIndex === quizState.selectedQuestions.length - 1
@@ -165,54 +162,69 @@ export function Quiz({ onHome, onRestart }: QuizProps) {
 
     setSelectedAnswer(null)
     setShowFeedback(false)
-    setTimeLeft(15) // Update timer to 15 seconds
+    setTimeLeft(15)
   }
 
-  // const handleNextTheme = () => {
-  //   const completedThemes = [...quizState.completedThemes, quizState.currentTheme]
-  //   const nextThemeIndex = themes.findIndex((theme) => !completedThemes.includes(theme))
+  const generateWinnerCode = () => {
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    let result = ""
+    for (let i = 0; i < 6; i++) {
+      result += characters.charAt(Math.floor(Math.random() * characters.length))
+    }
+    return result
+  }
 
-  //   if (nextThemeIndex !== -1) {
-  //     const nextTheme = themes[nextThemeIndex]
-  //     let nextQuestions = getRandomQuestions(userInfo!.level, nextTheme, "Easy", 5)
+  const handleQuizComplete = async (results: QuizResults) => {
+    const storedUserInfo = localStorage.getItem("quizUserInfo")
+    if (storedUserInfo) {
+      const userInfo: UserInfo = JSON.parse(storedUserInfo)
+      const generatedCode = generateWinnerCode()
+      setWinnerCode(generatedCode)
+      const winner = {
+        fullName: userInfo.fullName,
+        email: userInfo.email,
+        phone: userInfo.phone,
+        profession: userInfo.profession,
+        level: userInfo.level,
+        score: results.score,
+        wonLevels: [quizState.currentLevel],
+        winnerCode: generatedCode,
+      }
 
-  //     // If no questions are available for the next theme, try the remaining themes
-  //     let currentThemeIndex = nextThemeIndex
-  //     while (nextQuestions.length === 0 && currentThemeIndex < themes.length) {
-  //       currentThemeIndex++
-  //       if (currentThemeIndex < themes.length) {
-  //         nextQuestions = getRandomQuestions(userInfo!.level, themes[currentThemeIndex], "Easy", 5)
-  //       }
-  //     }
+      try {
+        const response = await fetch("/api/winners", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(winner),
+        })
 
-  //     if (nextQuestions.length > 0) {
-  //       setQuizState((prev) => ({
-  //         ...prev,
-  //         currentTheme: themes[currentThemeIndex],
-  //         currentLevel: "Easy",
-  //         currentQuestionIndex: 0,
-  //         selectedQuestions: nextQuestions,
-  //         score: 0,
-  //         completedThemes,
-  //       }))
-  //     } else {
-  //       setShowResults(true)
-  //     }
-  //   } else {
-  //     setShowResults(true)
-  //   }
-  // }
+        if (!response.ok) {
+          throw new Error("Failed to save winner data")
+        }
+      } catch (error) {
+        console.error("Error saving winner data:", error)
+      }
+    }
+
+    setShowResults(true)
+  }
 
   if (showResults) {
     const totalQuestions = Object.keys(quizState.answers).length
-    const isWinner = quizState.totalScore / totalQuestions >= 0.6 // 60% correct to win
+    const isWinner = quizState.totalScore / totalQuestions >= 0.5 // 60% correct to win
 
     const results: QuizResults = {
       score: quizState.totalScore,
       totalQuestions,
       level: userInfo?.level || "DÉBUTANT",
       isWinner,
+      winnerCode: winnerCode,
     }
+
+    handleQuizComplete(results)
+
     return <QuizResultsComponent results={results} onRestart={onRestart} onHome={onHome} />
   }
 
@@ -229,7 +241,7 @@ export function Quiz({ onHome, onRestart }: QuizProps) {
 
   return (
     <div className="w-full max-w-4xl mx-auto px-4">
-      <div className="w-full flex justify-between mb-8">
+      <div className="mb-8">
       </div>
 
       <div className="flex justify-between items-center mb-4">
