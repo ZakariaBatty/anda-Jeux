@@ -30,6 +30,7 @@ export function QuizResults({ results, onRestart, onHome }: QuizResultsProps) {
           winnerCode: results.winnerCode || "",
         }
         const response = await createWinner(winner)
+        console.log("response", response)
         if (response.success) {
           console.log("Winner saved:", response.winner)
         } else {
