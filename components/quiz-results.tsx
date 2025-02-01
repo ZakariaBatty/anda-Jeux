@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import type { QuizResults } from "@/types/quiz"
+import type { QuizResults, UserInfo } from "@/types/quiz"
 
 interface QuizResultsProps {
   results: QuizResults
@@ -8,6 +8,34 @@ interface QuizResultsProps {
 }
 
 export function QuizResults({ results, onRestart, onHome }: QuizResultsProps) {
+
+  const handleQuizComplete = async (results: QuizResults) => {
+    const storedUserInfo = localStorage.getItem("quizUserInfo");
+    if (storedUserInfo) {
+      const userInfo: UserInfo = JSON.parse(storedUserInfo);
+
+      const winner = {
+        fullName: userInfo.fullName,
+        email: userInfo.email,
+        phone: userInfo.phone,
+        profession: userInfo.profession,
+        level: userInfo.level,
+        score: results.score,
+        wonLevels: [results.quizState],
+        winnerCode: results.winnerCode,
+      };
+      console.log('winner', winner);
+      // const response = await createWinner(winner);
+      // console.log('response', response);
+      // if (response.success) {
+      //   console.log("Winner saved:", response.winner);
+      // } else {
+      //   console.error("Error saving winner:", response.error);
+      // }
+    }
+  };
+
+  handleQuizComplete(results);
   return (
     <div className="w-full max-w-4xl mx-auto px-4 text-center">
       <div className="mb-8">

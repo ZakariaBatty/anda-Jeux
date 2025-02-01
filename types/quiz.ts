@@ -39,4 +39,5 @@ export interface QuizResults {
    level: string;
    isWinner: boolean;
    winnerCode?: string | null;
+   quizState: string;
 }
