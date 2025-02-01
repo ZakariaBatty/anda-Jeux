@@ -40,7 +40,7 @@ jobs:
               mv public deployment/quiz/
 
               # Copy .htaccess for routing
-              cp public/.htaccess deployment/quiz/
+              cp .htaccess deployment/quiz/
 
               # Ensure Next.js server is executable
               chmod +x deployment/quiz/server.js
