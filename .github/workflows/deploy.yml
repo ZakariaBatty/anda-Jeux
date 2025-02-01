@@ -2,7 +2,7 @@ name: Deploy to cPanel
 
 on:
    push:
-      branches: [deploy] # Adjust to match your deployment branch
+      branches: [deploy]
 
 jobs:
    build-and-deploy:
@@ -29,22 +29,43 @@ jobs:
               DATABASE_URL: ${{ secrets.DATABASE_URL }}
            run: npm run build
 
+         - name: Debug Build Output
+           run: |
+              echo "Checking build output..."
+              ls -la .next/ || echo "⚠️ .next directory not found!"
+              ls -la .next/standalone/ || echo "⚠️ .next/standalone directory not found!"
+              ls -la .next/static/ || echo "⚠️ .next/static directory not found!"
+
          - name: Prepare Deployment Files
            run: |
-              mkdir -p deployment/quiz
+              echo "Creating deployment directory..."
+              mkdir -p deployment/quiz/.next/static || echo "⚠️ Failed to create .next/static directory"
+              mkdir -p deployment/quiz/public
 
-              # Copy standalone build files
-              cp -r .next/standalone/* deployment/quiz/
+              echo "Copying standalone files..."
+              if [ -d ".next/standalone" ]; then
+                cp -r .next/standalone/* deployment/quiz/
+              else
+                echo "⚠️ No standalone directory found!"
+              fi
 
-              # Copy static files
-              cp -r .next/static deployment/quiz/.next/static
+              echo "Copying static files..."
+              if [ -d ".next/static" ]; then
+                cp -r .next/static deployment/quiz/.next/static
+              else
+                echo "⚠️ No static directory found!"
+              fi
 
-              # Copy required project files
-              cp package.json deployment/quiz/
-              cp -r public deployment/quiz/public
+              echo "Copying project files..."
+              cp package.json deployment/quiz/ || echo "⚠️ package.json not found!"
+              cp -r public deployment/quiz/public || echo "⚠️ No public files found!"
 
-              # Make sure `server.js` exists
-              chmod +x deployment/quiz/server.js || echo "⚠️ server.js not found!"
+              echo "Checking for server.js..."
+              if [ -f "deployment/quiz/server.js" ]; then
+                chmod +x deployment/quiz/server.js
+              else
+                echo "⚠️ server.js not found!"
+              fi
 
          - name: FTP Deploy
            uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -53,7 +74,7 @@ jobs:
               username: ${{ secrets.FTP_USERNAME }}
               password: ${{ secrets.FTP_PASSWORD }}
               local-dir: deployment/quiz/
-              server-dir: / # Adjusted to match your setup
+              server-dir: /
               exclude: |
                  **/.git*
                  **/.git*/**
