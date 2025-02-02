@@ -2,7 +2,7 @@ name: Deploy to LWS cPanel
 
 on:
    push:
-      branches: [deploy]
+      branches: [data]
 
 jobs:
    build-and-deploy:
