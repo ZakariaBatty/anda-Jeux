@@ -145,37 +145,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             explanation: '',
          },
          {
-            id: 8,
-            theme: 'Les animaux aquatiques',
-            level: 'Medium',
-            type: 'image-association',
-            question: 'Relie ces animaux à leur groupe',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Crevette (image)',
-                  // image: '/quiz/Poi.svg?text=crevette',
-               },
-               {
-                  id: 'B',
-                  text: 'Coquillages (image)',
-                  // image: '/quiz/Poi.svg?text=coquillages',
-               },
-               {
-                  id: 'C',
-                  text: 'Moule (image)',
-                  // image: '/quiz/Poi.svg?text=moule',
-               },
-               {
-                  id: 'D',
-                  text: 'Crustacés (image)',
-                  // image: '/quiz/Poi.svg?text=Crustaces',
-               },
-            ],
-            correctAnswer: 'A-D,B-C',
-            explanation: '',
-         },
-         {
             id: 9,
             theme: 'Les animaux aquatiques',
             level: 'Medium',
@@ -255,37 +224,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
                { id: 'B', text: 'Non' },
             ],
             correctAnswer: 'A',
-            explanation: '',
-         },
-         {
-            id: 13,
-            theme: 'Les animaux aquatiques',
-            level: 'Difficult',
-            type: 'image-association',
-            question: "Relie ces espèces à leur habitat d'élevage au Maroc.",
-            options: [
-               {
-                  id: 'A',
-                  text: 'Bar',
-                  // image: '/quiz/Poi.svg?text=bar',
-               },
-               {
-                  id: 'B',
-                  text: 'Tilapia',
-                  // image: '/quiz/Poi.svg?text=tilapia',
-               },
-               {
-                  id: 'C',
-                  text: 'Bassin à Terre',
-                  // image: '/quiz/Poi.svg?text=bassin',
-               },
-               {
-                  id: 'D',
-                  text: 'Cage en mer',
-                  // image: '/quiz/Poi.svg?text=cage',
-               },
-            ],
-            correctAnswer: 'A-D,B-C',
             explanation: '',
          },
          {
@@ -369,37 +307,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
                { id: 'B', text: 'Non' },
             ],
             correctAnswer: 'B',
-            explanation: '',
-         },
-         {
-            id: 18,
-            theme: "L'alimentation des poissons d'élevage",
-            level: 'Easy',
-            type: 'image-association',
-            question: "Relie l'aliment au bon animal",
-            options: [
-               {
-                  id: 'A',
-                  text: 'Image granulés',
-                  // image: '/quiz/Poi.svg?text=granulés',
-               },
-               {
-                  id: 'B',
-                  text: 'Image herbe',
-                  // image: '/quiz/Poi.svg?text=herbe',
-               },
-               {
-                  id: 'C',
-                  text: 'Image mouton',
-                  // image: '/quiz/Poi.svg?text=mouton',
-               },
-               {
-                  id: 'D',
-                  text: 'Image poisson',
-                  // image: '/quiz/Poi.svg?text=poisson',
-               },
-            ],
-            correctAnswer: 'A-D,B-C',
             explanation: '',
          },
          {
