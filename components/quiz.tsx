@@ -232,8 +232,8 @@ export function Quiz({ onHome, onRestart }: QuizProps) {
           </div>
         </div>
       </div>
-
-      <div className="bg-[#001f2a]/80 p-6 rounded-lg border-2 border-dashed border-white/30 mb-8">
+      {/* bg-[#001f2a]/80 rounded-lg border-2 border-dashed border-white/30 */}
+      <div className=" p-6  mb-8">
         <h2 className="text-2xl text-white font-bold mb-8">{currentQuestion.question}</h2>
 
         {currentQuestion.image && (

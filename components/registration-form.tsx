@@ -42,7 +42,7 @@ export function RegistrationForm({ onSubmit }: RegistrationFormProps) {
           type="text"
           placeholder="Nom complet"
           className="h-14 bg-[#001f2a]/80 border-2 border-dashed border-white/30 
-            text-white placeholder:text-white/50 text-lg"
+            text-white placeholder:text-white/50 text-lg "
           value={formData.fullName}
           onChange={(e) => setFormData((prev) => ({ ...prev, fullName: e.target.value }))}
         />

@@ -66,15 +66,26 @@ export default function HomePage() {
     <main className="min-h-screen relative flex flex-col items-center justify-between py-12 overflow-hidden">
 
       {/* Background Image with Overlay */}
+      {/* <div className="absolute inset-0 bg-[#0d3c4994]" /> */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/bg-fish.avif"
-          alt="Aquaculture background"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-[#124751e1]" />
+        {step !== "quiz" && (
+          <Image
+            src="/bg-fish.jpg"
+            alt="Aquaculture background"
+            fill
+            className="object-cover"
+            priority
+          />
+        )}
+        {step === "quiz" && (
+          <Image
+            src="/Arriere3.jpg"
+            alt="Aquaculture background"
+            fill
+            className="object-cover"
+            priority
+          />
+        )}
       </div>
 
       {/* Content */}
@@ -102,39 +113,37 @@ export default function HomePage() {
 
           {step === "landing" && (
             <>
-              {/* Quiz Title */}
-              <div className="text-center  mt-20">
-                <h1
-                  className="text-6xl md:text-8xl font-bold text-white 
-                tracking-wider
-                [text-shadow:3px_3px_0_#000,
-                -1px_-1px_0_#000,
-                1px_-1px_0_#000,
-                -1px_1px_0_#000,
-                1px_1px_0_#000]"
-                >
-                  quaculture Quiz
-                </h1>
-                {/* <Image src="/svg/04.svg" alt="Aquaculture-Quiz" fill className="object-contain w-5 h-5" /> */}
+              <div className="flex flex-col justify-center items-center gap-24">
+                {/* Quiz Title */}
+                <div className="text-center  mt-20">
+                  {/* <h1
+                    className=""
+                  > */}
+                  {/* quaculture Quiz */}
+                  <Image src="/icons/02.svg" alt="Aquaculture-Quiz" width={750} height={20} className="object-contain " />
+                  {/* </h1> */}
 
-                <p className="text-white text-xl md:text-2xl mt-4 tracking-wide">Testez vos connaissances !</p>
-              </div>
+                  <p className="text-white/30 text-xl md:text-2xl  tracking-wide font-mono">Testez vos connaissances !</p>
+                </div>
 
-              {/* Start Button */}
-              <div className="mt-auto">
-                <Button
-                  onClick={() => setStep("categories")}
-                  className="px-16 py-8 text-3xl font-bold uppercase
+                {/* Start Button */}
+                <div className="mt-auto text-center">
+                  {/* <Button
+                    
+                    className="px-16 py-8 text-3xl font-bold uppercase
                   bg-gradient-to-b from-[#e6d5b9] to-[#c4a775]
                   hover:from-[#f0dfc3] hover:to-[#ceb17f]
                   border-4 border-[#8b7355]
                   rounded-xl
                   shadow-lg
                   transition-transform hover:scale-105"
-                >
-                  Start
-                </Button>
-                <p className="text-white text-center mt-4 tracking-wide uppercase text-sm">Participez et gagnez</p>
+                  > */}
+                  <Image onClick={() => setStep("categories")} src="/icons/Botton.svg" alt="Aquaculture-Quiz" width={300} height={100} className="object-contain transition-transform hover:scale-105 hover:from-[#f0dfc3] hover:to-[#ceb17f] cursor-pointer" />
+
+                  {/* </Button> */}
+                  <p className="text-white/30 text-sm md:text-2xl mt-4 font-mono">Participez et gagnez</p>
+                </div>
+
               </div>
             </>
           )}
@@ -155,7 +164,7 @@ export default function HomePage() {
                   <div
                     key={index}
                     className={`relative group cursor-pointer
-                    ${selectedLevel === category.title ? "bg-[#001f2a]/80" : ""}
+                    ${selectedLevel === category.title ? "bg-[#001f2a]/80 rounded-3xl" : ""}
                     rounded-2xl transition-colors`}
                     onClick={() => setSelectedLevel(category.title as "DÉBUTANT" | "AVANCÉ" | "EXCELLENT")}
                   >
