@@ -6,7 +6,7 @@ import { Timer, CheckCircle2, XCircle } from "lucide-react"
 import type { QuizState, QuizResults, UserInfo, QuizQuestion } from "@/types/quiz"
 import { getRandomQuestions, themesByLevel } from "@/data/questions"
 import { QuizResults as QuizResultsComponent } from "./quiz-results"
-import Image from "next/image"
+// import Image from "next/image"
 
 interface QuizProps {
   onBack: () => void
@@ -232,11 +232,11 @@ export function Quiz({ onHome, onRestart }: QuizProps) {
           </div>
         </div>
       </div>
-      {/* bg-[#001f2a]/80 rounded-lg border-2 border-dashed border-white/30 */}
-      <div className=" p-6  mb-8">
+      {/*  */}
+      <div className=" p-6 bg-[#001f2a]/80 rounded-lg border-2 border-dashed border-white/30  mb-8">
         <h2 className="text-2xl text-white font-bold mb-8">{currentQuestion.question}</h2>
 
-        {currentQuestion.image && (
+        {/* {currentQuestion.image && (
           <div className="mb-6">
             <Image
               src={currentQuestion.image ? encodeURI(currentQuestion.image.trim()) : "/placeholder.svg"}
@@ -246,7 +246,7 @@ export function Quiz({ onHome, onRestart }: QuizProps) {
               className="rounded-lg"
             />
           </div>
-        )}
+        )} */}
 
         <div className="space-y-4">
           {currentQuestion.options.map((option) => (
@@ -258,7 +258,7 @@ export function Quiz({ onHome, onRestart }: QuizProps) {
                 ${selectedAnswer === option.id ? "bg-white/20" : "bg-transparent"}
                 ${showFeedback && option.id === currentQuestion.correctAnswer ? "bg-green-500/20" : ""}
                 ${showFeedback && selectedAnswer === option.id && option.id !== currentQuestion.correctAnswer ? "bg-red-500/20" : ""}
-                border-2 border-dashed border-white/30
+                border-2 border-dashed border-white/30 
                 hover:bg-white/10 transition-colors
                 group disabled:cursor-not-allowed`}
             >
@@ -275,7 +275,7 @@ export function Quiz({ onHome, onRestart }: QuizProps) {
                 {option.id}
               </div>
               <span className="text-white text-lg">{option.text}</span>
-              {option.image && (
+              {/* {option.image && (
                 <Image
                   src={option.image ? encodeURI(option.image.trim()) : "/placeholder.svg"}
                   alt={option.text}
@@ -283,7 +283,7 @@ export function Quiz({ onHome, onRestart }: QuizProps) {
                   height={50}
                   className="rounded-lg"
                 />
-              )}
+              )} */}
 
             </button>
           ))}

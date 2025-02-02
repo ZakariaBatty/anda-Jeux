@@ -56,7 +56,6 @@ export function RegistrationForm({ onSubmit }: RegistrationFormProps) {
           onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
         />
         <Input
-          required
           type="tel"
           placeholder="N° de Téléphone"
           className="h-14 bg-[#001f2a]/80 border-2 border-dashed border-white/30 
@@ -65,7 +64,6 @@ export function RegistrationForm({ onSubmit }: RegistrationFormProps) {
           onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
         />
         <Input
-          required
           type="text"
           placeholder="Profession"
           className="h-14 bg-[#001f2a]/80 border-2 border-dashed border-white/30 

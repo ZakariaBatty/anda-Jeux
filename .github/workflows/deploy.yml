@@ -21,10 +21,15 @@ jobs:
          - name: Install Dependencies
            run: |
               npm ci
+              npm i sharp@latest
+
+         - name: Install Prisma Dependencies
+           run: |
               npm install prisma@latest --save-dev
 
          - name: Create Prisma Schema
            run: |
+              mkdir -p prisma
               cat > prisma/schema.prisma << 'EOL'
               generator client {
                 provider = "prisma-client-js"
@@ -62,4 +67,68 @@ jobs:
               DATABASE_URL: ${{ secrets.DATABASE_URL }}
            run: npm run build
 
-         # Rest of your deployment steps...
+         - name: Prepare Deployment Files
+           run: |
+              # Create deployment structure
+              mkdir -p deployment/quiz
+
+              # Copy standalone server and dependencies
+              cp -r .next/standalone/* deployment/quiz/
+
+              # Copy static files and public assets
+              mkdir -p deployment/quiz/.next/static
+              cp -r .next/static deployment/quiz/.next/
+              cp -r public deployment/quiz/
+
+              # Copy Prisma files
+              mkdir -p deployment/quiz/prisma
+              cp prisma/schema.prisma deployment/quiz/prisma/
+
+              # Create PHP entry point for LWS
+              cat > deployment/quiz/index.php << 'EOL'
+              <?php
+              header("Location: /quiz/_next/server");
+              exit();
+              EOL
+
+              # Create optimized .htaccess for LWS
+              cat > deployment/quiz/.htaccess << 'EOL'
+              RewriteEngine On
+              RewriteBase /quiz
+
+              # Allow direct access to static files
+              RewriteCond %{REQUEST_URI} ^/quiz/_next/static/(.*)$
+              RewriteRule ^_next/static/(.*)$ .next/static/$1 [L]
+
+              # Handle Node.js application
+              RewriteCond %{REQUEST_FILENAME} !-f
+              RewriteCond %{REQUEST_FILENAME} !-d
+              RewriteRule ^(.*)$ http://localhost:3001/$1 [P,L]
+
+              # Handle errors
+              ErrorDocument 404 /quiz/_next/server
+              ErrorDocument 500 /quiz/_next/server
+
+              # Security headers for Cloudflare compatibility
+              Header set Access-Control-Allow-Origin "*"
+              Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+              Header set Access-Control-Allow-Headers "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type"
+              EOL
+
+              # Ensure server.js is executable
+              chmod +x deployment/quiz/server.js
+
+         - name: FTP Deploy
+           uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+           with:
+              server: ftp.lws.fr
+              username: ${{ secrets.FTP_USERNAME }}
+              password: ${{ secrets.FTP_PASSWORD }}
+              local-dir: deployment/quiz/
+              server-dir: /quiz/
+              exclude: |
+                 **/.git*
+                 **/.git*/**
+                 **/node_modules/**
+                 **/README.md
+                 **/.env*
