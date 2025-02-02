@@ -3,7 +3,7 @@ export interface UserInfo {
    email: string;
    phone: string;
    profession: string;
-   level: 'DÉBUTANT' | 'AVANCÉ' | 'EXCELLENT';
+   level: 'ENFANT' | 'DÉBUTANT' | 'AVANCÉ';
 }
 
 export interface QuizOption {
