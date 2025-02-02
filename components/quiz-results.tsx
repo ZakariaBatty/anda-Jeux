@@ -62,7 +62,7 @@ export function QuizResults({ results, onHome }: QuizResultsProps) {
         <div className="text-[120px] font-bold text-white mb-8">
           {results.score}/{results.totalQuestions}
         </div>
-        <div className="flex justify-center gap-2">
+        <div className="flex justify-center mb-16 gap-2">
           {[...Array(5)].map((_, i) => (
             <Star
               key={i}
@@ -97,7 +97,7 @@ export function QuizResults({ results, onHome }: QuizResultsProps) {
       {!results.isWinner && (
         <div className="text-center mb-16">
           <h2 className="text-yellow-400 text-2xl font-bold">
-            ❌ Désolé, vous n&apos;avez pas gagné cette fois-ci.
+            ❌ vous n&apos;avez pas gagné cette fois-ci.
             <br />
             Continuez à apprendre et réessayez !
           </h2>

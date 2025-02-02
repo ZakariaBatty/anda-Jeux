@@ -1,7 +1,7 @@
 import type { QuizQuestion } from '@/types/quiz';
 
 export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
-   DÉBUTANT: {
+   ENFANT: {
       'Les animaux aquatiques': [
          // Easy Level
          {
@@ -1144,7 +1144,7 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
          },
       ],
    },
-   AVANCÉ: {
+   DÉBUTANT: {
       'Découverte de lAquaculture': [
          // Easy Level
          {
@@ -1253,32 +1253,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
                },
             ],
             correctAnswer: 'B',
-            explanation: '',
-         },
-         {
-            id: 75,
-            theme: "Découverte de l'Aquaculture",
-            level: 'Medium',
-            type: 'multiple-choice',
-            question: "Quels types de produits sont issus de l'aquaculture ?",
-            options: [
-               {
-                  id: 'A',
-                  text: 'Fruits de mer, poissons et algues',
-                  // image: '/quiz/Poi.svg?text=Fruits de mer, poissons et algues',
-               },
-               {
-                  id: 'B',
-                  text: 'Fruits exotiques',
-                  // image: '/quiz/Poi.svg?text=Fruits exotiques',
-               },
-               {
-                  id: 'C',
-                  text: 'Céréales',
-                  // image: '/quiz/Poi.svg?text=Céréales',
-               },
-            ],
-            correctAnswer: 'A',
             explanation: '',
          },
          // Difficult Level
@@ -1783,7 +1757,32 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             correctAnswer: 'A',
             explanation: '',
          },
-
+         {
+            id: 75,
+            theme: "Découverte de l'Aquaculture",
+            level: 'Medium',
+            type: 'multiple-choice',
+            question: "Quels types de produits sont issus de l'aquaculture ?",
+            options: [
+               {
+                  id: 'A',
+                  text: 'Fruits de mer, poissons et algues',
+                  // image: '/quiz/Poi.svg?text=Fruits de mer, poissons et algues',
+               },
+               {
+                  id: 'B',
+                  text: 'Fruits exotiques',
+                  // image: '/quiz/Poi.svg?text=Fruits exotiques',
+               },
+               {
+                  id: 'C',
+                  text: 'Céréales',
+                  // image: '/quiz/Poi.svg?text=Céréales',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
          // Difficult Level
          {
             id: 96,
@@ -1894,7 +1893,7 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
          },
       ],
    },
-   EXCELLENT: {
+   AVANCÉ: {
       'Aquaculture marine': [
          // Easy Level
          {
@@ -2575,19 +2574,21 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
 };
 
 export const themesByLevel = {
-   DÉBUTANT: [
+   ENFANT: [
       'Les animaux aquatiques',
       "L'alimentation des poissons d'élevage",
       "Les métiers de l'aquaculture",
       "L'aquaculture et l'environnement",
       "L'importance économique et sociale de l'aquaculture au Maroc",
    ],
-   AVANCÉ: [
+   DÉBUTANT: [
       'Découverte de lAquaculture',
       'Les Regions dAquaculture au Maroc',
       'Alimentation et Croissance des Espèces Aquacoles',
+      'duplicate_1',
+      'duplicate_2',
    ],
-   EXCELLENT: [
+   AVANCÉ: [
       'Aquaculture marine',
       'duplicate_1',
       'duplicate_2',
@@ -2602,8 +2603,7 @@ export function getRandomQuestions(
    difficulty: 'Easy' | 'Medium' | 'Difficult',
    count: number
 ): QuizQuestion[] {
-   console.log(userLevel, theme, difficulty, count);
-   console.log(quizQuestions[userLevel], quizQuestions[userLevel][theme]);
+   console.log(userLevel, theme.length, difficulty, count);
    if (!quizQuestions[userLevel] || !quizQuestions[userLevel][theme]) {
       console.error(
          `No questions found for level: ${userLevel}, theme: ${theme}`

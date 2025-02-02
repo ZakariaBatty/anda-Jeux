@@ -8,9 +8,10 @@ import type { UserInfo } from "@/types/quiz"
 interface RegistrationFormProps {
   onSubmit: (data: Omit<UserInfo, "level">) => void
   onBack: () => void
+  level: "ENFANT" | "DÉBUTANT" | "AVANCÉ" | null
 }
 
-export function RegistrationForm({ onSubmit }: RegistrationFormProps) {
+export function RegistrationForm({ onSubmit, level }: RegistrationFormProps) {
   const [formData, setFormData] = useState<Omit<UserInfo, "level">>({
     fullName: "",
     email: "",
@@ -42,16 +43,16 @@ export function RegistrationForm({ onSubmit }: RegistrationFormProps) {
           type="text"
           placeholder="Nom complet"
           className="h-14 bg-[#001f2a]/80 border-2 border-dashed border-white/30 
-            text-white placeholder:text-white/50 text-lg "
+        text-white placeholder:text-white/50 text-lg "
           value={formData.fullName}
           onChange={(e) => setFormData((prev) => ({ ...prev, fullName: e.target.value }))}
         />
         <Input
-          required
+          required={level !== "ENFANT"}
           type="email"
           placeholder="Adresse mail"
           className="h-14 bg-[#001f2a]/80 border-2 border-dashed border-white/30 
-            text-white placeholder:text-white/50 text-lg"
+        text-white placeholder:text-white/50 text-lg"
           value={formData.email}
           onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
         />
@@ -59,7 +60,7 @@ export function RegistrationForm({ onSubmit }: RegistrationFormProps) {
           type="tel"
           placeholder="N° de Téléphone"
           className="h-14 bg-[#001f2a]/80 border-2 border-dashed border-white/30 
-            text-white placeholder:text-white/50 text-lg"
+        text-white placeholder:text-white/50 text-lg"
           value={formData.phone}
           onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
         />
@@ -67,7 +68,7 @@ export function RegistrationForm({ onSubmit }: RegistrationFormProps) {
           type="text"
           placeholder="Profession"
           className="h-14 bg-[#001f2a]/80 border-2 border-dashed border-white/30 
-            text-white placeholder:text-white/50 text-lg"
+        text-white placeholder:text-white/50 text-lg"
           value={formData.profession}
           onChange={(e) => setFormData((prev) => ({ ...prev, profession: e.target.value }))}
         />
@@ -76,12 +77,12 @@ export function RegistrationForm({ onSubmit }: RegistrationFormProps) {
           <Button
             type="submit"
             className="w-full px-16 py-6 text-2xl font-bold uppercase
-              bg-gradient-to-b from-[#e6d5b9] to-[#c4a775]
-              hover:from-[#f0dfc3] hover:to-[#ceb17f]
-              border-4 border-[#8b7355]
-              rounded-xl
-              shadow-lg
-              transition-transform hover:scale-105"
+          bg-gradient-to-b from-[#e6d5b9] to-[#c4a775]
+          hover:from-[#f0dfc3] hover:to-[#ceb17f]
+          border-4 border-[#8b7355]
+          rounded-xl
+          shadow-lg
+          transition-transform hover:scale-105"
           >
             Commencer
           </Button>
