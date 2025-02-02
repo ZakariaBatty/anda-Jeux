@@ -46,19 +46,19 @@ export function QuizResults({ results, onHome }: QuizResultsProps) {
   const filledStars = Math.round((results.score / results.totalQuestions) * 5)
 
   // Create the QR code content with both the winner code and a message
-  const qrCodeContent = results.winnerCode
-    ? JSON.stringify({
-      code: results.winnerCode,
-      message: "Félicitations ! Vous avez gagné. Présentez ce code à l'accueil du stand pour récupérer votre cadeau.",
-    })
-    : ""
+  // const qrCodeContent = results.winnerCode
+  //   ? JSON.stringify({
+  //     code: results.winnerCode,
+  //     message: "Félicitations ! Vous avez gagné. Présentez ce code à l'accueil du stand pour récupérer votre cadeau.",
+  //   })
+  //   : ""
 
 
 
   return (
     <div className="w-full max-w-4xl mx-auto px-4 text-center">
       {/* Score Display */}
-      <div className="pt-32 pb-16 text-center">
+      <div className=" pb-2 text-center">
         <div className="text-[120px] font-bold text-white mb-8">
           {results.score}/{results.totalQuestions}
         </div>
@@ -89,7 +89,7 @@ export function QuizResults({ results, onHome }: QuizResultsProps) {
             du lot à l&apos;accueil du stand.
           </h2>
           <div className="inline-block bg-white/90 p-4 rounded-xl">
-            <QRCodeSVG value={qrCodeContent} size={200} level="H" className="mx-auto" />
+            <QRCodeSVG value={results.winnerCode} size={200} level="H" className="mx-auto" />
           </div>
         </div>
       )}
