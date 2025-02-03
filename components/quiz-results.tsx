@@ -57,6 +57,16 @@ export function QuizResults({ results, onHome }: QuizResultsProps) {
 
   return (
     <div className="w-full max-w-4xl mx-auto px-4 text-center">
+
+      {!results.isWinner && (
+        <div className="text-center mb-16">
+          <h2 className="text-yellow-400 text-2xl font-bold">
+            Merci d’avoir participé à notre quiz
+            Votre score est
+          </h2>
+        </div>
+      )}
+
       {/* Score Display */}
       <div className=" pb-2 text-center">
         <div className="text-[120px] font-bold text-white mb-8">
@@ -94,15 +104,6 @@ export function QuizResults({ results, onHome }: QuizResultsProps) {
         </div>
       )}
 
-      {!results.isWinner && (
-        <div className="text-center mb-16">
-          <h2 className="text-yellow-400 text-2xl font-bold">
-            ❌ vous n&apos;avez pas gagné cette fois-ci.
-            <br />
-            Continuez à apprendre et réessayez !
-          </h2>
-        </div>
-      )}
 
       {/* Finish Button */}
       <div className="flex justify-center space-x-4 ">
