@@ -2,13 +2,21 @@ import { useEffect } from "react"
 import { createWinner } from "@/app/actions/winners"
 import { Button } from "@/components/ui/button"
 import { Star } from "lucide-react"
-import { QRCodeSVG } from "qrcode.react"
-import type { QuizResults, UserInfo } from "@/types/quiz"
+import type { UserInfo } from "@/types/quiz"
 
 interface QuizResultsProps {
   results: QuizResults
   onRestart: () => void
   onHome: () => void
+}
+
+interface QuizResults {
+  score: number
+  totalQuestions: number
+  level: string
+  isWinner: boolean
+  winnerCode?: string | null
+  percentageCorrect: number
 }
 
 export function QuizResults({ results, onHome }: QuizResultsProps) {
@@ -17,9 +25,6 @@ export function QuizResults({ results, onHome }: QuizResultsProps) {
       const storedUserInfo = localStorage.getItem("quizUserInfo")
       if (storedUserInfo) {
         const userInfo: UserInfo = JSON.parse(storedUserInfo)
-        if (!results.isWinner) {
-          return
-        }
         const winner = {
           fullName: userInfo.fullName,
           email: userInfo.email,
@@ -27,7 +32,7 @@ export function QuizResults({ results, onHome }: QuizResultsProps) {
           profession: userInfo.profession,
           level: userInfo.level,
           score: results.score,
-          wonLevels: [results.quizState],
+          wonLevels: [results.level],
           winnerCode: results.winnerCode || "",
         }
         const response = await createWinner(winner)
@@ -45,27 +50,18 @@ export function QuizResults({ results, onHome }: QuizResultsProps) {
   // Calculate how many stars should be filled based on the score percentage
   const filledStars = Math.round((results.score / results.totalQuestions) * 5)
 
-  // Create the QR code content with both the winner code and a message
-  // const qrCodeContent = results.winnerCode
-  //   ? JSON.stringify({
-  //     code: results.winnerCode,
-  //     message: "Félicitations ! Vous avez gagné. Présentez ce code à l'accueil du stand pour récupérer votre cadeau.",
-  //   })
-  //   : ""
-
-
 
   return (
     <div className="w-full max-w-4xl mx-auto px-4 text-center">
 
-      {!results.isWinner && (
-        <div className="text-center mb-16">
-          <h2 className="text-yellow-400 text-2xl font-bold">
-            Merci d’avoir participé à notre quiz
-            Votre score est
-          </h2>
-        </div>
-      )}
+      <div className="text-green-400 text-2xl font-bold mt-24">
+        ✅ Merci d’avoir participé à notre quiz
+        {results.winnerCode && (
+          <div className="mt-4">
+            Votre score est <span className="text-yellow-400">{results.winnerCode}</span>
+          </div>
+        )}
+      </div>
 
       {/* Score Display */}
       <div className=" pb-2 text-center">
@@ -82,28 +78,6 @@ export function QuizResults({ results, onHome }: QuizResultsProps) {
           ))}
         </div>
       </div>
-
-      {/* QR Code Section */}
-      {results.isWinner && results.winnerCode && (
-        <div className="text-center mb-2">
-          <div className="text-green-400 text-2xl font-bold mb-4">
-            ✅ Félicitations ! Vous avez gagné.
-            <div className="mt-4">
-              {/* Votre code gagnant: <span className="text-yellow-400">{results.winnerCode}</span> */}
-              <p className="text-sm mt-2">Présentez ce code à l&apos;accueil du stand pour récupérer votre cadeau.</p>
-            </div>
-          </div>
-          <h2 className="text-[#7eb5c2] text-xl mb-4">
-            Scannez le code QR pour récupérer le code
-            <br />
-            du lot à l&apos;accueil du stand.
-          </h2>
-          <div className="inline-block bg-white/90 p-4 rounded-xl">
-            <QRCodeSVG value={results.winnerCode} size={200} level="H" className="mx-auto" />
-          </div>
-        </div>
-      )}
-
 
       {/* Finish Button */}
       <div className="flex justify-center space-x-4 ">

@@ -13,7 +13,7 @@ type Step = "landing" | "categories" | "registration" | "quiz"
 
 export default function HomePage() {
   const [step, setStep] = useState<Step>("landing")
-  const [selectedLevel, setSelectedLevel] = useState<"ENFANT" | "DÉBUTANT" | "AVANCÉ" | null>(null)
+  const [selectedLevel, setSelectedLevel] = useState<"DÉBUTANT" | "AVANCÉ" | "EXPERT" | null>(null)
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null)
 
   useEffect(() => {
@@ -26,19 +26,19 @@ export default function HomePage() {
 
   const categories = [
     {
-      title: "ENFANT",
+      title: "DÉBUTANT",
       icon: "👤",
       description:
         "Pour ceux qui découvrent l'aquaculture. Questions simples sur les animaux aquatiques et les bases de l'aquaculture.",
     },
     {
-      title: "DÉBUTANT",
+      title: "AVANCÉ",
       icon: "👥",
       description:
         "Pour ceux qui ont des connaissances en aquaculture. Questions plus détaillées sur les techniques et les espèces.",
     },
     {
-      title: "AVANCÉ",
+      title: "EXPERT",
       icon: "👔",
       description:
         "Pour les experts en aquaculture. Questions approfondies sur la gestion, l'environnement et l'économie de l'aquaculture.",
@@ -166,7 +166,7 @@ export default function HomePage() {
                     className={`relative group cursor-pointer
                     ${selectedLevel === category.title ? "bg-[#001f2a]/80 rounded-3xl" : ""}
                     rounded-2xl transition-colors`}
-                    onClick={() => setSelectedLevel(category.title as "ENFANT" | "DÉBUTANT" | "AVANCÉ")}
+                    onClick={() => setSelectedLevel(category.title as "DÉBUTANT" | "AVANCÉ" | "EXPERT")}
                   >
                     <div className="absolute inset-0 border-4 border-dashed border-white/30 rounded-3xl" />
                     <div
@@ -221,7 +221,7 @@ export default function HomePage() {
           )}
 
           {step === "registration" && (
-            <RegistrationForm onSubmit={handleRegistrationSubmit} level={selectedLevel} onBack={() => setStep("categories")} />
+            <RegistrationForm onSubmit={handleRegistrationSubmit} onBack={() => setStep("categories")} />
           )}
 
           {step === "quiz" && userInfo && (

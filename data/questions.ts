@@ -1,9 +1,8 @@
 import type { QuizQuestion } from '@/types/quiz';
 
 export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
-   ENFANT: {
+   DÉBUTANT: {
       'Les animaux aquatiques': [
-         // Easy Level
          {
             id: 1,
             theme: 'Les animaux aquatiques',
@@ -103,7 +102,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             correctAnswer: 'B',
             explanation: '',
          },
-         // Medium Level
          {
             id: 6,
             theme: 'Les animaux aquatiques',
@@ -185,7 +183,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             correctAnswer: 'A',
             explanation: '',
          },
-         // Difficult Level
          {
             id: 11,
             theme: 'Les animaux aquatiques',
@@ -269,7 +266,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
          },
       ],
       "L'alimentation des poissons d'élevage": [
-         // Easy Level
          {
             id: 16,
             theme: "L'alimentation des poissons d'élevage",
@@ -349,7 +345,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             correctAnswer: 'B',
             explanation: '',
          },
-         // Medium Level
          {
             id: 21,
             theme: "L'alimentation des poissons d'élevage",
@@ -405,7 +400,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             explanation:
                "Les huîtres se nourrissent naturellement en filtrant l'eau de mer",
          },
-         // Difficult Level
          {
             id: 25,
             theme: "L'alimentation des poissons d'élevage",
@@ -490,7 +484,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
          },
       ],
       "Les métiers de l'aquaculture": [
-         // Easy Level
          {
             id: 30,
             theme: "Les métiers de l'aquaculture",
@@ -558,7 +551,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             explanation: '',
          },
 
-         // Medium Level
          {
             id: 34,
             theme: "Les métiers de l'aquaculture",
@@ -641,7 +633,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             correctAnswer: 'A',
             explanation: '',
          },
-         // Difficult Level
          {
             id: 39,
             theme: "Les métiers de l'aquaculture",
@@ -726,7 +717,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
          },
       ],
       "L'aquaculture et l'environnement": [
-         // Easy Level
          {
             id: 44,
             theme: "L'aquaculture et l'environnement",
@@ -807,7 +797,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             correctAnswer: 'A',
             explanation: '',
          },
-         // Medium Level
          {
             id: 48,
             theme: "L'aquaculture et l'environnement",
@@ -890,7 +879,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             correctAnswer: 'A',
             explanation: '',
          },
-         // Difficult Level
          {
             id: 52,
             theme: "L'aquaculture et l'environnement",
@@ -921,7 +909,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
          },
       ],
       "L'importance économique et sociale de l'aquaculture au Maroc": [
-         // Easy Level
          {
             id: 55,
             theme: "L'importance économique et sociale de l'aquaculture au Maroc",
@@ -1002,7 +989,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             correctAnswer: 'B',
             explanation: '',
          },
-         // Medium Level
          {
             id: 61,
             theme: "L'importance économique et sociale de l'aquaculture au Maroc",
@@ -1086,7 +1072,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             correctAnswer: 'A',
             explanation: '',
          },
-         // Difficult Level
          {
             id: 64,
             theme: "L'importance économique et sociale de l'aquaculture au Maroc",
@@ -1144,9 +1129,8 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
          },
       ],
    },
-   DÉBUTANT: {
+   AVANCÉ: {
       'Découverte de lAquaculture': [
-         // Easy Level
          {
             id: 70,
             theme: "Découverte de l'Aquaculture",
@@ -1200,7 +1184,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             explanation: '',
          },
 
-         // Medium Level
          {
             id: 73,
             theme: "Découverte de l'Aquaculture",
@@ -1255,7 +1238,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             correctAnswer: 'B',
             explanation: '',
          },
-         // Difficult Level
          {
             id: 76,
             theme: "Découverte de l'Aquaculture",
@@ -1338,7 +1320,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
          },
       ],
       'Les Regions dAquaculture au Maroc': [
-         // Easy Level
          {
             id: 79,
             theme: 'Les Régions d’Aquaculture au Maroc',
@@ -1393,8 +1374,34 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             correctAnswer: 'A',
             explanation: '',
          },
+         {
+            id: 90,
+            theme: 'Alimentation et Croissance des Espèces Aquacoles',
+            level: 'Easy',
+            type: 'multiple-choice',
+            question:
+               'Les poissons herbivores en aquaculture consomment souvent :',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Des algues et des plantes aquatiques',
+                  // image: '/quiz/Poi.svg?text=es algues et des plantes aquatiques',
+               },
+               {
+                  id: 'B',
+                  text: 'De la viande',
+                  // image: '/quiz/Poi.svg?text=De la viande',
+               },
+               {
+                  id: 'C',
+                  text: 'Des fruits',
+                  // image: '/quiz/Poi.svg?text=Des fruits',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
 
-         // Medium Level
          {
             id: 82,
             theme: 'Les Régions d’Aquaculture au Maroc',
@@ -1449,8 +1456,34 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             correctAnswer: 'C',
             explanation: '',
          },
+         {
+            id: 93,
+            theme: 'Alimentation et Croissance des Espèces Aquacoles',
+            level: 'Medium',
+            type: 'multiple-choice',
+            question:
+               'Quel est le rôle des algues dans certains systèmes aquacoles ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Fournir de l’oxygène et filtrer les nutriments',
+                  // image: '/quiz/Poi.svg?text=Fournir de l’oxygène et filtrer les nutriments',
+               },
+               {
+                  id: 'B',
+                  text: 'Protéger les poissons des prédateurs',
+                  // image: '/quiz/Poi.svg?text=Protéger les poissons des prédateurs',
+               },
+               {
+                  id: 'C',
+                  text: 'Servir de barrière physique',
+                  // image: '/quiz/Poi.svg?text=Servir de barrière physique',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
 
-         // Difficult Level
          {
             id: 85,
             theme: 'Les Régions d’Aquaculture au Maroc',
@@ -1505,9 +1538,29 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             correctAnswer: 'B',
             explanation: '',
          },
+         {
+            id: 119,
+            theme: 'Aquaculture marine',
+            level: 'Difficult',
+            type: 'multiple-choice',
+            question: 'Le Thon Rouge peut il être élevé en mer ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Oui',
+                  // image: '/quiz/Poi.svg?text=Oui',
+               },
+               {
+                  id: 'B',
+                  text: 'Non',
+                  // image: '/quiz/Poi.svg?text=Non',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
       ],
       'Alimentation et Croissance des Espèces Aquacoles': [
-         // Easy Level
          {
             id: 88,
             theme: 'Alimentation et Croissance des Espèces Aquacoles',
@@ -1561,8 +1614,60 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             correctAnswer: 'B',
             explanation: '',
          },
+         {
+            id: 72,
+            theme: "Découverte de l'Aquaculture",
+            level: 'Easy',
+            type: 'multiple-choice',
+            question: 'Pourquoi l’aquaculture est-elle importante ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Elle aide à préserver les ressources naturelles',
+                  // image: '/quiz/Poi.svg?text=Elle aide à préserver les ressources naturelles',
+               },
+               {
+                  id: 'B',
+                  text: 'Elle augmente les coûts de production',
+                  // image: '/quiz/Poi.svg?text=Elle augmente les coûts de production',
+               },
+               {
+                  id: 'C',
+                  text: 'Elle remplace l’agriculture',
+                  // image: '/quiz/Poi.svg?text=Elle remplace l’agriculture',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 81,
+            theme: 'Les Régions d’Aquaculture au Maroc',
+            level: 'Easy',
+            type: 'multiple-choice',
+            question:
+               'La région de Casablanca-Settat est connue pour la culture de ',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Poisson-chat',
+                  // image: '/quiz/Poi.svg?text=Poisson-chat',
+               },
+               {
+                  id: 'B',
+                  text: 'Bar et dorade royale',
+                  // image: '/quiz/Poi.svg?text=Bar et dorade royale',
+               },
+               {
+                  id: 'C',
+                  text: 'Thon rouge',
+                  // image: '/quiz/Poi.svg?text=Thon rouge',
+               },
+            ],
+            correctAnswer: 'B',
+            explanation: '',
+         },
 
-         // Medium Level
          {
             id: 91,
             theme: 'Alimentation et Croissance des Espèces Aquacoles',
@@ -1617,8 +1722,59 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             correctAnswer: 'A',
             explanation: '',
          },
-
-         // Difficult Level
+         {
+            id: 84,
+            theme: 'Les Régions d’Aquaculture au Maroc',
+            level: 'Medium',
+            type: 'multiple-choice',
+            question:
+               'Quels facteurs font de Dakhla-Oued Eddahab une région privilégiée pour l’aquaculture ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Eau de mer de haute qualité et climat favorable',
+                  // image: '/quiz/Poi.svg?text=dolphin',
+               },
+               {
+                  id: 'B',
+                  text: 'Eau douce et nombreux lacs',
+                  // image: '/quiz/Poi.svg?text=salmon',
+               },
+               {
+                  id: 'C',
+                  text: 'Sols fertiles',
+                  // image: '/quiz/Poi.svg?text=whale',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 75,
+            theme: "Découverte de l'Aquaculture",
+            level: 'Medium',
+            type: 'multiple-choice',
+            question: "Quels types de produits sont issus de l'aquaculture ?",
+            options: [
+               {
+                  id: 'A',
+                  text: 'Fruits de mer, poissons et algues',
+                  // image: '/quiz/Poi.svg?text=Fruits de mer, poissons et algues',
+               },
+               {
+                  id: 'B',
+                  text: 'Fruits exotiques',
+                  // image: '/quiz/Poi.svg?text=Fruits exotiques',
+               },
+               {
+                  id: 'C',
+                  text: 'Céréales',
+                  // image: '/quiz/Poi.svg?text=Céréales',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
          {
             id: 94,
             theme: 'Alimentation et Croissance des Espèces Aquacoles',
@@ -1673,117 +1829,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             correctAnswer: 'A',
             explanation: '',
          },
-      ],
-      duplicate_1: [
-         // Easy Level
-         {
-            id: 72,
-            theme: "Découverte de l'Aquaculture",
-            level: 'Easy',
-            type: 'multiple-choice',
-            question: 'Pourquoi l’aquaculture est-elle importante ?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Elle aide à préserver les ressources naturelles',
-                  // image: '/quiz/Poi.svg?text=Elle aide à préserver les ressources naturelles',
-               },
-               {
-                  id: 'B',
-                  text: 'Elle augmente les coûts de production',
-                  // image: '/quiz/Poi.svg?text=Elle augmente les coûts de production',
-               },
-               {
-                  id: 'C',
-                  text: 'Elle remplace l’agriculture',
-                  // image: '/quiz/Poi.svg?text=Elle remplace l’agriculture',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation: '',
-         },
-         {
-            id: 81,
-            theme: 'Les Régions d’Aquaculture au Maroc',
-            level: 'Easy',
-            type: 'multiple-choice',
-            question:
-               'La région de Casablanca-Settat est connue pour la culture de ',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Poisson-chat',
-                  // image: '/quiz/Poi.svg?text=Poisson-chat',
-               },
-               {
-                  id: 'B',
-                  text: 'Bar et dorade royale',
-                  // image: '/quiz/Poi.svg?text=Bar et dorade royale',
-               },
-               {
-                  id: 'C',
-                  text: 'Thon rouge',
-                  // image: '/quiz/Poi.svg?text=Thon rouge',
-               },
-            ],
-            correctAnswer: 'B',
-            explanation: '',
-         },
-         // Medium Level
-         {
-            id: 84,
-            theme: 'Les Régions d’Aquaculture au Maroc',
-            level: 'Medium',
-            type: 'multiple-choice',
-            question:
-               'Quels facteurs font de Dakhla-Oued Eddahab une région privilégiée pour l’aquaculture ?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Eau de mer de haute qualité et climat favorable',
-                  // image: '/quiz/Poi.svg?text=dolphin',
-               },
-               {
-                  id: 'B',
-                  text: 'Eau douce et nombreux lacs',
-                  // image: '/quiz/Poi.svg?text=salmon',
-               },
-               {
-                  id: 'C',
-                  text: 'Sols fertiles',
-                  // image: '/quiz/Poi.svg?text=whale',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation: '',
-         },
-         {
-            id: 75,
-            theme: "Découverte de l'Aquaculture",
-            level: 'Medium',
-            type: 'multiple-choice',
-            question: "Quels types de produits sont issus de l'aquaculture ?",
-            options: [
-               {
-                  id: 'A',
-                  text: 'Fruits de mer, poissons et algues',
-                  // image: '/quiz/Poi.svg?text=Fruits de mer, poissons et algues',
-               },
-               {
-                  id: 'B',
-                  text: 'Fruits exotiques',
-                  // image: '/quiz/Poi.svg?text=Fruits exotiques',
-               },
-               {
-                  id: 'C',
-                  text: 'Céréales',
-                  // image: '/quiz/Poi.svg?text=Céréales',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation: '',
-         },
-         // Difficult Level
          {
             id: 96,
             theme: 'Alimentation et Croissance des Espèces Aquacoles',
@@ -1812,90 +1857,9 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             explanation: '',
          },
       ],
-      duplicate_2: [
-         // Easy Level
-         {
-            id: 90,
-            theme: 'Alimentation et Croissance des Espèces Aquacoles',
-            level: 'Easy',
-            type: 'multiple-choice',
-            question:
-               'Les poissons herbivores en aquaculture consomment souvent :',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Des algues et des plantes aquatiques',
-                  // image: '/quiz/Poi.svg?text=es algues et des plantes aquatiques',
-               },
-               {
-                  id: 'B',
-                  text: 'De la viande',
-                  // image: '/quiz/Poi.svg?text=De la viande',
-               },
-               {
-                  id: 'C',
-                  text: 'Des fruits',
-                  // image: '/quiz/Poi.svg?text=Des fruits',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation: '',
-         },
-         // Medium Level
-         {
-            id: 93,
-            theme: 'Alimentation et Croissance des Espèces Aquacoles',
-            level: 'Medium',
-            type: 'multiple-choice',
-            question:
-               'Quel est le rôle des algues dans certains systèmes aquacoles ?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Fournir de l’oxygène et filtrer les nutriments',
-                  // image: '/quiz/Poi.svg?text=Fournir de l’oxygène et filtrer les nutriments',
-               },
-               {
-                  id: 'B',
-                  text: 'Protéger les poissons des prédateurs',
-                  // image: '/quiz/Poi.svg?text=Protéger les poissons des prédateurs',
-               },
-               {
-                  id: 'C',
-                  text: 'Servir de barrière physique',
-                  // image: '/quiz/Poi.svg?text=Servir de barrière physique',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation: '',
-         },
-         // Difficult Level
-         {
-            id: 119,
-            theme: 'Aquaculture marine',
-            level: 'Difficult',
-            type: 'multiple-choice',
-            question: 'Le Thon Rouge peut il être élevé en mer ?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Oui',
-                  // image: '/quiz/Poi.svg?text=Oui',
-               },
-               {
-                  id: 'B',
-                  text: 'Non',
-                  // image: '/quiz/Poi.svg?text=Non',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation: '',
-         },
-      ],
    },
-   AVANCÉ: {
+   EXPERT: {
       'Aquaculture marine': [
-         // Easy Level
          {
             id: 97,
             theme: 'Aquaculture marine',
@@ -1922,96 +1886,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             correctAnswer: 'A',
             explanation: '',
          },
-         // Medium Level
-         {
-            id: 105,
-            theme: 'Aquaculture marine',
-            level: 'Medium',
-            type: 'multiple-choice',
-            question: 'La pénéiculture s’exerce  ?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'En mer ouverte',
-                  // image: '/quiz/Poi.svg?text=En mer ouverte',
-               },
-               {
-                  id: 'B',
-                  text: 'A terre',
-                  // image: '/quiz/Poi.svg?text=A terre',
-               },
-               {
-                  id: 'C',
-                  text: 'Embouchure d’oued',
-                  // image: '/quiz/Poi.svg?text=Embouchure d’oued',
-               },
-            ],
-            correctAnswer: 'B',
-            explanation: '',
-         },
-         {
-            id: 106,
-            theme: 'Aquaculture marine',
-            level: 'Medium',
-            type: 'multiple-choice',
-            question:
-               'Par quelle technique se fait l’élevage du loup et dorade ?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Cages flottantes en mer',
-                  // image: '/quiz/Poi.svg?text=Cages flottantes en mer',
-               },
-               {
-                  id: 'B',
-                  text: 'Etangs dans les lagunes',
-                  // image: '/quiz/Poi.svg?text=Etangs dans les lagunes',
-               },
-               {
-                  id: 'C',
-                  text: 'Bassins de grossissement en PVC',
-                  // image: '/quiz/Poi.svg?text=Bassins de grossissement en PVC',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation: '',
-         },
-         // Difficult Level
-         {
-            id: 115,
-            theme: 'Aquaculture marine',
-            level: 'Difficult',
-            type: 'multiple-choice',
-            question:
-               'En Méditerranée quelle est la meilleure période pour l’alevinage des cages  ?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Eté',
-                  // image: '/quiz/Poi.svg?text=Eté',
-               },
-               {
-                  id: 'B',
-                  text: 'Automne',
-                  // image: '/quiz/Poi.svg?text=Automne',
-               },
-               {
-                  id: 'C',
-                  text: 'Hiver',
-                  // image: '/quiz/Poi.svg?text=Hiver',
-               },
-               {
-                  id: 'D',
-                  text: 'Printemps',
-                  // image: '/quiz/Poi.svg?text=Printemps',
-               },
-            ],
-            correctAnswer: 'B',
-            explanation: '',
-         },
-      ],
-      duplicate_1: [
-         // Easy Level
          {
             id: 98,
             theme: 'Aquaculture marine',
@@ -2064,211 +1938,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             correctAnswer: 'B',
             explanation: '',
          },
-         // Medium Level
-         {
-            id: 107,
-            theme: 'Aquaculture marine',
-            level: 'Medium',
-            type: 'multiple-choice',
-            question: 'La culture des micro-algues sert à ?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Extraction d’huiles',
-                  // image: '/quiz/Poi.svg?text=Extraction d’huiles',
-               },
-               {
-                  id: 'B',
-                  text: 'L’alimentation humaine et animale',
-                  // image: '/quiz/Poi.svg?text=L’alimentation humaine et animale',
-               },
-               {
-                  id: 'C',
-                  text: 'La production de l’agar agar',
-                  // image: '/quiz/Poi.svg?text=La production de l’agar agar',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation: '',
-         },
-         {
-            id: 108,
-            theme: 'Aquaculture marine',
-            level: 'Medium',
-            type: 'multiple-choice',
-            question: 'L’élevage des poissons s’exerce seulement en mer ?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Oui',
-                  // image: '/quiz/Poi.svg?text=Oui',
-               },
-               {
-                  id: 'B',
-                  text: 'Non',
-                  // image: '/quiz/Poi.svg?text=Non',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation: '',
-         },
-
-         // Difficult Level
-         {
-            id: 117,
-            theme: 'Aquaculture marine',
-            level: 'Difficult',
-            type: 'multiple-choice',
-            question:
-               'La culture des huitres se fait seulement en poche sur tables ?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Oui',
-                  // image: '/quiz/Poi.svg?text=Oui',
-               },
-               {
-                  id: 'B',
-                  text: 'Non',
-                  // image: '/quiz/Poi.svg?text=Non',
-               },
-            ],
-            correctAnswer: 'B',
-            explanation: '',
-         },
-         {
-            id: 118,
-            theme: 'Aquaculture marine',
-            level: 'Difficult',
-            type: 'multiple-choice',
-            question: 'La mytiliculture sur bouchots dépend de ?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'La profondeur',
-                  // image: '/quiz/Poi.svg?text=La profondeur',
-               },
-               {
-                  id: 'B',
-                  text: 'Le marnage',
-                  // image: '/quiz/Poi.svg?text=Le marnage',
-               },
-               {
-                  id: 'C',
-                  text: 'La nature du bois',
-                  // image: '/quiz/Poi.svg?text=La nature du bois',
-               },
-            ],
-            correctAnswer: 'B',
-            explanation: '',
-         },
-      ],
-      duplicate_2: [
-         // Easy Level
-         {
-            id: 100,
-            theme: 'Aquaculture marine',
-            level: 'Easy',
-            type: 'multiple-choice',
-            question: 'La mariculture c’est ?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'L’aquaculture d’espèces marines',
-                  // image: '/quiz/Poi.svg?text=L’aquaculture d’espèces marines',
-               },
-               {
-                  id: 'B',
-                  text: 'La culture des algues',
-                  // image: '/quiz/Poi.svg?text=Laculture des algues',
-               },
-               {
-                  id: 'C',
-                  text: 'L’aquaculture en milieu contrôlé',
-                  // image: '/quiz/Poi.svg?text=L’aquaculture en milieu contrôlé',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation: '',
-         },
-         // Medium Level
-         {
-            id: 110,
-            theme: 'Aquaculture marine',
-            level: 'Medium',
-            type: 'multiple-choice',
-            question: 'C’est quoi la peneiculture ',
-            options: [
-               {
-                  id: 'A',
-                  text: "L'élevage de poissons en eau douce.",
-                  image: "/Poi.svg?text=L'élevage de poissons en eau douce.",
-               },
-               {
-                  id: 'B',
-                  text: "L'élevage des crevettes.",
-                  image: "/Poi.svg?text=L'élevage des crevettes.",
-               },
-               {
-                  id: 'C',
-                  text: "La culture de plantes aquatiques pour l'alimentation.",
-                  image: "/Poi.svg?text=La culture de plantes aquatiques pour l'alimentation.",
-               },
-            ],
-            correctAnswer: 'B',
-            explanation: '',
-         },
-         {
-            id: 111,
-            theme: 'Aquaculture marine',
-            level: 'Medium',
-            type: 'multiple-choice',
-            question: "Qu'est-ce que l'holothuriculture ?",
-            options: [
-               {
-                  id: 'A',
-                  text: "L'élevage des huîtres pour la production de perles.",
-                  image: "/Poi.svg?text=L'élevage des huîtres pour la production de perles.",
-               },
-               {
-                  id: 'B',
-                  text: "L'élevage des concombres de mer.",
-                  image: "/Poi.svg?text=L'élevage des concombres de mer.",
-               },
-               {
-                  id: 'C',
-                  text: "La culture des algues marines pour l'industrie alimentaire.",
-                  image: "/Poi.svg?text=La culture des algues marines pour l'industrie alimentaire.",
-               },
-            ],
-            correctAnswer: 'B',
-            explanation: '',
-         },
-         // Difficult Level
-         {
-            id: 119,
-            theme: 'Aquaculture marine',
-            level: 'Difficult',
-            type: 'multiple-choice',
-            question: 'Le Thon Rouge peut il être élevé en mer ?',
-            options: [
-               {
-                  id: 'A',
-                  text: 'Oui',
-                  // image: '/quiz/Poi.svg?text=Oui',
-               },
-               {
-                  id: 'B',
-                  text: 'Non',
-                  // image: '/quiz/Poi.svg?text=Non',
-               },
-            ],
-            correctAnswer: 'A',
-            explanation: '',
-         },
-      ],
-      duplicate_3: [
-         // Easy Level
          {
             id: 101,
             theme: 'Aquaculture marine',
@@ -2322,7 +1991,186 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             correctAnswer: 'C',
             explanation: '',
          },
-         // Medium Level
+         {
+            id: 105,
+            theme: 'Aquaculture marine',
+            level: 'Medium',
+            type: 'multiple-choice',
+            question: 'La pénéiculture s’exerce  ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'En mer ouverte',
+                  // image: '/quiz/Poi.svg?text=En mer ouverte',
+               },
+               {
+                  id: 'B',
+                  text: 'A terre',
+                  // image: '/quiz/Poi.svg?text=A terre',
+               },
+               {
+                  id: 'C',
+                  text: 'Embouchure d’oued',
+                  // image: '/quiz/Poi.svg?text=Embouchure d’oued',
+               },
+            ],
+            correctAnswer: 'B',
+            explanation: '',
+         },
+         {
+            id: 106,
+            theme: 'Aquaculture marine',
+            level: 'Medium',
+            type: 'multiple-choice',
+            question:
+               'Par quelle technique se fait l’élevage du loup et dorade ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Cages flottantes en mer',
+                  // image: '/quiz/Poi.svg?text=Cages flottantes en mer',
+               },
+               {
+                  id: 'B',
+                  text: 'Etangs dans les lagunes',
+                  // image: '/quiz/Poi.svg?text=Etangs dans les lagunes',
+               },
+               {
+                  id: 'C',
+                  text: 'Bassins de grossissement en PVC',
+                  // image: '/quiz/Poi.svg?text=Bassins de grossissement en PVC',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 107,
+            theme: 'Aquaculture marine',
+            level: 'Medium',
+            type: 'multiple-choice',
+            question: 'La culture des micro-algues sert à ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Extraction d’huiles',
+                  // image: '/quiz/Poi.svg?text=Extraction d’huiles',
+               },
+               {
+                  id: 'B',
+                  text: 'L’alimentation humaine et animale',
+                  // image: '/quiz/Poi.svg?text=L’alimentation humaine et animale',
+               },
+               {
+                  id: 'C',
+                  text: 'La production de l’agar agar',
+                  // image: '/quiz/Poi.svg?text=La production de l’agar agar',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 108,
+            theme: 'Aquaculture marine',
+            level: 'Medium',
+            type: 'multiple-choice',
+            question: 'L’élevage des poissons s’exerce seulement en mer ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Oui',
+                  // image: '/quiz/Poi.svg?text=Oui',
+               },
+               {
+                  id: 'B',
+                  text: 'Non',
+                  // image: '/quiz/Poi.svg?text=Non',
+               },
+            ],
+            correctAnswer: 'A',
+            explanation: '',
+         },
+         {
+            id: 115,
+            theme: 'Aquaculture marine',
+            level: 'Difficult',
+            type: 'multiple-choice',
+            question:
+               'En Méditerranée quelle est la meilleure période pour l’alevinage des cages  ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Eté',
+                  // image: '/quiz/Poi.svg?text=Eté',
+               },
+               {
+                  id: 'B',
+                  text: 'Automne',
+                  // image: '/quiz/Poi.svg?text=Automne',
+               },
+               {
+                  id: 'C',
+                  text: 'Hiver',
+                  // image: '/quiz/Poi.svg?text=Hiver',
+               },
+               {
+                  id: 'D',
+                  text: 'Printemps',
+                  // image: '/quiz/Poi.svg?text=Printemps',
+               },
+            ],
+            correctAnswer: 'B',
+            explanation: '',
+         },
+         {
+            id: 117,
+            theme: 'Aquaculture marine',
+            level: 'Difficult',
+            type: 'multiple-choice',
+            question:
+               'La culture des huitres se fait seulement en poche sur tables ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'Oui',
+                  // image: '/quiz/Poi.svg?text=Oui',
+               },
+               {
+                  id: 'B',
+                  text: 'Non',
+                  // image: '/quiz/Poi.svg?text=Non',
+               },
+            ],
+            correctAnswer: 'B',
+            explanation: '',
+         },
+         {
+            id: 118,
+            theme: 'Aquaculture marine',
+            level: 'Difficult',
+            type: 'multiple-choice',
+            question: 'La mytiliculture sur bouchots dépend de ?',
+            options: [
+               {
+                  id: 'A',
+                  text: 'La profondeur',
+                  // image: '/quiz/Poi.svg?text=La profondeur',
+               },
+               {
+                  id: 'B',
+                  text: 'Le marnage',
+                  // image: '/quiz/Poi.svg?text=Le marnage',
+               },
+               {
+                  id: 'C',
+                  text: 'La nature du bois',
+                  // image: '/quiz/Poi.svg?text=La nature du bois',
+               },
+            ],
+            correctAnswer: 'B',
+            explanation: '',
+         },
          {
             id: 112,
             theme: 'Aquaculture marine',
@@ -2349,8 +2197,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             correctAnswer: 'C',
             explanation: '',
          },
-
-         // Difficult Level
          {
             id: 113,
             theme: 'Aquaculture marine',
@@ -2405,9 +2251,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             correctAnswer: 'B',
             explanation: '',
          },
-      ],
-      duplicate_4: [
-         // Easy Level
          {
             id: 102,
             theme: 'Aquaculture marine',
@@ -2461,7 +2304,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             correctAnswer: 'B',
             explanation: '',
          },
-         // Medium Level
          {
             id: 109,
             theme: 'Aquaculture marine',
@@ -2515,7 +2357,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             correctAnswer: 'C',
             explanation: '',
          },
-         // Difficult Level
          {
             id: 120,
             theme: 'Aquaculture marine',
@@ -2573,55 +2414,30 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
    },
 };
 
-export const themesByLevel = {
-   ENFANT: [
-      'Les animaux aquatiques',
-      "L'alimentation des poissons d'élevage",
-      "Les métiers de l'aquaculture",
-      "L'aquaculture et l'environnement",
-      "L'importance économique et sociale de l'aquaculture au Maroc",
-   ],
-   DÉBUTANT: [
-      'Découverte de lAquaculture',
-      'Les Regions dAquaculture au Maroc',
-      'Alimentation et Croissance des Espèces Aquacoles',
-      'duplicate_1',
-      'duplicate_2',
-   ],
-   AVANCÉ: [
-      'Aquaculture marine',
-      'duplicate_1',
-      'duplicate_2',
-      'duplicate_3',
-      'duplicate_4',
-   ],
-} as const;
-
 export function getRandomQuestions(
-   userLevel: string,
-   theme: string,
-   difficulty: 'Easy' | 'Medium' | 'Difficult',
-   count: number
+   count: number,
+   userLevel: 'DÉBUTANT' | 'AVANCÉ' | 'EXPERT'
 ): QuizQuestion[] {
-   console.log(userLevel, theme.length, difficulty, count);
-   if (!quizQuestions[userLevel] || !quizQuestions[userLevel][theme]) {
-      console.error(
-         `No questions found for level: ${userLevel}, theme: ${theme}`
-      );
-      return [];
+   const levelQuestions = quizQuestions[userLevel] || {};
+   const allQuestions = Object.values(levelQuestions).flat();
+   const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
+
+   // Ensure at least one question from each theme if possible
+   const selectedQuestions: QuizQuestion[] = [];
+   const themes = Object.keys(levelQuestions);
+
+   for (const theme of themes) {
+      const questionFromTheme = shuffled.find((q) => q.theme === theme);
+      if (questionFromTheme) {
+         selectedQuestions.push(questionFromTheme);
+         shuffled.splice(shuffled.indexOf(questionFromTheme), 1);
+      }
    }
 
-   const questions = quizQuestions[userLevel][theme].filter(
-      (q) => q.level === difficulty
-   );
-
-   if (!questions || questions.length === 0) {
-      console.error(
-         `No questions found for level: ${userLevel}, theme: ${theme}, difficulty: ${difficulty}`
-      );
-      return [];
+   // Fill the remaining slots with random questions
+   while (selectedQuestions.length < count && shuffled.length > 0) {
+      selectedQuestions.push(shuffled.pop()!);
    }
 
-   const shuffled = [...questions].sort(() => Math.random() - 0.5);
-   return shuffled.slice(0, Math.min(count, questions.length));
+   return selectedQuestions.sort(() => Math.random() - 0.5);
 }
