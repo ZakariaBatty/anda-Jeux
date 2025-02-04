@@ -8,10 +8,9 @@ import type { UserInfo } from "@/types/quiz"
 interface RegistrationFormProps {
   onSubmit: (data: Omit<UserInfo, "level">) => void
   onBack: () => void
-  level: "ENFANT" | "DÉBUTANT" | "AVANCÉ" | null
 }
 
-export function RegistrationForm({ onSubmit, level }: RegistrationFormProps) {
+export function RegistrationForm({ onSubmit }: RegistrationFormProps) {
   const [formData, setFormData] = useState<Omit<UserInfo, "level">>({
     fullName: "",
     email: "",
@@ -48,7 +47,7 @@ export function RegistrationForm({ onSubmit, level }: RegistrationFormProps) {
           onChange={(e) => setFormData((prev) => ({ ...prev, fullName: e.target.value }))}
         />
         <Input
-          required={level !== "ENFANT"}
+          required
           type="email"
           placeholder="Adresse mail"
           className="h-14 bg-[#001f2a]/80 border-2 border-dashed border-white/30 

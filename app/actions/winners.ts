@@ -15,6 +15,7 @@ export async function createWinner(winner: {
    wonLevels: string[];
    winnerCode: string;
 }) {
+   console.log('score', winner.score);
    try {
       const {
          fullName,
@@ -54,7 +55,7 @@ export async function createWinner(winner: {
             fullName: fullName ?? undefined,
             phone: phone ?? undefined,
             profession: profession ?? undefined,
-            score: { increment: score },
+            score: score,
             wonLevels: updatedWonLevels,
          },
          create: {
