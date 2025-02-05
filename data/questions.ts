@@ -1054,7 +1054,7 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
                   // image: '/quiz/Poi.svg?text=NASA',
                },
             ],
-            correctAnswer: 'B',
+            correctAnswer: 'A',
             explanation:
                "ANDA (Agence Nationale pour le Développement de l'Aquaculture)",
          },
