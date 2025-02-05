@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { getWinners } from "@/app/actions/winners";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
-import { Trophy } from "lucide-react";
 
 interface Winner {
   id: number;
@@ -12,7 +11,6 @@ interface Winner {
   email: string;
   level: string;
   score: number;
-  wonLevels: string;
   winnerCode: string;
   phone: string | null;
   profession: string | null;
@@ -61,9 +59,7 @@ export function Dashboard() {
             <TableHead>Profession</TableHead>
             <TableHead>Level</TableHead>
             <TableHead>Score</TableHead>
-            <TableHead>Won Levels</TableHead>
             <TableHead>Winner Code</TableHead>
-            <TableHead>Grand Winner</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -75,11 +71,7 @@ export function Dashboard() {
               <TableCell>{winner.profession}</TableCell>
               <TableCell>{winner.level}</TableCell>
               <TableCell>{winner.score}</TableCell>
-              <TableCell>{winner.wonLevels}</TableCell>
               <TableCell>{winner.winnerCode}</TableCell>
-              <TableCell>
-                {winner.wonLevels.split(",").length === 3 && <Trophy className="text-yellow-400" />}
-              </TableCell>
             </TableRow>
           ))}
         </TableBody>

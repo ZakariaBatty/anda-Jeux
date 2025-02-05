@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { createWinner } from "@/app/actions/winners"
 import { Button } from "@/components/ui/button"
 import { Star } from "lucide-react"
@@ -20,27 +20,38 @@ interface QuizResults {
 }
 
 export function QuizResults({ results, onHome }: QuizResultsProps) {
+  const [error, setError] = useState<string | null>(null)
+
   useEffect(() => {
     const handleQuizComplete = async (results: QuizResults) => {
       const storedUserInfo = localStorage.getItem("quizUserInfo")
       if (storedUserInfo) {
-        const userInfo: UserInfo = JSON.parse(storedUserInfo)
-        const winner = {
-          fullName: userInfo.fullName,
-          email: userInfo.email,
-          phone: userInfo.phone,
-          profession: userInfo.profession,
-          level: userInfo.level,
-          score: results.score,
-          wonLevels: [results.level],
-          winnerCode: results.winnerCode || "",
+        try {
+          const userInfo: UserInfo = JSON.parse(storedUserInfo)
+          const winner = {
+            fullName: userInfo.fullName || "",
+            email: userInfo.email,
+            phone: userInfo.phone || "",
+            profession: userInfo.profession || "",
+            level: results.level,
+            score: results.score,
+            winnerCode: results.winnerCode || "",
+          }
+          console.log("Sending winner data:", winner)
+          const response = await createWinner(winner)
+          if (response.success) {
+            console.log("Winner saved:", response.winner)
+          } else {
+            setError(`Error saving winner: ${response.error}`)
+            console.error("Error saving winner:", response.error)
+          }
+        } catch (err) {
+          setError("Error processing user data")
+          console.error("Error processing user data:", err)
         }
-        const response = await createWinner(winner)
-        if (response.success) {
-          console.log("Winner saved:", response.winner)
-        } else {
-          console.error("Error saving winner:", response.error)
-        }
+      } else {
+        setError("User information not found")
+        console.error("User information not found in localStorage")
       }
     }
 
@@ -50,15 +61,15 @@ export function QuizResults({ results, onHome }: QuizResultsProps) {
   // Calculate how many stars should be filled based on the score percentage
   const filledStars = Math.round((results.score / results.totalQuestions) * 5)
 
-
   return (
     <div className="w-full max-w-4xl mx-auto px-4 text-center">
+      {error && <div className="text-red-500 mb-4">{error}</div>}
 
       <div className="text-green-400 text-2xl font-bold mt-24">
-        ✅ Merci d’avoir participé à notre quiz
+        ✅ Merci d&apos;avoir participé à notre quiz
         {results.winnerCode && (
           <div className="mt-4">
-            Votre score est <span className="text-yellow-400">{results.winnerCode}</span>
+            Votre score est <span className="text-yellow-400">{results.winnerCode}</span>
           </div>
         )}
       </div>

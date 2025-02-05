@@ -128,8 +128,8 @@ export function Quiz({ onHome, onRestart }: QuizProps) {
     const totalQuestions = quizState.selectedQuestions.length
     const percentageCorrect = (quizState.score / totalQuestions) * 100
     const isWinner = percentageCorrect >= 50
-    const generatedCode = isWinner ? generateWinnerCode() : null
-    console.log("quizState", quizState)
+    const generatedCode = generateWinnerCode()
+
     const results: QuizResults = {
       score: quizState.score,
       totalQuestions,

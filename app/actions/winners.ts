@@ -4,69 +4,52 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-// Server action to create or update a winner
 export async function createWinner(winner: {
-   fullName: string;
+   fullName?: string;
    email: string;
    phone?: string;
    profession?: string;
    level: string;
    score: number;
-   wonLevels: string[];
    winnerCode: string;
 }) {
-   console.log('score', winner.score);
    try {
-      const {
-         fullName,
-         email,
-         phone,
-         profession,
-         level,
-         score,
-         wonLevels,
-         winnerCode,
-      } = winner;
-
-      if (
-         !email ||
-         !level ||
-         score === undefined ||
-         !wonLevels ||
-         !winnerCode
-      ) {
-         return { error: 'Missing required fields' };
+      // Check for required fields
+      if (!winner || typeof winner !== 'object') {
+         console.error('Invalid winner object:', winner);
+         return { error: 'Invalid winner data', success: false };
       }
 
-      const existingWinner = await prisma.winner.findUnique({
-         where: { email },
-      });
+      if (
+         !winner.email ||
+         !winner.level ||
+         typeof winner.score !== 'number' ||
+         !winner.winnerCode
+      ) {
+         console.error('Missing required fields:', winner);
+         return { error: 'Missing required fields', success: false };
+      }
 
-      const existingLevels = existingWinner
-         ? existingWinner.wonLevels.split(',')
-         : [];
-      const updatedWonLevels = [
-         ...new Set([...existingLevels, ...wonLevels]),
-      ].join(',');
+      console.log('Creating/Updating Winner:', winner);
 
       const updatedWinner = await prisma.winner.upsert({
-         where: { email },
+         where: { email: winner.email },
          update: {
-            fullName: fullName ?? undefined,
-            phone: phone ?? undefined,
-            profession: profession ?? undefined,
-            score: score,
-            wonLevels: updatedWonLevels,
+            fullName: winner.fullName ?? undefined,
+            phone: winner.phone ?? undefined,
+            profession: winner.profession ?? undefined,
+            score: winner.score,
+            level: winner.level,
+            winnerCode: winner.winnerCode,
          },
          create: {
-            fullName,
-            email,
-            phone,
-            profession,
-            level,
-            score,
-            wonLevels: updatedWonLevels,
-            winnerCode,
+            fullName: winner.fullName ?? null,
+            email: winner.email,
+            phone: winner.phone ?? null,
+            profession: winner.profession ?? null,
+            level: winner.level,
+            score: winner.score,
+            winnerCode: winner.winnerCode,
          },
       });
 
@@ -85,9 +68,18 @@ export async function getWinners() {
       const winners = await prisma.winner.findMany({
          orderBy: { score: 'desc' },
       });
+
+      if (!winners) {
+         return { success: false, error: 'No winners found' };
+      }
+
       return { success: true, winners };
    } catch (error) {
       console.error('Error fetching winners:', error);
-      return { success: false, error: 'Internal Server Error' };
+      return {
+         success: false,
+         error:
+            error instanceof Error ? error.message : 'Internal Server Error',
+      };
    }
 }
