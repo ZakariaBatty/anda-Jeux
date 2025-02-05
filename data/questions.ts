@@ -8,7 +8,8 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             theme: 'Les animaux aquatiques',
             level: 'Easy',
             type: 'multiple-choice',
-            question: "Lequel de ces animaux vit dans l'eau ?",
+            question:
+               'Parmi ces animaux, lequel est exclusivement aquatique durant tout son cycle de vie ?',
             options: [
                {
                   id: 'A',
@@ -17,12 +18,12 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
                },
                {
                   id: 'B',
-                  text: 'Chat',
+                  text: 'Grenouille',
                   // image: '/quiz/Chat.svg?text=Chat',
                },
                {
                   id: 'C',
-                  text: 'Oiseau',
+                  text: 'Tortue',
                   // image: '/quiz/Oiseau.svg?text=Oiseau',
                },
             ],
@@ -33,31 +34,51 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             id: 2,
             theme: 'Les animaux aquatiques',
             level: 'Easy',
-            type: 'true-false',
-            question: "Les poissons respirent sous l'eau.",
+            type: 'multiple-choice',
+            question:
+               "Grâce à quel organe principal les poissons respirent-ils sous l'eau ?",
             options: [
-               { id: 'A', text: 'Oui' },
-               { id: 'B', text: 'Non' },
+               {
+                  id: 'A',
+                  text: 'Poumons',
+                  // image: '/quiz/Poisson.svg',
+               },
+               {
+                  id: 'B',
+                  text: 'Branchies',
+                  // image: '/quiz/Chat.svg?text=Chat',
+               },
+               {
+                  id: 'C',
+                  text: 'Peau',
+                  // image: '/quiz/Oiseau.svg?text=Oiseau',
+               },
             ],
-            correctAnswer: 'A',
+            correctAnswer: 'B',
             explanation: '',
          },
          {
             id: 3,
             theme: 'Les animaux aquatiques',
             level: 'Easy',
-            type: 'image-association',
-            question: 'Relie le poisson à sa maison',
+            type: 'multiple-choice',
+            question:
+               "Dans quel type d'habitat marin trouve-t-on principalement les poissons coralliens ?",
             options: [
                {
                   id: 'A',
-                  text: 'Image désert',
-                  // image: '/quiz/Poi.svg?text=désert',
+                  text: 'Zones désertiques',
+                  // image: '/quiz/Poisson.svg',
                },
                {
                   id: 'B',
-                  text: 'Image mer',
-                  // image: '/quiz/Poi.svg?text=mer',
+                  text: 'Récifs coralliens',
+                  // image: '/quiz/Chat.svg?text=Chat',
+               },
+               {
+                  id: 'C',
+                  text: 'Montagnes',
+                  // image: '/quiz/Oiseau.svg?text=Oiseau',
                },
             ],
             correctAnswer: 'B',
@@ -68,7 +89,7 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             theme: 'Les animaux aquatiques',
             level: 'Easy',
             type: 'multiple-choice',
-            question: 'Quel animal marin a des tentacules ?',
+            question: 'Quel mollusque marin possède des tentacules ?',
             options: [
                {
                   id: 'A',
@@ -94,7 +115,8 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             theme: 'Les animaux aquatiques',
             level: 'Easy',
             type: 'true-false',
-            question: "Les daurades peuvent vivre hors de l'eau.",
+            question:
+               "Les daurades peuvent-elles vivre indéfiniment hors de l'eau ?",
             options: [
                { id: 'A', text: 'Oui' },
                { id: 'B', text: 'Non' },
@@ -108,7 +130,7 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             level: 'Medium',
             type: 'multiple-choice',
             question:
-               'Quel animal peut-on élever dans une ferme aquacole au Maroc ?',
+               'Parmi ces espèces, laquelle est le plus couramment élevée en aquaculture marine au Maroc ?',
             options: [
                {
                   id: 'A',
@@ -117,12 +139,12 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
                },
                {
                   id: 'B',
-                  text: 'Chameau',
+                  text: 'Sardine',
                   // image: '/quiz/Poi.svg?text=Chameau',
                },
                {
                   id: 'C',
-                  text: 'Poulet',
+                  text: 'Thon rouge',
                   // image: '/quiz/Poi.svg?text=Poulet',
                },
             ],
@@ -134,12 +156,13 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             theme: 'Les animaux aquatiques',
             level: 'Medium',
             type: 'true-false',
-            question: 'Les huîtres fabriquent des perles',
+            question:
+               "Toutes les espèces d'huîtres produisent-elles des perles de valeur commerciale ?",
             options: [
                { id: 'A', text: 'Oui' },
                { id: 'B', text: 'Non' },
             ],
-            correctAnswer: 'A',
+            correctAnswer: 'B',
             explanation: '',
          },
          {
@@ -271,36 +294,51 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             theme: "L'alimentation des poissons d'élevage",
             level: 'Easy',
             type: 'multiple-choice',
-            question: "Que mangent les poissons d'élevage ?",
+            question:
+               "Quel est l'ingrédient principal de l'alimentation des poissons d'élevage carnivores ?",
             options: [
                {
                   id: 'A',
-                  text: 'Granulés',
+                  text: 'Granulés végétaux',
                   // image: '/quiz/Poi.svg?text=granulés',
                },
                {
                   id: 'B',
-                  text: 'Pizza',
+                  text: 'Farine de poisson',
                   // image: '/quiz/Poi.svg?text=pizza',
                },
                {
                   id: 'C',
-                  text: 'Banane',
+                  text: 'Algues séchées',
                   // image: '/quiz/Poi.svg?text=banane',
                },
             ],
-            correctAnswer: 'A',
+            correctAnswer: 'B',
             explanation: '',
          },
          {
             id: 17,
             theme: "L'alimentation des poissons d'élevage",
             level: 'Easy',
-            type: 'true-false',
-            question: "Les poissons d'élevage se nourrissent tout seuls.",
+            type: 'multiple-choice',
+            question:
+               'Comment sont généralement nourris les poissons dans les fermes aquacoles intensives ?',
             options: [
-               { id: 'A', text: 'Oui' },
-               { id: 'B', text: 'Non' },
+               {
+                  id: 'A',
+                  text: 'Ils trouvent leur nouritture naturellement',
+                  // image: '/quiz/Poi.svg?text=granulés',
+               },
+               {
+                  id: 'B',
+                  text: 'Ils sont nourris par des employés ou via des systèmes automatiques',
+                  // image: '/quiz/Poi.svg?text=pizza',
+               },
+               {
+                  id: 'C',
+                  text: 'Ils ne sont pas nourris',
+                  // image: '/quiz/Poi.svg?text=banane',
+               },
             ],
             correctAnswer: 'B',
             explanation: '',
@@ -336,13 +374,27 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             id: 20,
             theme: "L'alimentation des poissons d'élevage",
             level: 'Easy',
-            type: 'true-false',
-            question: "Les poissons d'élevage mangent uniquement la nuit.",
+            type: 'multiple-choice',
+            question:
+               'À quelle fréquence sont généralement nourris les poissons dans les fermes aquacoles intensives ?',
             options: [
-               { id: 'A', text: 'Oui' },
-               { id: 'B', text: 'Non' },
+               {
+                  id: 'A',
+                  text: 'Une fois par jour',
+                  // image: '/quiz/Poi.svg?text=granulés',
+               },
+               {
+                  id: 'B',
+                  text: 'Une fois par semaine',
+                  // image: '/quiz/Poi.svg?text=feuilles',
+               },
+               {
+                  id: 'C',
+                  text: 'Une fois par mois',
+                  // image: '/quiz/Poi.svg?text=cubes',
+               },
             ],
-            correctAnswer: 'B',
+            correctAnswer: 'A',
             explanation: '',
          },
          {
@@ -351,11 +403,11 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             level: 'Medium',
             type: 'multiple-choice',
             question:
-               'Lequel de ces ingrédients peut-on trouver dans la nourriture pour poissons ?',
+               "Lequel de ces ingrédients est une source importante de protéines dans l'alimentation des poissons d'élevage ?",
             options: [
                {
                   id: 'A',
-                  text: 'chocolat',
+                  text: 'Huile végétale',
                   // image: '/quiz/Poi.svg?text=chocolat',
                },
                {
@@ -365,7 +417,7 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
                },
                {
                   id: 'C',
-                  text: 'fromage',
+                  text: 'Vitamines',
                   // image: '/quiz/Poi.svg?text=fromage',
                },
             ],
@@ -376,13 +428,27 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             id: 22,
             theme: "L'alimentation des poissons d'élevage",
             level: 'Medium',
-            type: 'true-false',
-            question: "Certains poissons d'élevage mangent des algues.",
+            type: 'multiple-choice',
+            question:
+               "Quel type de poissons d'élevage se nourrit principalement d'algues et de plantes aquatiques ?",
             options: [
-               { id: 'A', text: 'Oui' },
-               { id: 'B', text: 'Non' },
+               {
+                  id: 'A',
+                  text: 'Poissons carnivores',
+                  // image: '/quiz/Poi.svg?text=chocolat',
+               },
+               {
+                  id: 'B',
+                  text: 'Poissons herbivores',
+                  // image: '/quiz/Poi.svg?text=farine-de-poisson',
+               },
+               {
+                  id: 'C',
+                  text: 'Poissons détritivores',
+                  // image: '/quiz/Poi.svg?text=fromage',
+               },
             ],
-            correctAnswer: 'A',
+            correctAnswer: 'B',
             explanation: '',
          },
          {
@@ -489,39 +555,53 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             theme: "Les métiers de l'aquaculture",
             level: 'Easy',
             type: 'multiple-choice',
-            question: "Qui s'occupe des poissons dans une ferme aquacole ?",
+            question:
+               'Quel est le métier principalement responsable du suivi quotidien de la santé et du bien-être des poissons dans une ferme aquacole ?',
             options: [
                {
                   id: 'A',
-                  text: 'Policier',
+                  text: 'Commercial',
                   // image: '/quiz/Poi.svg?text=policier',
                },
                {
                   id: 'B',
-                  text: 'Boulanger',
+                  text: 'Aquaculteur',
                   // image: '/quiz/Poi.svg?text=boulanger',
                },
                {
                   id: 'C',
-                  text: 'Aquaculteur',
+                  text: 'Vétérinaire',
                   // image: '/quiz/Poi.svg?text=aquaculteur',
                },
             ],
-            correctAnswer: 'C',
+            correctAnswer: 'B',
             explanation: '',
          },
          {
             id: 31,
             theme: "Les métiers de l'aquaculture",
             level: 'Easy',
-            type: 'true-false',
+            type: 'multiple-choice',
             question:
-               'Les plongeurs travaillent parfois dans les fermes aquacoles.',
+               'Dans quel type de ferme aquacole marine est-il le plus probable de trouver des plongeurs travaillant régulièrement ?',
             options: [
-               { id: 'A', text: 'Oui' },
-               { id: 'B', text: 'Non' },
+               {
+                  id: 'A',
+                  text: "Ferme d'huitres sur tables",
+                  // image: '/quiz/Poi.svg?text=policier',
+               },
+               {
+                  id: 'B',
+                  text: 'Ferme de poissons en cages flottantes',
+                  // image: '/quiz/Poi.svg?text=boulanger',
+               },
+               {
+                  id: 'C',
+                  text: 'Ferme de crevettes à terre',
+                  // image: '/quiz/Poi.svg?text=aquaculteur',
+               },
             ],
-            correctAnswer: 'A',
+            correctAnswer: 'B',
             explanation: '',
          },
          {
@@ -529,53 +609,53 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             theme: "Les métiers de l'aquaculture",
             level: 'Easy',
             type: 'multiple-choice',
-            question: "Qui surveille la santé des poissons d'élevage ?",
+            question:
+               "Quel professionnel de la santé animale est spécifiquement formé pour s'occuper de la santé des poissons d'élevage ?",
             options: [
                {
                   id: 'A',
-                  text: 'vétérinaire',
+                  text: 'Vétérinaire',
                   // image: '/quiz/Poi.svg?text=vétérinaire',
                },
                {
                   id: 'B',
-                  text: 'cuisinier',
+                  text: 'Médecin généraliste',
                   // image: '/quiz/Poi.svg?text=cuisinier',
                },
                {
                   id: 'C',
-                  text: 'jardinier',
+                  text: 'Pharmacien',
                   // image: '/quiz/Poi.svg?text=jardinier',
                },
             ],
             correctAnswer: 'A',
             explanation: '',
          },
-
          {
             id: 34,
             theme: "Les métiers de l'aquaculture",
             level: 'Medium',
             type: 'multiple-choice',
             question:
-               "Quel professionnel vérifie la qualité de l'eau dans les fermes aquacoles ?",
+               "Quel professionnel est spécialement formé pour analyser et surveiller les paramètres physico-chimiques de l'eau dans les fermes aquacoles ?",
             options: [
                {
                   id: 'A',
-                  text: 'Biologiste marin',
+                  text: 'Ingénieur en mécanique',
                   // image: '/quiz/Poi.svg?text=Biologiste marin',
                },
                {
                   id: 'B',
-                  text: 'Mécanicien',
+                  text: 'Biologiste marin',
                   // image: '/quiz/Poi.svg?text=mécanicien',
                },
                {
                   id: 'C',
-                  text: 'Cuisinier',
+                  text: 'Economiste',
                   // image: '/quiz/Poi.svg?text=cuisinier',
                },
             ],
-            correctAnswer: 'A',
+            correctAnswer: 'B',
             explanation: '',
          },
          {
@@ -598,7 +678,7 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             level: 'Medium',
             type: 'multiple-choice',
             question:
-               "Quel métier s'occupe de la commercialisation des produits aquacoles au Maroc ?",
+               "Quel professionnel est principalement responsable de la vente et de la distribution des produits issus d'une ferme aquacole ?",
             options: [
                {
                   id: 'A',
@@ -607,12 +687,12 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
                },
                {
                   id: 'B',
-                  text: 'Plongeur',
+                  text: 'Aquaculteur',
                   // image: '/quiz/Poi.svg?text=plongeur',
                },
                {
                   id: 'C',
-                  text: 'Vétérinaire',
+                  text: 'Responsable qualité',
                   // image: '/quiz/Poi.svg?text=vétérinaire',
                },
             ],
@@ -671,7 +751,7 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
                { id: 'A', text: 'Oui' },
                { id: 'B', text: 'Non' },
             ],
-            correctAnswer: 'B',
+            correctAnswer: 'A',
             explanation: '',
          },
          {
@@ -722,7 +802,8 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             theme: "L'aquaculture et l'environnement",
             level: 'Easy',
             type: 'multiple-choice',
-            question: 'Où élève-t-on les poissons en aquaculture au Maroc ?',
+            question:
+               "Dans quel milieu trouve-t-on principalement les fermes d'aquaculture marine au Maroc ?",
             options: [
                {
                   id: 'A',
@@ -731,12 +812,12 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
                },
                {
                   id: 'B',
-                  text: 'Désert',
+                  text: 'Rivières',
                   // image: '/quiz/Poi.svg?text=désert',
                },
                {
                   id: 'C',
-                  text: 'Forêt',
+                  text: 'Lacs',
                   // image: '/quiz/Poi.svg?text=forêt',
                },
             ],
@@ -748,7 +829,8 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             theme: "L'aquaculture et l'environnement",
             level: 'Easy',
             type: 'true-false',
-            question: "L'aquaculture aide à protéger les poissons sauvages.",
+            question:
+               "L'aquaculture contribue à la résolution du problème de la surpêche des poissons sauvages.",
             options: [
                { id: 'A', text: 'Oui' },
                { id: 'B', text: 'Non' },
@@ -762,25 +844,25 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             level: 'Easy',
             type: 'multiple-choice',
             question:
-               "Quelle source d'énergie est utilisée dans certaines fermes aquacoles au Maroc ?",
+               "Quelle source d'énergie renouvelable est de plus en plus envisagée pour alimenter les fermes aquacoles au Maroc ?",
             options: [
                {
                   id: 'A',
-                  text: 'Soleil',
+                  text: 'Charbon',
                   // image: '/quiz/Poi.svg?text=soleil',
                },
                {
                   id: 'B',
-                  text: 'Feu',
+                  text: 'Pétrole',
                   // image: '/quiz/Poi.svg?text=feu',
                },
                {
                   id: 'C',
-                  text: 'Vent',
+                  text: 'Energie solaire',
                   // image: '/quiz/Poi.svg?text=vent',
                },
             ],
-            correctAnswer: 'A',
+            correctAnswer: 'C',
             explanation: '',
          },
          {
@@ -803,21 +885,21 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             level: 'Medium',
             type: 'multiple-choice',
             question:
-               "Quel équipement utilise-t-on pour nettoyer l'eau des bassins ?",
+               "Quel type de système est principalement utilisé pour éliminer les particules et les déchets de l'eau dans les systèmes d'aquaculture en circuit fermé ?",
             options: [
                {
                   id: 'A',
-                  text: 'Filtre',
+                  text: 'Filtre mécanique',
                   // image: '/quiz/Poi.svg?text=filtre',
                },
                {
                   id: 'B',
-                  text: 'Arrosoir',
+                  text: 'Aspirateur',
                   // image: '/quiz/Poi.svg?text=arrosoir',
                },
                {
                   id: 'C',
-                  text: 'Aspirateur',
+                  text: 'Pompe à eau brute',
                   // image: '/quiz/Poi.svg?text=aspirateur',
                },
             ],
@@ -914,38 +996,53 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             theme: "L'importance économique et sociale de l'aquaculture au Maroc",
             level: 'Easy',
             type: 'multiple-choice',
-            question: 'Que produit-on dans les fermes aquacoles au Maroc ?',
+            question:
+               "Quel type de produits de la mer est principalement issu de l'aquaculture au Maroc ?",
             options: [
                {
                   id: 'A',
-                  text: 'Poisson',
+                  text: 'Thon sauvage',
                   // image: '/quiz/Poi.svg?text=poisson',
                },
                {
                   id: 'B',
-                  text: 'Voiture',
+                  text: 'Crevettes sauvages',
                   // image: '/quiz/Poi.svg?text=voiture',
                },
                {
                   id: 'C',
-                  text: 'Téléphone',
+                  text: "Daurade d'élevage",
                   // image: '/quiz/Poi.svg?text=téléphone',
                },
             ],
-            correctAnswer: 'A',
+            correctAnswer: 'C',
             explanation: '',
          },
          {
             id: 56,
             theme: "L'importance économique et sociale de l'aquaculture au Maroc",
             level: 'Easy',
-            type: 'true-false',
-            question: "L'aquaculture crée des emplois au Maroc.",
+            type: 'multiple-choice',
+            question:
+               "Dans quel secteur d'activité l'aquaculture crée-t-elle principalement des emplois au Maroc ?",
             options: [
-               { id: 'A', text: 'Oui' },
-               { id: 'B', text: 'Non' },
+               {
+                  id: 'A',
+                  text: 'Tourisme',
+                  // image: '/quiz/Poi.svg?text=poisson',
+               },
+               {
+                  id: 'B',
+                  text: 'Agriculture terrestre',
+                  // image: '/quiz/Poi.svg?text=voiture',
+               },
+               {
+                  id: 'C',
+                  text: 'Industrie agroalimentaire et pêche',
+                  // image: '/quiz/Poi.svg?text=téléphone',
+               },
             ],
-            correctAnswer: 'A',
+            correctAnswer: 'C',
             explanation: '',
          },
          {
@@ -995,7 +1092,7 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             level: 'Medium',
             type: 'multiple-choice',
             question:
-               "Question avec images : Quel type de structure est utilisé pour l'élevage de poissons en mer au Maroc ?",
+               "Quel type de structure est utilisé pour l'élevage de poissons en mer au Maroc ?",
             options: [
                {
                   id: 'A',
@@ -1073,7 +1170,7 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             explanation: '',
          },
          {
-            id: 64,
+            id: 200,
             theme: "L'importance économique et sociale de l'aquaculture au Maroc",
             level: 'Difficult',
             type: 'multiple-choice',
@@ -1183,7 +1280,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             correctAnswer: 'C',
             explanation: '',
          },
-
          {
             id: 73,
             theme: "Découverte de l'Aquaculture",
@@ -1401,7 +1497,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             correctAnswer: 'A',
             explanation: '',
          },
-
          {
             id: 82,
             theme: 'Les Régions d’Aquaculture au Maroc',
@@ -1453,7 +1548,7 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
                   // image: '/quiz/Poi.svg?text=Climat froid et neigeux',
                },
             ],
-            correctAnswer: 'C',
+            correctAnswer: 'A',
             explanation: '',
          },
          {
@@ -1483,7 +1578,6 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             correctAnswer: 'A',
             explanation: '',
          },
-
          {
             id: 85,
             theme: 'Les Régions d’Aquaculture au Maroc',
@@ -1517,7 +1611,7 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
             level: 'Difficult',
             type: 'multiple-choice',
             question:
-               'Quelle région marocaine développe des projets de culture d’algues ?',
+               'Quelle région marocaine comporte plusieurs projets de culture d’algues ?',
             options: [
                {
                   id: 'A',
@@ -2088,7 +2182,7 @@ export const quizQuestions: Record<string, Record<string, QuizQuestion[]>> = {
                   // image: '/quiz/Poi.svg?text=Non',
                },
             ],
-            correctAnswer: 'A',
+            correctAnswer: 'B',
             explanation: '',
          },
          {

@@ -33,9 +33,9 @@ export interface QuizResults {
 }
 
 export interface UserInfo {
-   fullName: string;
+   fullName?: string;
    email: string;
-   phone: string;
-   profession: string;
+   phone?: string;
+   profession?: string;
    level: 'DÉBUTANT' | 'AVANCÉ' | 'EXPERT';
 }
