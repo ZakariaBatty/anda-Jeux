@@ -4,6 +4,18 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
+export async function checkEmailExists(email: string): Promise<boolean> {
+   try {
+      const winner = await prisma.winner.findUnique({
+         where: { email },
+      });
+      return !!winner;
+   } catch (error) {
+      console.error('Error checking email existence:', error);
+      throw new Error('Failed to check email existence');
+   }
+}
+
 export async function createWinner(winner: {
    fullName?: string;
    email: string;

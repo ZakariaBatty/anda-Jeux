@@ -1,9 +1,10 @@
-// "use client"
+"use client"
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import type { UserInfo } from "@/types/quiz"
+import { checkEmailExists } from "@/app/actions/winners"
 
 interface RegistrationFormProps {
   onSubmit: (data: Omit<UserInfo, "level">) => void
@@ -17,17 +18,30 @@ export function RegistrationForm({ onSubmit }: RegistrationFormProps) {
     phone: "",
     profession: "",
   })
+  const [emailError, setEmailError] = useState<string | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    localStorage.setItem("quizUserInfo", JSON.stringify(formData))
-    onSubmit(formData)
+    setEmailError(null)
+
+    try {
+      const emailExists = await checkEmailExists(formData.email)
+      if (emailExists) {
+        setEmailError("Cette adresse e-mail existe déjà.")
+        return
+      }
+
+      localStorage.setItem("quizUserInfo", JSON.stringify(formData))
+      onSubmit(formData)
+    } catch (error) {
+      console.error("Error checking email:", error)
+      setEmailError("Une erreur s'est produite. Veuillez réessayer.")
+    }
   }
 
   return (
     <div className="w-full max-w-2xl mx-auto px-4">
-      <div className="w-full flex justify-between mb-8">
-      </div>
+      <div className="w-full flex justify-between mb-8"></div>
       <h2
         className="text-4xl md:text-5xl font-bold text-white mb-12
         tracking-wider text-center
@@ -55,6 +69,7 @@ export function RegistrationForm({ onSubmit }: RegistrationFormProps) {
           value={formData.email}
           onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
         />
+        {emailError && <p className="text-red-500">{emailError}</p>}
         <Input
           type="tel"
           placeholder="N° de Téléphone"
