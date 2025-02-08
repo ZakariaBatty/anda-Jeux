@@ -55,9 +55,9 @@ export function Dashboard() {
           <TableRow>
             <TableHead>Full Name</TableHead>
             <TableHead>Email</TableHead>
-            {/* <TableHead>Phone</TableHead> */}
-            {/* <TableHead>Profession</TableHead> */}
-            {/* <TableHead>Level</TableHead> */}
+            <TableHead>Phone</TableHead>
+            <TableHead>Profession</TableHead>
+            <TableHead>Level</TableHead>
             <TableHead>Score</TableHead>
             <TableHead>Winner Code</TableHead>
           </TableRow>
@@ -67,9 +67,9 @@ export function Dashboard() {
             <TableRow key={winner.id}>
               <TableCell>{winner.fullName}</TableCell>
               <TableCell>{winner.email}</TableCell>
-              {/* <TableCell>{winner.phone}</TableCell>
+              <TableCell>{winner.phone}</TableCell>
               <TableCell>{winner.profession}</TableCell>
-              <TableCell>{winner.level}</TableCell> */}
+              <TableCell>{winner.level}</TableCell>
               <TableCell>{winner.score}</TableCell>
               <TableCell>{winner.winnerCode}</TableCell>
             </TableRow>
