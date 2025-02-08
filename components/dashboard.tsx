@@ -37,7 +37,10 @@ export function Dashboard() {
   const filteredWinners = winners.filter(
     (winner) =>
       winner.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      winner.winnerCode.toLowerCase().includes(searchTerm.toLowerCase())
+      winner.winnerCode.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (winner.fullName && winner.fullName.toLowerCase().includes(searchTerm.toLowerCase())) ||
+      (winner.phone && winner.phone.toLowerCase().includes(searchTerm.toLowerCase())) ||
+      (winner.profession && winner.profession.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
   return (
